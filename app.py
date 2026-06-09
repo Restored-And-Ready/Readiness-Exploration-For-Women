@@ -206,7 +206,7 @@ elif st.session_state.step == 'career':
     
     st.markdown("### ✨ The Shalom Highlights")
     st.write("Select the areas where your professional operating system is currently experiencing expansion or alignment:")
-    h1 = st.checkbox("Connection: I feel deeply seen, understood, or creatively linked with my colleagues or clients.", key="c_h1")
+    h1 = st.checkbox("Connection: I feel deeply seen, understood, or creatively linked with my clients, my audience, or the core mission I am building.", key="c_h1")
     h2 = st.checkbox("Capability: I feel completely confident and like I am operating in my natural zone of genius.", key="c_h2")
     h3 = st.checkbox("Value: I feel highly appreciated, significant, and respected in what I build daily.", key="c_h3")
     
