@@ -125,41 +125,52 @@ def dispatch_analysis_payload(status_type):
 def run_breath_intermission(audio_filename, next_step):
     st.markdown("<hr>", unsafe_allow_html=True)
     st.subheader("🌊 Resetting Your Internal Gauge")
-    st.write("Allow your physical frame to settle. Your nervous system requires exactly 90 seconds to fully clear an activated emotional baseline. Listen to Candy's guidance below and match your breathing to the visual pacing engine for 5 complete cycles.")
+    st.write("Allow your physical frame to settle. Close your eyes, relax your shoulders, and allow your body to relax and let go. Listen to Candy's guidance below for your 90-second reset.")
     
     try:
         st.audio(audio_filename, format="audio/mp3")
     except:
-        st.caption("*(Note: Audio asset placeholder playing. Ensure file matches configuration name exactly.)*")
+        st.caption("*(Note: Audio asset loading. Ensure file matches configuration name exactly.)*")
 
     progress_bar = st.progress(0)
     status_text = st.empty()
     
     rounds = [
-        "Round 1: Expand your chest... Hold the frame... Release the weight... Find the quiet space.",
-        "Round 2: Soften your jaw... Hold the frame... Blow out the pressure... Find the quiet space.",
-        "Round 3: Inhale clarity... Hold the frame... Release historic armor... Find the quiet space.",
-        "Round 4: Breathe in truth... Hold the frame... Let go of performance... Find the quiet space.",
-        "Round 5: Return to Shalom... Hold the frame... Rest deeply right here... Find the quiet space."
+        "Round 1: Breathe in... Hold at the top... Release, letting go of all tension... Hold empty.",
+        "Round 2: Breathe in... Hold at the top... Exhale, letting your whole body soften... Hold empty.",
+        "Round 3: Breathe in... Hold at the top... Release, just letting the weight drop... Hold empty.",
+        "Round 4: Breathe in... Hold at the top... Exhale, allowing your system to unwind... Hold empty.",
+        "Round 5: Breathe in... Hold at the top... Release, and just allow yourself to be... Hold empty."
     ]
     
-    if st.button("🔴 Begin Your 90-Second Reset"):
+    # Track execution phase to prevent button nesting trap
+    if st.button("🔴 Begin Visual Pacing Helper"):
         for i, round_msg in enumerate(rounds):
             status_text.markdown(f"<div style='font-style: italic; color: #6D1F3B; font-size:1.1rem;'>{round_msg}</div>", unsafe_allow_html=True)
             for percent in range(20):
                 total_idx = (i * 20) + percent + 1
                 progress_bar.progress(total_idx / 100)
                 time.sleep(0.18) # Strictly calibrated to clear the 90-second threshold
-        status_text.success("✨ Your baseline is clear. Your system is co-regulated, anchored, and ready.")
-        if st.button("Proceed Forward"):
-            st.session_state.step = next_step
-            st.rerun()
+        status_text.success("✨ Your baseline is clear. Your system is co-regulated and anchored.")
+        st.session_state[f"completed_{audio_filename}"] = True
+
+    # Standalone navigation button ensures clean form advancement
+    if st.button("Proceed Forward →"):
+        st.session_state.step = next_step
+        st.rerun()
 
 # --- STEP 1: THE GATEWAY & COMMITMENT ---
 if st.session_state.step == 'gateway':
     st.title("The Readiness Analysis 🌳")
     st.markdown("<div class='quote-box'><strong>Museum-Grade Restoration for a Woman of Inherent Worth.</strong><br><br>\"The problem is not that you are falling apart. The problem is that the old system can no longer carry who you are becoming. Your body, home, career, and identity are simply calling for a profound update.\"</div>", unsafe_allow_html=True)
     
+    # 🎧 AUDIO TRACK 1: Welcome & Overview
+    st.markdown("### 🎙️ Message From Candy")
+    try:
+        st.audio("track1.mp3", format="audio/mp3")
+    except:
+        st.caption("*(Welcome Audio loading...)*")
+        
     st.write("This reflection questionnaire serves as a quiet, responsive mirror for your internal operating system. It separates the tangled lanes of your life so you can discern exactly where restoration needs to begin. Secure your private container below.")
     
     col1, col2 = st.columns(2)
@@ -226,7 +237,8 @@ elif st.session_state.step == 'career':
         st.rerun()
 
 elif st.session_state.step == 'career_pause':
-    run_breath_intermission("career_pause.mp3", "home")
+    # 🎧 AUDIO TRACK 2: Career -> Home Reset
+    run_breath_intermission("track2.mp3", "home")
 
 # --- STEP 4: LANE 2 - HOME & DOMESTIC ENVIRONMENT ---
 elif st.session_state.step == 'home':
@@ -266,7 +278,8 @@ elif st.session_state.step == 'home':
         st.rerun()
 
 elif st.session_state.step == 'home_pause':
-    run_breath_intermission("home_pause.mp3", "identity")
+    # 🎧 AUDIO TRACK 3: Home -> Identity Reset
+    run_breath_intermission("track3.mp3", "identity")
 
 # --- STEP 5: LANE 3 - IDENTITY & SPIRITUAL CONNECTION ---
 elif st.session_state.step == 'identity':
@@ -305,7 +318,8 @@ elif st.session_state.step == 'identity':
         st.rerun()
 
 elif st.session_state.step == 'identity_pause':
-    run_breath_intermission("identity_pause.mp3", "health")
+    # 🎧 AUDIO TRACK 4: Identity -> Health Reset
+    run_breath_intermission("track4.mp3", "health")
 
 # --- STEP 6: LANE 4 - HEALTH & SOMATIC ENGINE ---
 elif st.session_state.step == 'health':
@@ -327,7 +341,7 @@ elif st.session_state.step == 'health':
     
     if has_spaghetti:
         if 'Health' not in st.session_state.data['spaghetti_lanes']:
-            st.session_state.data['health_gateway'] = h_gate
+            st.session_state.data['spaghetti_lanes'].append('Health')
         st.markdown("<div class='matrix-box'>", unsafe_allow_html=True)
         st.markdown("<h4>🫁 Somatic Trace: Listening to the Engine</h4>", unsafe_allow_html=True)
         st.session_state.data['health_distress_signal'] = st.text_input("When your frame looks at this complete roadmap, what explicit distress signal is your body screaming loudest?", key="he_what")
@@ -433,6 +447,14 @@ elif st.session_state.step == 'canopy':
 elif st.session_state.step == 'success_commit':
     st.title("Your Engine is In the Shop 🎉")
     st.balloons()
+    
+    # 🎧 AUDIO TRACK 5: Final Wrap-up Snippet
+    st.markdown("### 🎙️ A Final Message From Candy")
+    try:
+        st.audio("track5.mp3", format="audio/mp3")
+    except:
+        st.caption("*(Closing Audio loading...)*")
+        
     st.success(f"Profound work, {st.session_state.data['name']}. Your Readiness Analysis has bypassed the noise and is resting securely on Candy's desk.")
     
     st.markdown("""
@@ -450,6 +472,14 @@ elif st.session_state.step == 'success_commit':
 
 elif st.session_state.step == 'success_soft':
     st.title("Your Alignment Blueprint 🕊️")
+    
+    # 🎧 AUDIO TRACK 5: Final Wrap-up Snippet
+    st.markdown("### 🎙️ A Final Message From Candy")
+    try:
+        st.audio("track5.mp3", format="audio/mp3")
+    except:
+        st.caption("*(Closing Audio loading...)*")
+        
     st.info(f"Thank you for your transparent honesty, {st.session_state.data['name']}. There is absolutely zero shame in needing a softer landing first. Your reflection profile has been saved with immense stewardship.")
     
     st.subheader("Your Current Landscape Summary")
