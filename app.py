@@ -75,11 +75,12 @@ if st.session_state.room_step == 1:
 
 # 💼 ROOM 2: THE PROFESSIONAL ARCHITECTURE (Work & Mission)
 elif st.session_state.room_step == 2:
-    st.title("Room One: Your Work & Professional Space 💼")
+    st.title("Room One: Your Primary Realm of Daily Labor 💼")
     st.write(
-        "Let us look first at the landscape where you spend your creative labor and energy—the business you are building "
-        "or the professional lane you manage. For high-performing women, this is often the place where we master the art "
-        "of masking our exhaustion. Look closely at this space right now..."
+        "Let us look first at your primary landscape of daily labor, output, and energy—whether that is the business "
+        "you are building, the professional career you manage, or the immense, sacred work of cultivating and anchoring "
+        "a home and family. For high-performing women and dedicated matriarchs alike, this is often the space where we "
+        "master the art of masking our exhaustion. Look closely at this daily realm right now..."
     )
     
     st.audio("track1.mp3")
@@ -88,7 +89,7 @@ elif st.session_state.room_step == 2:
     st.subheader("Your Written Reflection Journal")
     
     work_ans = st.text_area(
-        "What would serve you at work or within your business to feel truly at ease? When do you feel the most connected to your vision, and what would it take to return there?",
+        "Within your primary realm of daily labor (your business, career, or home management), what would serve you to feel truly at ease? When do you feel the most connected to your vision or purpose here, and what would it take to return there?",
         value=st.session_state.client_responses.get('room1_work', ''), height=200
     )
     
