@@ -221,6 +221,7 @@ elif st.session_state.room_step == 3:
 # ==========================================
 elif st.session_state.room_step == 4:
     st.title("Room Two: Checkpoint A - The Parenting Dynamic 🧒")
+    st.audio("track2.mp3") # Restored track2 for the Parenting section
     status = st.session_state.client_responses.get('relational_status', '')
     parenting_prompt_text = ""
     
@@ -286,6 +287,7 @@ elif st.session_state.room_step == 4:
 # ==========================================
 elif st.session_state.room_step == 5:
     st.title("Room Two: Checkpoint B - Your Intimate & Sensual Self 🥀")
+    st.audio("track2.mp3") # Kept track2 for the Intimacy section
     status = st.session_state.client_responses.get('relational_status', '')
     intimacy_prompt_text = ""
     
@@ -410,9 +412,6 @@ elif st.session_state.room_step == 7:
         "speak to yourself when no one is looking, and whether you believe you are worthy when you are completely empty..."
     )
     st.audio("track4.mp3")
-    
-    st.markdown("---")
-    st.subheader("🎭 The Self-Worth Identity Mirror")
     
     identity_choice = st.radio(
         "Select your mirror:",
