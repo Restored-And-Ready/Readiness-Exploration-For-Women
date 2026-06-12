@@ -89,7 +89,7 @@ if st.session_state.room_step == 1:
             st.warning("Please provide your name and email to securely build your alignment mirror profile.")
 
 # ==========================================
-# 💼 ROOM ONE: THE REALM OF DAILY LABOR (Tailored Paths)
+# 💼 ROOM ONE: THE REALM OF DAILY LABOR
 # ==========================================
 elif st.session_state.room_step == 2:
     st.title("Room One: Your Primary Realm of Daily Labor 💼")
@@ -104,23 +104,23 @@ elif st.session_state.room_step == 2:
             "When our home life or internal world enters a season of heavy instability, we often flee into our "
             "professional execution. We build meticulous organizational structures and systems at work because it "
             "is the one place we feel we can manufacture safety and control. But when your team fails to follow "
-            "protocols, it triggers a deep, exhausting cycle of resentment. Look closely at your workspace right now..."
+            "protocols, it triggers a deep, exhausting cycle of resentment."
         )
         st.markdown("---")
-        st.subheader("🎭 The Workspace Leadership Mirror")
+        st.subheader("How do you currently navigate the human ecosystem of your workspace?")
         
         labor_choice = st.radio(
-            "Select your mirror:",
+            "Select the reality that matches your day-to-day experience:",
             [
-                "🌟 The Anchored Sovereign (Aligned Flow): I command my workspace with calm clarity, set pristine boundaries, and delegate effortlessly. I do not parent my team or play their therapist. I cleanly clock out at the end of the day, and my career is a fulfilling expression of my gifts, not a shield to hide from personal pain.",
-                "⚔️ The Resentful Savior (Control Addiction): I have built highly organized systems to feel safe at work. But when people ignore protocols, I feel deeply disrespected and overworked. I complain constantly about the lack of execution, yet I step in and fix their unfinished mess anyway. I am actively parenting my team, acting as the workplace therapist, and I never actually clock out.",
-                "🫥 The Untouchable Fortress (Numbing / Flight Grip): When pressure mounts, I build a cold, hyper-efficient wall at my desk. I stop trusting anyone to do things right, pull all execution onto my own shoulders, and refuse to delegate. I cut off real connection with my team because it feels safer to be a solo island than to risk being let down by people."
+                "I operate with clear boundaries and delegate tasks with ease. I can step away from my desk at the end of the day without carrying the emotional weight or fixing the personal problems of my team.",
+                "I have built precise systems to ensure things are done right, but when people skip protocols, I feel deeply compromised. I find myself stepping in to fix their unfinished work while carrying a heavy layer of unspoken resentment.",
+                "When workplace pressure or chaos mounts, I find myself pulling a cold wall down around my desk. I stop trusting others to execute accurately, pull all the responsibility onto myself, and treat my workspace like a solo island."
             ]
         )
         
-        if "🌟" in labor_choice:
+        if "clear boundaries" in labor_choice:
             labor_prompt_text = "What does it feel like to lead and operate from this space of clean alignment? What specific professional boundaries are you currently using to successfully protect your peace?"
-        elif "⚔️" in labor_choice:
+        elif "precise systems" in labor_choice:
             labor_prompt_text = "Where do you feel the heavy friction of parenting your team? Why does your survival software whisper that you must step in and fix their unfinished mess to protect the client or patient?"
         else:
             labor_prompt_text = "What specific vulnerability or chaos are you protecting yourself from by pulling all execution onto your solo island? What are you afraid will happen if you lower your guard?"
@@ -131,24 +131,23 @@ elif st.session_state.room_step == 2:
             "Because your workspace is your home space, the lines between daily labor and private rest don't just "
             "blur—they completely vanish. You wear every single hat in the empire: doctor, driver, housekeeper, and "
             "logistics manager. Yet, because you aren't bringing in an outside paycheck, a quiet, destructive story "
-            "whispers that your labor isn't 'providing' real value. You keep your exhaustion inside because you've been "
-            "told you have it good, letting the pressure build silently behind closed doors..."
+            "whispers that your labor isn't 'providing' real value."
         )
         st.markdown("---")
-        st.subheader("🎭 The Matriarch Operational Mirror")
+        st.subheader("How does your system currently hold the daily load of running the home?")
         
         labor_choice = st.radio(
-            "Select your mirror:",
+            "Select the reality that matches your day-to-day experience:",
             [
-                "🌟 The Aligned Matriarch (Aligned Flow): I genuinely love my role and honor it as a sacred space. I set healthy domestic boundaries without an ounce of guilt, separate my self-worth from a corporate paycheck, and explicitly prioritize my own rest, health, and intellectual expansion alongside my family's needs.",
-                "⚔️ The Hyper-Vigilant Captain (Control Addiction): I run this household like a strict military drill sergeant, managing every single tiny detail. I stay on high alert because a voice tells me that if I drop a single ball, the entire family structure will collapse. I am addicted to constant busyness to outrun the void of feeling unappreciated.",
-                "🎭 The Isolated Martyr (Fawn / Numbing Addiction): I completely collapse my boundaries, say 'yes' when my body is screaming 'no', and swallow my true complaints to keep the peace. Because I am told I have it good, I hide my pain, letting it build inside while turning to secret comforts like online shopping, constant scrolling, or a daytime drink to survive the isolation."
+                "I honor my role at home as a sacred space. I can set clear domestic boundaries without guilt, disconnect my worth from an external paycheck, and confidently prioritize my own recovery, health, and rest alongside my family's needs.",
+                "I find myself running this household like a strict operational drill, managing every tiny detail. I stay on constant high alert because a voice inside tells me that if I drop a single logistical ball, the entire family structure will fall apart.",
+                "I frequently collapse my boundaries, saying yes when my body is screaming no, and swallow my true complaints to keep the peace. I turn to secret comforts—like endless scrolling, online shopping, or a quiet drink—just to survive the isolation."
             ]
         )
         
-        if "🌟" in labor_choice:
+        if "sacred space" in labor_choice:
             labor_prompt_text = "How do you successfully separate your internal worth from a corporate paycheck? What does prioritizing your own intellectual expansion look like in your daily routine?"
-        elif "⚔️" in labor_choice:
+        elif "strict operational drill" in labor_choice:
             labor_prompt_text = "What terrifies your system about dropping a single domestic ball? Where did you first learn the rule that you are only safe if you are perfectly managing every moving piece around you?"
         else:
             labor_prompt_text = "What specific unexpressed pain or grief are you swallowing to keep the peace? What empty space inside are the daytime drinks, scrolling, or Amazon packages trying to fill?"
@@ -158,24 +157,23 @@ elif st.session_state.room_step == 2:
         st.write(
             "You are birthing a kingdom from your bedroom or kitchen table, pouring your life-force into a laptop out of "
             "absolute survival necessity. But because your labor is invisible to your household, they treat your vision "
-            "like a hobby, leaving you feeling profoundly lonely and unvalidated. You never physically 'leave' the office, "
-            "forcing your nervous system to red-line from morning until midnight completely alone..."
+            "like a hobby, leaving you feeling profoundly lonely and unvalidated."
         )
         st.markdown("---")
-        st.subheader("🎭 The Bedroom Builder Mirror")
+        st.subheader("How is your system currently holding the pressure of your business creation?")
         
         labor_choice = st.radio(
-            "Select your mirror:",
+            "Select the reality that matches your day-to-day experience:",
             [
-                "🌟 The Aligned Builder (Aligned Flow): I work with a deep sense of spaciousness, vision, and trust. I cleanly close my laptop when the day is done, completely separate my personal worth from my business stats, and allow my labor to be a clean expression of my purpose.",
-                "⚔️ The Isolated Gladiator (Control / Flight Grip): I am pouring pure survival panic into my business. I grind until 2 AM, over-engineer my strategy entirely in my head, and stay in constant, frantic motion. I treat myself like a machine because I feel like a completely unsupported solo island.",
-                "🫥 The Paralyzed Creative (Freeze / Collapse State): The sheer weight of having to make this business work completely alone has overwhelmed my nervous system. I sit at my table and find myself totally frozen, heavy, and numb—using endless scrolling or trivial distractions to escape the terrifying pressure of the invisible void."
+                "I create and operate my business with a sense of spaciousness and trust. I can cleanly close my laptop when the day is done, completely separate my personal worth from my stats, and let my work be an unforced expression of my purpose.",
+                "I am pouring survival panic into my brand. I find myself grinding until 2 AM, over-engineering my strategy entirely in my head, and staying in frantic motion because I feel like an completely unsupported, isolated island.",
+                "The sheer pressure of trying to build this business entirely alone has overwhelmed my system. I sit at my computer and find myself completely frozen, heavy, and numb—using trivial distractions or scrolling to escape the weight."
             ]
         )
         
-        if "🌟" in labor_choice:
+        if "spaciousness and trust" in labor_choice:
             labor_prompt_text = "How does operating from deep trust alter your creative clarity? How do you cleanly disconnect your personal value from your daily revenue or social stats?"
-        elif "⚔️" in labor_choice:
+        elif "survival panic" in labor_choice:
             labor_prompt_text = "What are you running from by grinding until 2 AM? What does your system believe will happen if you slow down and allow your business to rest for a weekend?"
         else:
             labor_prompt_text = "Where exactly does the pressure of building this alone freeze your creative energy? What does your system need to feel safe enough to thaw out and take one small step?"
@@ -228,40 +226,40 @@ elif st.session_state.room_step == 4:
     if "Path Single" in status:
         st.write(
             "As a solo anchor, every single ounce of emotional, physical, and financial weight rests squarely on "
-            "your shoulders. Let us look strictly at the survival software currently running your parenting household:"
+            "your shoulders. Let us explore the baseline reality of your household operations:"
         )
         st.markdown("---")
         parenting_choice = st.radio(
-            "Select your parenting mirror:",
+            "Which of these descriptions most accurately matches how your home currently functions?",
             [
-                "🌟 The Anchored Matriarch (Light): I lead my home with calm authority, hold loving boundaries with my children, and trust that my presence alone is more than enough.",
-                "⚔️ The Hyper-Vigilant Captain (Control): I run a tight, hyper-regulated ship because there is no safety net. I force myself to be both mother and father, terrified that if I drop one ball, everything collapses.",
-                "🎭 The Guilt-Driven Pleaser (Fawn): I carry immense unspoken shame over the fact that their family structure split. I overcompensate out of fear by collapsing my boundaries and letting my kids run the emotional atmosphere of the house."
+                "I lead my household with a sense of calm authority and grace. I hold loving, clear boundaries with my children and trust that my presence and love are more than enough.",
+                "I run a highly regulated, tight ship because there is no safety net beneath me. I force myself to be everything at once, terrified that if I drop a single ball, our entire baseline structure will collapse.",
+                "I carry immense unspoken guilt over the fact that our family structure split or shifted. I frequently find myself collapsing my own structural boundaries and walking on eggshells around my children to avoid friction."
             ]
         )
         
-        if "🌟" in parenting_choice:
+        if "calm authority" in parenting_choice:
             parenting_prompt_text = "Your solo parenting landscape is reflecting a beautiful state of clean alignment. What boundaries or mental shifts have allowed you to cultivate this internal peace?"
-        elif "⚔️" in parenting_choice:
+        elif "highly regulated" in parenting_choice:
             parenting_prompt_text = "What does it physically cost your spirit to carry the full weight of provider and protector entirely alone? Where can you allow your system to receive support?"
         else:
             parenting_prompt_text = "What specific past failure or family rupture are you trying to overcompensate for by letting your children walk over your structural boundaries?"
             
     else:
         st.write(
-            "Sharing a roof does not automatically guarantee shared labor. So many partnered women find "
-            "themselves 'single parenting with a spouse'—carrying the entire operational and emotional load entirely alone..."
+            "Sharing a roof does not automatically guarantee shared labor. Let us look at how the daily logistics, "
+            "emotional loads, and management of the children are actually balanced between you and your partner:"
         )
         st.markdown("---")
         parenting_choice = st.radio(
-            "Select your parenting mirror:",
+            "Which of these descriptions captures your current co-parenting reality?",
             [
-                "🌟 The Unified Operational Team (Light): We manage the logistics and parenting well as a functional unit. We check boxes, run schedules, and keep the household organized and stable together through mutual respect.",
-                "⚔️ The Married Single Mom (Control / Resentful Warrior): My spouse is completely checked out or operates like another child I have to manage. I am single-parenting with a spouse, doing all the emotional lifting, which leaves me carrying a heavy armor of bitter resentment."
+                "We manage the logistics and daily routines well as a functional unit. We communicate with mutual respect, share the structural loads evenly, and keep the household organized and stable together.",
+                "I am essentially single-parenting with a spouse. My partner is completely checked out or acts like another child I have to manage. I carry the entire emotional and physical workload alone while shielding a deep layer of bitter resentment."
             ]
         )
         
-        if "🌟" in parenting_choice:
+        if "functional unit" in parenting_choice:
             parenting_prompt_text = "Your household teamwork is operating in pure light. How do you and your partner actively maintain this mutual respect and shared operational flow without dropping into resentment?"
         else:
             parenting_prompt_text = "What is the true somatic weight of single-parenting with a spouse? How deep does the silent, bitter resentment run toward your partner, and how is it draining your energy?"
@@ -293,21 +291,21 @@ elif st.session_state.room_step == 5:
     if "Path Single" in status:
         st.write(
             "Strip away your responsibilities to your children. Let us look strictly at you—the woman, your sensuality, "
-            "and your private romantic desires. What is happening inside your closed heart?"
+            "and your private romantic desires. What is the raw reality inside your heart?"
         )
         st.markdown("---")
         intimacy_choice = st.radio(
-            "Select your intimacy mirror:",
+            "Which of these statements best mirrors your personal intimate heart right now?",
             [
-                "🌟 The Open Sovereign (Light): I honor my sexual and romantic desires as a sacred part of my wholeness. I am open to love and deep physical connection without shame, guilt, or the need to compromise my independent worth.",
-                "⚔️ The Grieving / Fearful Exile (Living Loss): I deeply desire connection, but I am secretly mourning a past relational death, divorce, or betrayal. My system is frozen in fear, telling myself the story that I can't risk dating because of my kids.",
-                "🫥 The Frozen Mother Mask (Numbing Addiction): I have completely locked my sexual life-force and the 'Lover' archetype behind a brick wall. I don't date or explore my body, using my busy identity as a mother to numb the massive void of a companion."
+                "I honor my sexual and romantic desires as a healthy part of my wholeness. I feel open to love, vulnerability, and deep physical connection without shame, guilt, or compromising my independent worth.",
+                "I desire companionship and touch, but I am secretly mourning a past relational rupture, divorce, or betrayal. My system feels frozen in fear, and I use my kids' schedules as a protective shield to keep from risking further pain.",
+                "I have completely locked my sexual life-force, desires, and sensuality behind a brick wall. I don't explore connection, and I use my busy identity as a mother to numb out and ignore the massive void of a companion."
             ]
         )
         
-        if "🌟" in intimacy_choice:
+        if "healthy part" in intimacy_choice:
             intimacy_prompt_text = "Your private intimate heart is open and aligned. What does this deep emotional security allow you to confidently welcome or explore next in your life?"
-        elif "⚔️" in intimacy_choice:
+        elif "secretly mourning" in intimacy_choice:
             intimacy_prompt_text = "What is the name of the relational ghost or past divorce your heart is still actively mourning? What terrifies your system about lowering your guard and risking exposure again?"
         else:
             intimacy_prompt_text = "You've hidden your sensual life-force behind the mask of a busy mother. What would happen if you allowed yourself to admit that you deeply crave romantic and physical companionship?"
@@ -315,21 +313,21 @@ elif st.session_state.room_step == 5:
     else:
         st.write(
             "Strip away the kids, the schedules, and the household chores. When the bedroom door closes and it is "
-            "just you and your partner, what is the raw, unmasked truth of your intimacy?"
+            "just you and your partner, what is the honest truth of your connection?"
         )
         st.markdown("---")
         intimacy_choice = st.radio(
-            "Select your intimacy mirror:",
+            "Which of these statements best captures your current marital intimacy?",
             [
-                "🌟 The Radiant Sanctuary (Light): Our intimacy is a place of absolute safety, surrender, and deep pleasure. I express my sexual desires and boundaries without fear, and our relationship is where I fully drop my armor and rest.",
-                "🎭 The Toxic Walk-On-Eggshells Prison (Fawn Addiction): Our connection feels unsafe, heavy, and emotionally distant. I am constantly people-pleasing—suppressing my true voice, ignoring my resentment, and even compromising my own physical boundaries just to keep the peace and avoid conflict.",
-                "🫥 The Sexually Starving Roommates (Numbing Addiction): The passion, desire, and sexual vitality have gone completely cold. We are platonic roommates coexisting in the dark. I live in my head, using shopping, scrolling, or daytime/nighttime comforts to numb the lack of real physical connection."
+                "Our intimacy is a space of deep safety, pleasure, and emotional surrender. I express my true desires and boundaries without fear, and our connection is where I drop my armor and experience true rest.",
+                "Our relationship feels emotionally distant or heavy. I find myself constantly people-pleasing—suppressing my real voice, ignoring my own boundaries, and doing whatever it takes just to keep the peace and avoid friction.",
+                "The passion and physical vitality have gone completely cold. We are platonic roommates coexisting in the dark. I spend my evenings escaping into my head, using scrolling, shopping, or quiet distractions to numb the void between us."
             ]
         )
         
-        if "🌟" in intimacy_choice:
+        if "deep safety" in intimacy_choice:
             intimacy_prompt_text = "Your intimate bedroom connection is functioning as a radiant sanctuary of alignment. What does this deep safety and pleasure unlock for your partnership and your independent vision?"
-        elif "🎭" in intimacy_choice:
+        elif "emotionally distant" in intimacy_choice:
             intimacy_prompt_text = "Where exactly are you compromising your own physical or emotional boundaries inside your sexual intimacy just to avoid his judgment, anger, or relational friction?"
         else:
             intimacy_prompt_text = "You are platonic roommates coexisting in the dark. What outside comforts (online shopping, scrolling, daytime drinking) are you using to fill the void of real physical connection?"
@@ -357,29 +355,28 @@ elif st.session_state.room_step == 6:
     st.title("Room Three: Your Physical Health & Somatic Thresholds 🩺")
     st.write(
         "Your physical body has been the faithful witness to every ounce of pressure, unexpressed grief, and emotional "
-        "residue you have carried. It keeps the score perfectly when the mind tries to override. This is an opportunity "
-        "to tune entirely into your flesh and listen to what your tissue has been swallowing to keep you standing..."
+        "residue you have carried. It keeps the score perfectly when the mind tries to override. Let us tune in and listen:"
     )
     st.audio("track3.mp3")
     
     st.markdown("---")
-    st.subheader("🎭 The Somatic Operating Mirror")
+    st.subheader("How does your internal operating system currently handle your physical body?")
     
     body_choice = st.radio(
-        "Select your mirror:",
+        "Select the statement that best describes your relation to your physical health:",
         [
-            "🌟 The Radiant Temple (Aligned Flow): I am deeply attuned to my body's language. I honor its physical boundaries, feed it with somatic presence and pleasure, and allow it to experience true, unconditional rest before a breakdown forces me to stop.",
-            "⚔️ The Over-Taxed Machine (Control Addiction): I treat my body like a soldier or a tool. I am addicted to adrenaline and cortisol, forcing my system to override chronic fatigue, ignore warning signals, and keep marching forward because I put everyone else first.",
-            "𫫥 The Somatic Shut Down (Freeze / Protection Armor): When emotional pressure gets too high, my physical system freezes. I suffer from chronic tightness, unexplained fatigue, or weight retention that acts like literal physical armor protecting my vulnerability from the world.",
-            "🔮 The Disassociated Mind (Flight / Neck-Up Living): I live entirely from the neck up. I ignore my body's physical sensations completely, over-intellectualizing my health issues or treating my symptoms like an abstract science project instead of actually feeling my flesh."
+            "I am deeply attuned to my body's language. I honor its physical boundaries, protect its need for true rest, and respond to its whispers before a physical breakdown forces me to stop.",
+            "I treat my body like a machine or a soldier. I run on adrenaline and cortisol, cancel my own appointments to prioritize everyone else, and force my system to march through pain and exhaustion.",
+            "When the emotional or mental pressure gets too heavy, my physical system locks up. I struggle with chronic tightness, unexplainable fatigue, or stubborn weight retention that feels like a layer of protective armor.",
+            "I live almost entirely inside my analytical head. I disconnect from physical sensations completely, over-intellectualizing my symptoms or treating my health like an abstract science project instead of actually feeling my flesh."
         ]
     )
     
-    if "🌟" in body_choice:
+    if "attuned to my body" in body_choice:
         body_prompt_text = "Your system is operating in clear somatic alignment. What dedicated health boundaries or recovery practices are successfully keeping your physical temple so radiant right now?"
-    elif "⚔️" in body_choice:
+    elif "like a machine" in body_choice:
         body_prompt_text = "Where exactly is your body screaming for you to stop? What are you actively trying to outrun by forcing your system to march through pain on pure cortisol and adrenaline?"
-    elif "𫫥" in body_choice:
+    elif "locks up" in body_choice:
         body_prompt_text = "Where in your flesh do you physically feel this defensive armor (stubborn weight retention, shoulder tightness, chronic pain)? What deep emotional vulnerability is it trying to protect?"
     else:
         body_prompt_text = "What specific, heavy emotions are you deeply afraid to actually feel in your chest and gut by choosing to live entirely inside your analytical head?"
@@ -407,26 +404,28 @@ elif st.session_state.room_step == 7:
     st.title("Room Four: Your Identity & Sovereign Essence 👑")
     st.write(
         "We step now into the quietest room. Strip away the corporate titles, the business metrics, the maternal roles, "
-        "and the endless demands of everyone who relies daily on your strength. We are looking directly at you—how you "
-        "speak to yourself when no one is looking, and whether you believe you are worthy when you are completely empty..."
+        "and the endless demands of everyone who relies daily on your strength. We are looking directly at you."
     )
     st.audio("track4.mp3")
     
+    st.markdown("---")
+    st.subheader("When you are completely alone with your thoughts, what does your internal dialogue sound like?")
+    
     identity_choice = st.radio(
-        "Select your mirror:",
+        "Select the reality that matches your inner world when no one is looking:",
         [
-            "🌟 The Sovereign Queen (Aligned Flow): I am deeply anchored in my inherent worth. I own my throne, honor my true essence, and speak to myself with radical compassion, knowing that I am deeply good inside just for existing.",
-            "⚔️ The Performance-Based Prisoner (Control Addiction): My worth is entirely tied to my output. If I am not achieving, fixing, or producing, I feel completely useless and empty. I judge my value based entirely on stats, performance, and what other people think of me.",
-            "🔥 The Harsh Inner Drill Sergeant (Self-Criticism Addiction): My internal dialogue is ruthless. I speak to my own soul with a level of severity, criticism, and judgment I would never use on another human being, constantly auditing my flaws and telling myself I'm not enough.",
-            "🎭 The Invisible Chameleon (Fawn Addiction): I have spent so long pleasing everyone else, avoiding friction, and playing the family or workplace therapist that I genuinely don't know who I am anymore. If you strip away my roles, I feel like a completely blank space."
+            "I feel deeply anchored in my inherent worth. I protect my energetic boundaries without guilt, speak to myself with radical compassion, and know that I am deeply good inside simply for existing.",
+            "My self-worth is entirely chained to my output and performance. If I am not achieving, fixing, building, or producing, I feel completely empty, useless, and terrified of being exposed as an underachiever.",
+            "My internal dialogue is incredibly severe and hyper-critical. I speak to my own soul with a level of judgment, auditing, and severity that I would never use on another human being.",
+            "I have spent so many years pleasing everyone else and playing the household therapist that I genuinely don't know who I am anymore. If you strip away my roles as a mother, worker, or partner, I feel like a blank space."
         ]
     )
     
-    if "🌟" in identity_choice:
+    if "anchored in my inherent worth" in identity_choice:
         identity_prompt_text = "You are standing firmly on your throne, resting in your inherent worth. What does it physically feel like to fully accept your own enoughness without needing to perform for anyone?"
-    elif "⚔️" in identity_choice:
+    elif "chained to my output" in identity_choice:
         identity_prompt_text = "If you completely stopped producing, fixing, or working for one full week, who would you be? Why does absolute stillness feel like such an existential threat to your system?"
-    elif "🔥" in identity_choice:
+    elif "hyper-critical" in identity_choice:
         identity_prompt_text = "Whose hyper-severe voice is that inner critic actually using when it judges you? What does the little girl inside you desperately need to hear from you instead?"
     else:
         identity_prompt_text = "Who are you when you strip away your identity as a mother, worker, or partner? What does your true, unmasked identity look like when no one else is in the room?"
@@ -459,29 +458,28 @@ elif st.session_state.room_step == 8:
     st.header("✨ Your Unmasked Somatic Blueprint")
     st.write("Below is the full, high-integrity reflection of your internal castle. This layout belongs exclusively to you.")
     
-    # DYNAMIC FULL-LENGTH TAKEAWAY REPORT CODE INTERACTION
     st.markdown("### 💼 Room 1: Your Realm of Daily Labor")
-    st.markdown(f"**Your Operating Mirror:**\n> {st.session_state.client_responses.get('room1_mirror', 'No Selection')}")
+    st.markdown(f"**Your Observed Pattern:**\n> {st.session_state.client_responses.get('room1_mirror', 'No Selection')}")
     st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room1_journal', 'No written entry saved.')}*")
     
     st.markdown("---")
     st.markdown("### 🧒 Room 2: Checkpoint A - The Parenting Dynamic")
-    st.markdown(f"**Your Operating Mirror:**\n> {st.session_state.client_responses.get('room2_parenting_mirror', 'No Selection')}")
+    st.markdown(f"**Your Observed Pattern:**\n> {st.session_state.client_responses.get('room2_parenting_mirror', 'No Selection')}")
     st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room2_parenting_journal', 'No written entry saved.')}*")
     
     st.markdown("---")
     st.markdown("### 🥀 Room 2: Checkpoint B - Your Intimate & Sensual Self")
-    st.markdown(f"**Your Operating Mirror:**\n> {st.session_state.client_responses.get('room2_intimacy_mirror', 'No Selection')}")
+    st.markdown(f"**Your Observed Pattern:**\n> {st.session_state.client_responses.get('room2_intimacy_mirror', 'No Selection')}")
     st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room2_intimacy_journal', 'No written entry saved.')}*")
     
     st.markdown("---")
     st.markdown("### 🩺 Room 3: Your Physical Body & Somatic Thresholds")
-    st.markdown(f"**Your Operating Mirror:**\n> {st.session_state.client_responses.get('room3_mirror', 'No Selection')}")
+    st.markdown(f"**Your Observed Pattern:**\n> {st.session_state.client_responses.get('room3_mirror', 'No Selection')}")
     st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room3_journal', 'No written entry saved.')}*")
     
     st.markdown("---")
     st.markdown("### 👑 Room 4: Your Core Identity & Sovereign Essence")
-    st.markdown(f"**Your Operating Mirror:**\n> {st.session_state.client_responses.get('room4_mirror', 'No Selection')}")
+    st.markdown(f"**Your Observed Pattern:**\n> {st.session_state.client_responses.get('room4_mirror', 'No Selection')}")
     st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room4_journal', 'No written entry saved.')}*")
     
     st.markdown("---")
@@ -504,7 +502,7 @@ elif st.session_state.room_step == 8:
     st.write("A live, dedicated 1-to-1 deep dive container where we map your specific nervous system loops and guide your body to physically release the accumulated pressure, concrete tightness, and emotional residue.")
     
     st.markdown("### 🛡️ Phase 2: The 21-Day Protected Integration")
-    st.write("Three weeks of protected integration loops equipped with bespoke daily somatic resource tracks and custom practices designed specifically for your body's friction points.")
+    st.write("Three weeks of protected integration loops equipped with daily somatic resource tracks and custom practices designed specifically for your body's friction points.")
     
     st.markdown("### 🔄 Phase 3: The Weeks 3 & 4 Alignment Check")
     st.write("A dedicated review to ensure your new boundaries and internal somatic clarity stick for the long haul.")
