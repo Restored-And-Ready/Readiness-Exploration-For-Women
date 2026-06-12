@@ -166,7 +166,7 @@ elif st.session_state.room_step == 2:
             "Select the reality that matches your day-to-day experience:",
             [
                 "I create and operate my business with a sense of spaciousness and trust. I can cleanly close my laptop when the day is done, completely separate my personal worth from my stats, and let my work be an unforced expression of my purpose.",
-                "I am pouring survival panic into my brand. I find myself grinding until 2 AM, over-engineering my strategy entirely in my head, and staying in frantic motion because I feel like an completely unsupported, isolated island.",
+                "I am pouring survival panic into my brand. I find myself grinding until 2 AM, over-engineer my strategy entirely in my head, and staying in frantic motion because I feel like an completely unsupported, isolated island.",
                 "The sheer pressure of trying to build this business entirely alone has overwhelmed my system. I sit at my computer and find myself completely frozen, heavy, and numb—using trivial distractions or scrolling to escape the weight."
             ]
         )
@@ -319,8 +319,8 @@ elif st.session_state.room_step == 5:
         intimacy_choice = st.radio(
             "Which of these statements best captures your current marital intimacy?",
             [
-                "Our intimacy is a space of deep safety, pleasure, and emotional surrender. I express my true desires and boundaries without fear, and our connection is where I drop my armor and experience true rest.",
-                "Our relationship feels emotionally distant or heavy. I find myself constantly people-pleasing—suppressing my real voice, ignoring my own boundaries, and doing whatever it takes just to keep the peace and avoid friction.",
+                "Our intimacy is a space of deep safety, pleasure, and emotional surrender. I express my true desires and boundaries without fear, and our relationship is where I drop my armor and experience true rest.",
+                "Our relationship feels emotionally distant or heavy. I find myself constantly people-pleasing—suppressing my real voice, ignoring my own boundaries, and doing whatever it takes just to keep the peace and avoid conflict.",
                 "The passion and physical vitality have gone completely cold. We are platonic roommates coexisting in the dark. I spend my evenings escaping into my head, using scrolling, shopping, or quiet distractions to numb the void between us."
             ]
         )
@@ -447,76 +447,100 @@ elif st.session_state.room_step == 7:
             st.rerun()
 
 # ==========================================
-# 🕊️ THE ALIGNMENT MIRROR: TRUE REPORT OUTPUT
+# 🕊️ THE ALIGNMENT MIRROR: DYNAMIC CAR DIAGNOSTIC CLOSER
 # ==========================================
 elif st.session_state.room_step == 8:
     st.title("Your Alignment Mirror 🕊️")
-    st.write("Take a deep breath. Exhale the armor. Your complete multi-dimensional somatic blueprint has been compiled.")
+    st.write("Take a deep breath. Exhale the armor. Your multi-dimensional somatic blueprint has been compiled.")
     st.audio("track5.mp3")
     
     st.markdown("---")
     st.header("✨ Your Unmasked Somatic Blueprint")
-    st.write("Below is the full, high-integrity reflection of your internal castle. This layout belongs exclusively to you.")
+    st.write("Below is the record of the exact data markers and reflection journal answers you mapped across your internal castle today:")
     
-    st.markdown("### 💼 Room 1: Your Realm of Daily Labor")
-    st.markdown(f"**Your Observed Pattern:**\n> {st.session_state.client_responses.get('room1_mirror', 'No Selection')}")
-    st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room1_journal', 'No written entry saved.')}*")
-    
+    # Render Raw Answers for transparent verification
+    with st.expander("Review Your Captured Journal Inputs"):
+        st.markdown(f"**Primary Realm of Labor:**\n*{st.session_state.client_responses.get('room1_journal')}*")
+        st.markdown(f"**Parenting Dynamic Load:**\n*{st.session_state.client_responses.get('room2_parenting_journal')}*")
+        st.markdown(f"**Intimate & Sensual Self:**\n*{st.session_state.client_responses.get('room2_intimacy_journal')}*")
+        st.markdown(f"**Physical Body & Tissues:**\n*{st.session_state.client_responses.get('room3_journal')}*")
+        st.markdown(f"**Core Self-Worth Dialogue:**\n*{st.session_state.client_responses.get('room4_journal')}*")
+
     st.markdown("---")
-    st.markdown("### 🧒 Room 2: Checkpoint A - The Parenting Dynamic")
-    st.markdown(f"**Your Observed Pattern:**\n> {st.session_state.client_responses.get('room2_parenting_mirror', 'No Selection')}")
-    st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room2_parenting_journal', 'No written entry saved.')}*")
     
-    st.markdown("---")
-    st.markdown("### 🥀 Room 2: Checkpoint B - Your Intimate & Sensual Self")
-    st.markdown(f"**Your Observed Pattern:**\n> {st.session_state.client_responses.get('room2_intimacy_mirror', 'No Selection')}")
-    st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room2_intimacy_journal', 'No written entry saved.')}*")
+    # CANDY'S DYNAMIC CAR ANALOGY ALIGNMENT PLUMBING
+    fumes_areas = []
     
-    st.markdown("---")
-    st.markdown("### 🩺 Room 3: Your Physical Body & Somatic Thresholds")
-    st.markdown(f"**Your Observed Pattern:**\n> {st.session_state.client_responses.get('room3_mirror', 'No Selection')}")
-    st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room3_journal', 'No written entry saved.')}*")
+    if "clear boundaries" not in st.session_state.client_responses.get('room1_mirror', '') and "sacred space" not in st.session_state.client_responses.get('room1_mirror', '') and "spaciousness and trust" not in st.session_state.client_responses.get('room1_mirror', ''):
+        fumes_areas.append("💼 **Your Realm of Daily Labor:** You are over-engineering, hyper-executing, or utilizing survival panic to drive your work, turning your career landscape into an absolute gladiator match.")
+        
+    if "calm authority" not in st.session_state.client_responses.get('room2_parenting_mirror', '') and "functional unit" not in st.session_state.client_responses.get('room2_parenting_mirror', ''):
+        fumes_areas.append("🧒 **Your Parenting Dynamics:** Your family engine is running on cortisol. You are single-parenting with a spouse, playing a rigid high-alert captain, or letting guilt collapse your structural boundaries.")
+        
+    if "healthy part" not in st.session_state.client_responses.get('room2_intimacy_mirror', '') and "deep safety" not in st.session_state.client_responses.get('room2_intimacy_mirror', ''):
+        fumes_areas.append("🥀 **Your Intimate & Sensual Heart:** Your sexual and relational passion tank has gone completely cold. You have slipped into platonic roommates, or you have hidden your lover archetype behind a brick wall to keep from being exposed to further hurt.")
+        
+    if "attuned to my body" not in st.session_state.client_responses.get('room3_mirror', ''):
+        fumes_areas.append("🩺 **Your Physical Body:** You are treating your flesh like an disposable tool, forcing it to red-line on adrenaline, or your nervous system has entered an outright somatic freeze state to guard your vulnerability.")
+        
+    if "anchored in my inherent worth" not in st.session_state.client_responses.get('room4_mirror', ''):
+        fumes_areas.append("👑 **Your Identity & Essence:** Your internal critic or performance software is running on overdrive, leaving you feeling completely empty and unvalidated the second your external output stops.")
+
+    # THE CLOSING MIRROR: TIE IT DIRECTLY TO THE ONE-ON-ONE VALUE PROPOSITION
+    st.subheader("📊 Candy's Dashboard Analysis")
     
+    if fumes_areas:
+        st.markdown(
+            "### **Your System is Running on Fumes.**\n\n"
+            "Looking closely at your markers, your internal vehicle is not broken—but it is **dangerously out of alignment**. "
+            "You have spent so many years overcompensating, driving on adrenaline, and taking care of everyone else that "
+            "your primary fuel tanks have been completely emptied. Your system is actively leaking energy right here:"
+        )
+        for area in fumes_areas:
+            st.markdown(area)
+            
+        st.markdown(
+            "### 🔧 Pulling Your System Back into Alignment\n\n"
+            "This diagnostic snapshot proves exactly why trying to out-think, change schedules, or talk your way out of "
+            "exhaustion isn't working. You cannot intellectualize an empty gas tank. Your system is physically red-lining because "
+            "your nervous system has been forced to hold these protective control loops open for too long.\n\n"
+            "This is precisely why we design **The Private Somatic Restoration Container**."
+        )
+    else:
+        st.markdown(
+            "### **Your Vehicle is Beautifully Balanced.**\n\n"
+            "Your internal operational dashboard is showing exceptional spaciousness, pristine boundaries, and a deep, "
+            "grounded connection to your sovereign worth. Your engine is firing on clean, integrated power across the board.\n\n"
+            "This is precisely why we utilize **The Private Somatic Restoration Container** as an advanced architecture."
+        )
+
     st.markdown("---")
-    st.markdown("### 👑 Room 4: Your Core Identity & Sovereign Essence")
-    st.markdown(f"**Your Observed Pattern:**\n> {st.session_state.client_responses.get('room4_mirror', 'No Selection')}")
-    st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room4_journal', 'No written entry saved.')}*")
-    
-    st.markdown("---")
-    st.markdown(
-        "> 🛡️ **The Unlabeled Remonition:** *This profile is an intuitive, highly responsive mirror based entirely on the "
-        "authentic narrative choices and somatic markers you chose to lay bare today. Your body carries immense wisdom. "
-        "Every control addiction, parenting overcompensation, or physical numbing loop you highlighted is simply a "
-        "protective part of you trying to shield an internal void. You can finally release the control, let go, and let God.*"
-    )
-    
-    st.markdown("---")
-    st.subheader("An Invitation to Private, High-Integrity Somatic Restoration")
+    st.subheader("🏛️ Your Custom 30-Day Private Restoration Architecture")
     st.write(
-        "If your system is profoundly tired of driving on adrenaline, and you are ready to transition from a "
-        "conceptual understanding of your void into a lived, physical reality of unshakeable enoughness, I invite you "
-        "into our dedicated, 30-day private restoration architecture:"
+        "To transition your body out of survival mode and rewrite these exhausted nervous system blueprints "
+        "into an unshakeable, physical reality of enoughness, we step into a dedicated, three-phase framework:"
     )
     
-    st.markdown("### 🏛️ Phase 1: The Private Somatic Release Session")
-    st.write("A live, dedicated 1-to-1 deep dive container where we map your specific nervous system loops and guide your body to physically release the accumulated pressure, concrete tightness, and emotional residue.")
+    st.markdown("#### Phase 1: The Private Somatic Release Session")
+    st.write("A live, dedicated 1-to-1 deep dive container where we pop open the hood, map your specific somatic friction points, and guide your body to physically release the trapped cortisol, concrete tightness, and emotional residue.")
     
-    st.markdown("### 🛡️ Phase 2: The 21-Day Protected Integration")
-    st.write("Three weeks of protected integration loops equipped with daily somatic resource tracks and custom practices designed specifically for your body's friction points.")
+    st.markdown("#### Phase 2: The 21-Day Protected Integration")
+    st.write("Three weeks of protected integration loops equipped with bespoke daily somatic resource tracks and custom boundary practices designed specifically to stop your primary energy leaks.")
     
-    st.markdown("### 🔄 Phase 3: The Weeks 3 & 4 Alignment Check")
-    st.write("A dedicated review to ensure your new boundaries and internal somatic clarity stick for the long haul.")
+    st.markdown("#### Phase 3: The Weeks 3 & 4 Alignment Check")
+    st.write("A dedicated review container to lock in your somatic recalibration and ensure your structural clarity sticks for the long haul.")
     
     st.markdown("---")
     st.markdown("### 🕊️ Container Logistics & Booking")
     st.write(
-        "The foundational investment for this complete three-phase somatic architecture is **$750**.\n\n"
-        "To officially claim this container and send your unmasked reflection profile directly onto Candy's desk, click the submit button below."
+        "The foundational investment for this complete three-phase dynamic somatic architecture is **$750**.\n\n"
+        "To claim this dedicated container, lock your exploration profile onto Candy's private desk, and receive your "
+        "secure calendar invitation to select your live session time, click the action button below."
     )
     
     st.markdown("---")
     
-    # NEW INTERACTIVE SUBMIT BUTTON ARCHITECTURE
+    # INTERACTIVE SUBMIT BUTTON ARCHITECTURE
     if 'submitted' not in st.session_state:
         if st.button("Submit My Somatic Profile to Candy 🕊️"):
             try:
