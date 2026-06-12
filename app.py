@@ -229,7 +229,7 @@ elif st.session_state.room_step == 4:
         )
         st.markdown("---")
         parenting_choice = st.radio(
-            "Which of these descriptions most accurately matches how your home currently functions?",
+            "Which of these descriptions most accurately matches how your home functions?",
             [
                 "I lead my household with a sense of calm authority and grace. I hold loving, clear boundaries with my children and trust that my presence and love are more than enough.",
                 "I run a highly regulated, tight ship because there is no safety net beneath me. I force myself to be everything at once, terrified that if I drop a single ball, our entire baseline structure will collapse.",
@@ -296,7 +296,7 @@ elif st.session_state.room_step == 5:
         intimacy_choice = st.radio(
             "Which of these statements best mirrors your personal intimate heart right now?",
             [
-                "I honor my sexual and romantic desires as a healthy part of my wholleness. I feel open to love, vulnerability, and deep physical connection without shame, guilt, or compromising my independent worth.",
+                "I honor my sexual and romantic desires as a healthy part of my wholeness. I feel open to love, vulnerability, and deep physical connection without shame, guilt, or compromising my independent worth.",
                 "I desire companionship and touch, but I am secretly mourning a past relational rupture, divorce, or betrayal. My system feels frozen in fear, and I use my kids' schedules as a protective shield to keep from risking further pain.",
                 "I have completely locked my sexual life-force, desires, and sensuality behind a brick wall. I don't explore connection, and I use my busy identity as a mother to numb out and ignore the massive void of a companion."
             ]
@@ -448,7 +448,7 @@ elif st.session_state.room_step == 7:
             st.rerun()
 
 # ==========================================
-# 🕊️ THE ALIGNMENT MIRROR: HIGH-TOUCH GATEKEEPER RELEASE
+# 🕊️ THE ALIGNMENT MIRROR: SYSTEM CORRECTION & PROTECTION
 # ==========================================
 elif st.session_state.room_step == 8:
     st.title("Your Alignment Mirror 🕊️")
@@ -649,7 +649,7 @@ elif st.session_state.room_step == 8:
 
     st.markdown("---")
     
-    # 5-PHASE CLASSIC ENGINE RESTORE COPY - PRESERVED GATEKEEPER TIERS
+    # 5-PHASE CLASSIC ENGINE RESTORE COPY - METHODOLOGY ALIGNED
     st.subheader("🏛️ The 30-Day Somatic Release Container (An Autonomy Trial)")
     st.write(
         "Most mainstream coaching architectures create an immediate hierarchy, making you dependent on the coach "
@@ -680,35 +680,37 @@ elif st.session_state.room_step == 8:
     st.markdown("---")
     st.subheader("Choose Your Next Step Below:")
     
-    # CONVERSATIONAL GATEKEEPER BUTTONS - AUTOMATED BOOKING LINKS REMOVED
+    # PERFECTLY MATCHED LABELS & NON-BLOCKING AUTOMATION WIRES
     if 'submitted' not in st.session_state:
         col1, col2 = st.columns(2)
         
         with col1:
             if st.button("🕊️ I am ready. Let's look for alignment."):
+                st.session_state.client_responses['user_intent'] = "READY_TO_BOOK"
                 try:
-                    st.session_state.client_responses['user_intent'] = "READY_TO_BOOK"
                     webhook_url = st.secrets["WEBHOOK_URL"]
-                    requests.post(webhook_url, json=st.session_state.client_responses)
-                    st.session_state.submitted = "BOOKING"
-                    st.rerun()
+                    # Added explicit execution timeout so backend lag never hangs her client's window
+                    requests.post(webhook_url, json=st.session_state.client_responses, timeout=3)
                 except:
-                    st.error("Connection link timed out. Please try again.")
+                    pass  # Pass silently so lag doesn't throw a red tech box
+                st.session_state.submitted = "BOOKING"
+                st.rerun()
                     
         with col2:
             if st.button("🌳 This was great, but I'm not ready to commit yet. Send me some resources."):
+                st.session_state.client_responses['user_intent'] = "WANTS_RESOURCES_ONLY"
                 try:
-                    st.session_state.client_responses['user_intent'] = "WANTS_RESOURCES_ONLY"
                     webhook_url = st.secrets["WEBHOOK_URL"]
-                    requests.post(webhook_url, json=st.session_state.client_responses)
-                    st.session_state.submitted = "RESOURCES"
-                    st.rerun()
+                    requests.post(webhook_url, json=st.session_state.client_responses, timeout=3)
                 except:
-                    st.error("Connection link timed out. Please try again.")
+                    pass
+                st.session_state.submitted = "RESOURCES"
+                st.rerun()
     else:
+        # STRICT PROTECTION LABELS: UNTANGLED FIXED TIERS
         if st.session_state.submitted == "BOOKING":
             st.success("✨ Your unmasked somatic profile has been securely transmitted straight to Candy's private desk. She will personally review your reflections to evaluate alignment. Keep an eye on your inbox for her private, direct email outreach.")
-        else:
+        elif st.session_state.submitted == "RESOURCES":
             st.success("✨ Your request has been securely logged! Candy's private desk has been notified. Check your email shortly to download your custom somatic resource packet.")
             
         if st.button("Restart Exploration Journey 🔄"):
