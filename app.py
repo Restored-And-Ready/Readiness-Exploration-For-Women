@@ -221,7 +221,7 @@ elif st.session_state.room_step == 3:
 # ==========================================
 elif st.session_state.room_step == 4:
     st.title("Room Two: Checkpoint A - The Parenting Dynamic 🧒")
-    st.audio("track2.mp3") # Restored track2 for the Parenting section
+    st.audio("track2.mp3") # Grounding Relational Audio plays here
     status = st.session_state.client_responses.get('relational_status', '')
     parenting_prompt_text = ""
     
@@ -283,11 +283,11 @@ elif st.session_state.room_step == 4:
             st.rerun()
 
 # ==========================================
-# 🏡 ROOM TWO: CHECKPOINT B (Intimacy Only)
+# 🏡 ROOM TWO: CHECKPOINT B (Intimacy Only - Audio Removed)
 # ==========================================
 elif st.session_state.room_step == 5:
     st.title("Room Two: Checkpoint B - Your Intimate & Sensual Self 🥀")
-    st.audio("track2.mp3") # Kept track2 for the Intimacy section
+    # Audio removed from here to allow a quiet, uninterrupted reflective flow
     status = st.session_state.client_responses.get('relational_status', '')
     intimacy_prompt_text = ""
     
