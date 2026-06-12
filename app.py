@@ -193,7 +193,7 @@ elif st.session_state.room_step == 2:
 elif st.session_state.room_step == 3:
     st.title("Room Two: Your Home & Relationships 🏡")
     st.write(
-        "Now, let's look behind closed doors—into your closest connections, your family dynamics, and the "
+        "Now, let's look behind closed doors—into your closest relationships, your family dynamics, and the "
         "core of your intimacy and sexual vitality. It's so easy for a woman to completely tangle her identity as a mother "
         "with her identity as a romantic woman, often burying her private desires under the family schedule. "
         "Let's untangle this. Select your current status below:"
@@ -376,7 +376,7 @@ elif st.session_state.room_step == 6:
     elif "like a machine" in body_choice:
         body_prompt_text = "What standard of vibrant, effortless health and relaxation is your tissue ready to reclaim? What does true somatic recovery look like for your physical system?"
     elif "locks up" in body_choice:
-        body_prompt_text = "Where in your flesh do you physically feel this defensive armor (stubborn weight retention, shoulder tightness, chronic pain)? What deep emotional vulnerability is it trying to protect?"
+        body_prompt_text = "What does a completely open, fluid, and light physical body feel like to you? What does your tissue need to safely drop the protective armor and return to balance?"
     else:
         body_prompt_text = "What physical baseline of raw feeling and vitality is your body ready to activate? How can your awareness shift from the neck down to fully inhabit your flesh?"
         
@@ -575,22 +575,23 @@ Compiled safely and anchored in inherent goodness.
 
     st.markdown("---")
     
-    # BRAND NEW 5-PHASE CLASSIC ENGINE RESTORE COPY
-    st.subheader("🏛️ The 30-Day Private Restoration Architecture")
+    # 5-PHASE CLASSIC ENGINE RESTORE COPY - METHODOLOGY ALIGNED
+    st.subheader("🏛️ The 30-Day Somatic Release Container (An Autonomy Trial)")
     st.write(
-        "Most mainstream programs try to lock you into heavy, long-term contracts before you've even had a chance to look under the hood. "
-        "We do things completely differently. This dedicated 30-day container is built as an intuitive alignment trial—a single "
-        "month designed for you to test-drive your capacity, get perspective, and see what it takes to upgrade your entire system."
+        "Most mainstream coaching architectures create an immediate hierarchy, making you dependent on the coach "
+        "and locking you into heavy, long-term contracts before you've even settled your nervous system. We break that mold completely. "
+        "This initial 30-day container is dedicated entirely to **The Release Phase**. It is a pure self-commitment trial designed "
+        "to clear baseline pressure and immediately return the healing power back to your own hands."
     )
     
-    st.markdown("#### Phase 1: The Live Somatic Release (The Internal Massage)")
-    st.write("We start with a live 1-to-1 deep dive. Think of this as an intentional internal massage for your nervous system. We pop open the hood and clear the immediate processing pressure so your body can step out of the grind and find absolute clarity before we do any type of deep root work.")
+    st.markdown("#### 1. The Live Somatic Release Session (90 - 120 Minutes)")
+    st.write("We begin with a raw, extended 1-to-1 live container. Think of this as a profound internal massage for your nervous system. We pop open the hood and clear the immediate processing pressure to quiet your internal noise, bringing absolute, unforced clarity into exactly how your system is wired.")
     
-    st.markdown("#### Phases 2 & 3: The 3-Week Trial (Restore & Rebuild)")
-    st.write("Over the next three weeks, you test your own ability to dedicate time to yourself. Supported by bespoke recordings and journaling, we begin taking old coping software apart to see what no longer benefits you, and custom-rebuild a luxury lifestyle blueprint tailored exactly to how you want to live.")
+    st.markdown("#### 2. The 3-Week Independent Trial (Cultivating Internal Power)")
+    st.write("Following your session, you step into the driver's seat entirely on your own. Armed with your bespoke somatic recording and custom exercises, you will commit just 15 to 30 minutes a day exclusively to yourself (whether 15 minutes morning and night, or a solid block). For three weeks, we do not speak. This deliberate space is where your body learns that you already possess all the wisdom and strength you need within—you just need the intentional space to tune in and listen.")
     
-    st.markdown("#### Phases 4 & 5: The Week 4 Alignment Check (Ready to Ride & Protect)")
-    st.write("By week four, we connect live to review your test drive. Because no two women are the same, this is where we determine your exact, customized path forward. We map out how much support your classic system needs to stay fully restored, ready to ride at peak capacity, and beautifully protected with pristine peace and boundaries.")
+    st.markdown("#### 3. The Week 4 Alignment Check (Designing Your Custom Path)")
+    st.write("At the end of your 3-week trial, once your nervous system is genuinely settled, we reconnect live for a dedicated alignment check. Because no two women are the same, this is where we discuss what your system requires next. Having proven your commitment to yourself, we will evaluate exactly how much support your vehicle needs to move forward into the deeper, fully customized blocks: **Restore, Rebuild, Ride, and Protect** your ultimate peace.")
     
     st.markdown("---")
     st.markdown("### 🕊️ Container Logistics & Booking")
@@ -601,7 +602,7 @@ Compiled safely and anchored in inherent goodness.
     st.markdown("---")
     st.subheader("Choose Your Next Step Below:")
     
-    # UPGRADED HIGH-INTEGRITY CONVERSATIONAL BUTTONS
+    # UPGRADED CONVERSATIONAL BUTTONS WITH EXPLICIT RESOURCE OPT-IN
     if 'submitted' not in st.session_state:
         col1, col2 = st.columns(2)
         
@@ -630,7 +631,7 @@ Compiled safely and anchored in inherent goodness.
         if st.session_state.submitted == "BOOKING":
             st.success("✨ Your unmasked somatic profile has been securely transmitted straight to Candy's private desk! Check your email right now for your calendar invitation to select your session time.")
         else:
-            st.info("🌳 Your alignment request has been logged! Your custom resource packet is being compiled. Check your email shortly to download your somatic boundary exercises.")
+            st.success("✨ Your request has been securely logged! Candy's private desk has been notified. Check your email shortly to download your custom somatic resource packet.")
             
         if st.button("Restart Exploration Journey 🔄"):
             st.session_state.room_step = 1
