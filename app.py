@@ -96,6 +96,7 @@ elif st.session_state.room_step == 2:
     st.audio("track1.mp3")
     
     chosen_path = st.session_state.client_responses.get('chosen_path', '')
+    labor_prompt_text = ""
     
     # --- PATH A: THE CORPORATE LEADER ---
     if "Path A" in chosen_path:
@@ -107,7 +108,6 @@ elif st.session_state.room_step == 2:
         )
         st.markdown("---")
         st.subheader("🎭 The Workspace Leadership Mirror")
-        st.write("Which of these narratives most accurately mirrors how your internal operating system runs your career landscape right now?")
         
         labor_choice = st.radio(
             "Select your mirror:",
@@ -117,6 +117,13 @@ elif st.session_state.room_step == 2:
                 "🫥 The Untouchable Fortress (Numbing / Flight Grip): When pressure mounts, I build a cold, hyper-efficient wall at my desk. I stop trusting anyone to do things right, pull all execution onto my own shoulders, and refuse to delegate. I cut off real connection with my team because it feels safer to be a solo island than to risk being let down by people."
             ]
         )
+        
+        if "🌟" in labor_choice:
+            labor_prompt_text = "What does it feel like to lead and operate from this space of clean alignment? What specific professional boundaries are you currently using to successfully protect your peace?"
+        elif "⚔️" in labor_choice:
+            labor_prompt_text = "Where do you feel the heavy friction of parenting your team? Why does your survival software whisper that you must step in and fix their unfinished mess to protect the client or patient?"
+        else:
+            labor_prompt_text = "What specific vulnerability or chaos are you protecting yourself from by pulling all execution onto your solo island? What are you afraid will happen if you lower your guard?"
 
     # --- PATH B: THE STAY-AT-HOME MOM ---
     elif "Path B" in chosen_path:
@@ -129,7 +136,6 @@ elif st.session_state.room_step == 2:
         )
         st.markdown("---")
         st.subheader("🎭 The Matriarch Operational Mirror")
-        st.write("Which of these narratives mirrors how your system handles the daily load of running the home?")
         
         labor_choice = st.radio(
             "Select your mirror:",
@@ -139,6 +145,13 @@ elif st.session_state.room_step == 2:
                 "🎭 The Isolated Martyr (Fawn / Numbing Addiction): I completely collapse my boundaries, say 'yes' when my body is screaming 'no', and swallow my true complaints to keep the peace. Because I am told I have it good, I hide my pain, letting it build inside while turning to secret comforts like online shopping, constant scrolling, or a daytime drink to survive the isolation."
             ]
         )
+        
+        if "🌟" in labor_choice:
+            labor_prompt_text = "How do you successfully separate your internal worth from a corporate paycheck? What does prioritizing your own intellectual expansion look like in your daily routine?"
+        elif "⚔️" in labor_choice:
+            labor_prompt_text = "What terrifies your system about dropping a single domestic ball? Where did you first learn the rule that you are only safe if you are perfectly managing every moving piece around you?"
+        else:
+            labor_prompt_text = "What specific unexpressed pain or grief are you swallowing to keep the peace? What empty space inside are the daytime drinks, scrolling, or Amazon packages trying to fill?"
 
     # --- PATH C: THE SOLO WFH ENTREPRENEUR ---
     else:
@@ -150,7 +163,6 @@ elif st.session_state.room_step == 2:
         )
         st.markdown("---")
         st.subheader("🎭 The Bedroom Builder Mirror")
-        st.write("Which of these narratives captures how your system is holding the pressure of your business creation?")
         
         labor_choice = st.radio(
             "Select your mirror:",
@@ -161,16 +173,18 @@ elif st.session_state.room_step == 2:
             ]
         )
         
+        if "🌟" in labor_choice:
+            labor_prompt_text = "How does operating from deep trust alter your creative clarity? How do you cleanly disconnect your personal value from your daily revenue or social stats?"
+        elif "⚔️" in labor_choice:
+            labor_prompt_text = "What are you running from by grinding until 2 AM? What does your system believe will happen if you slow down and allow your business to rest for a weekend?"
+        else:
+            labor_prompt_text = "Where exactly does the pressure of building this alone freeze your creative energy? What does your system need to feel safe enough to thaw out and take one small step?"
+        
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
     
-    # Dynamic Journal Prompt Fix for Room One
-    if "🌟" in labor_choice:
-        labor_prompt_text = "What does it feel like to create, lead, and operate from this beautiful space of clean alignment? What specific practices or boundaries are you currently using to successfully protect this spaciousness?"
-    else:
-        labor_prompt_text = "Within your primary realm of daily labor, where are you explicitly feeling the friction of 'not feeling enough'? What is the secret addiction—whether to perfectionism, control, or silent numbing—that your system uses to cope here?"
-        
-    labor_text = st.text_area(labor_prompt_text, height=150)
+    # Unique key forced to break Streamlit text_area caching issue
+    labor_text = st.text_area(labor_prompt_text, height=150, key=f"labor_journal_{hash(labor_choice)}")
     
     if st.button("Walk Into the Next Space →"):
         st.session_state.client_responses['room1_mirror'] = labor_choice
@@ -212,6 +226,7 @@ elif st.session_state.room_step == 4:
     st.audio("track2.mp3")
     
     status = st.session_state.client_responses.get('relational_status', '')
+    relational_prompt_text = ""
     
     # --- PATH SINGLE NARRATIVE ---
     if "Path Single" in status:
@@ -241,11 +256,17 @@ elif st.session_state.room_step == 4:
             ]
         )
 
-        # Dynamic Journal Prompt Fix for Room Two (Single)
+        # Surgical Hyper-Specific Prompt Mapping for Single Path
         if "🌟" in r2_q1 and "🌟" in r2_q2:
-            relational_prompt_text = "Your solo anchor landscape and your private intimate heart are both reflecting a beautiful state of clean, loving alignment. What does this deep emotional security allow you to confidently open up to next in your life?"
+            relational_prompt_text = "Both your solo parenting and your private intimate heart are in alignment. What does this deep emotional security allow you to open up to next?"
+        elif "⚔️" in r2_q1:
+            relational_prompt_text = "What does it physically cost your spirit to carry the full weight of provider and protector entirely alone? Where can you allow your system to receive support?"
+        elif "🎭" in r2_q1:
+            relational_prompt_text = "What specific past failure or family rupture are you trying to overcompensate for by letting your children walk over your structural boundaries?"
+        elif "⚔️" in r2_q2:
+            relational_prompt_text = "What is the name of the relational ghost or divorce your heart is still actively mourning? What terrifies your system about risking exposure again?"
         else:
-            relational_prompt_text = "Look honestly at the parent-child friction points, living losses, or frozen intimate spaces you highlighted. What is the core story your system is telling itself here, and what does it need to safely drop the armor?"
+            relational_prompt_text = "You've hidden your sensual life-force behind the mask of a busy mother. What would happen if you admitted that you deeply desire romantic companionship?"
 
     # --- PATH PARTNERED NARRATIVE ---
     else:
@@ -274,15 +295,21 @@ elif st.session_state.room_step == 4:
             ]
         )
 
-        # Dynamic Journal Prompt Fix for Room Two (Partnered)
+        # Surgical Hyper-Specific Prompt Mapping for Partnered Path
         if "🌟" in r2_q1 and "🌟" in r2_q2:
-            relational_prompt_text = "Your shared parenting structure and your intimate marriage are both functioning as a radiant sanctuary of alignment. What does this deep trust and mutual safety unlock for your partnership and your independent vision?"
+            relational_prompt_text = "Your household teamwork and your intimate bedroom connection are operating in pure light. What does this deep relational sanctuary unlock for your independent vision?"
+        elif "⚔️" in r2_q1:
+            relational_prompt_text = "What is the true somatic weight of single-parenting with a spouse? How deep does the silent, bitter resentment run toward your checked-out partner?"
+        elif "🎭" in r2_q2:
+            relational_prompt_text = "Where exactly are you compromising your own physical or emotional boundaries inside your sexual intimacy just to avoid his judgment, anger, or friction?"
         else:
-            relational_prompt_text = "Look honestly at your marital friction, living losses, or intimate isolation. Where is your sexual and emotional life-force currently suffering, and what is the story you have been telling yourself to stay stuck?"
+            relational_prompt_text = "You are platonic roommates coexisting in the dark. What outside comforts (online shopping, scrolling, daytime drinking) are you using to fill the void of real connection?"
 
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
-    relational_text = st.text_area(relational_prompt_text, height=150)
+    
+    # Combined dynamic keys to fully break cache state on change
+    relational_text = st.text_area(relational_prompt_text, height=150, key=f"relational_journal_{hash(r2_q1 + r2_q2)}")
     
     col1, col2 = st.columns([1, 1])
     with col1:
@@ -311,7 +338,6 @@ elif st.session_state.room_step == 5:
     
     st.markdown("---")
     st.subheader("🎭 The Somatic Operating Mirror")
-    st.write("How does your internal operating system currently treat your physical body?")
     
     body_choice = st.radio(
         "Select your mirror:",
@@ -323,16 +349,19 @@ elif st.session_state.room_step == 5:
         ]
     )
     
+    # Surgical Hyper-Specific Prompt Mapping for Room Three
+    if "🌟" in body_choice:
+        body_prompt_text = "Your system is operating in clear somatic alignment. What dedicated health boundaries or recovery practices are successfully keeping your physical temple so radiant right now?"
+    elif "⚔️" in body_choice:
+        body_prompt_text = "Where exactly is your body screaming for you to stop? What are you actively trying to outrun by forcing your system to march through pain on pure cortisol and adrenaline?"
+    elif "🫥" in body_choice:
+        body_prompt_text = "Where in your flesh do you physically feel this defensive armor (stubborn weight retention, shoulder tightness, chronic pain)? What deep emotional vulnerability is it trying to protect?"
+    else:
+        body_prompt_text = "What specific, heavy emotions are you deeply afraid to actually feel in your chest and gut by choosing to live entirely inside your analytical head?"
+        
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
-    
-    # DYNAMIC JOURNAL PROMPT FIX FOR ROOM THREE (THE BODY)
-    if "🌟" in body_choice:
-        body_prompt_text = "Your system is operating in a beautiful state of clean somatic alignment. What dedicated health boundaries or recovery practices are keeping your temple so radiant right now? How can you allow your system to anchor even deeper into this physical peace?"
-    else:
-        body_prompt_text = "Close your eyes and notice where your breath catches right now. When your body experiences chronic pain, fatigue, or weight stagnation, do you shut down, numb out, or force it to push through? What does your tissue need to release?"
-        
-    body_text = st.text_area(body_prompt_text, height=150)
+    body_text = st.text_area(body_prompt_text, height=150, key=f"body_journal_{hash(body_choice)}")
     
     col1, col2 = st.columns([1, 1])
     with col1:
@@ -360,7 +389,6 @@ elif st.session_state.room_step == 6:
     
     st.markdown("---")
     st.subheader("🎭 The Self-Worth Identity Mirror")
-    st.write("When you are completely alone with your thoughts, who is dominating your internal dialogue?")
     
     identity_choice = st.radio(
         "Select your mirror:",
@@ -372,16 +400,19 @@ elif st.session_state.room_step == 6:
         ]
     )
     
+    # Surgical Hyper-Specific Prompt Mapping for Room Four
+    if "🌟" in identity_choice:
+        identity_prompt_text = "You are standing firmly on your throne, resting in your inherent worth. What does it physically feel like to fully accept your own enoughness without needing to perform for anyone?"
+    elif "⚔️" in identity_choice:
+        identity_prompt_text = "If you completely stopped producing, fixing, or working for one full week, who would you be? Why does absolute stillness feel like such an existential threat to your system?"
+    elif "🔥" in identity_choice:
+        identity_prompt_text = "Whose hyper-severe voice is that inner critic actually using when it judges you? What does the little girl inside you desperately need to hear from you instead?"
+    else:
+        identity_prompt_text = "Who are you when you strip away your identity as a mother, worker, or partner? What does your true, unmasked identity look like when no one else is in the room?"
+        
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
-    
-    # Dynamic Journal Prompt Fix for Room Four
-    if "🌟" in identity_choice:
-        identity_prompt_text = "You are standing firmly on your throne, resting in your inherent worth. What does it physically feel like to fully accept your own enoughness without needing to perform? How does this deep self-compassion alter how you speak to yourself?"
-    else:
-        identity_prompt_text = "Look directly into the mirror of your soul. Where have you been abandoning your own identity to buy safety or validation from others? What is the core lie about your 'enoughness' that your inner child is still carrying?"
-        
-    identity_text = st.text_area(identity_prompt_text, height=150)
+    identity_text = st.text_area(identity_prompt_text, height=150, key=f"identity_journal_{hash(identity_choice)}")
     
     col1, col2 = st.columns([1, 1])
     with col1:
