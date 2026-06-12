@@ -66,7 +66,7 @@ if st.session_state.room_step == 1:
         [
             "💼 Path A: The Corporate Leader / Executive / Manager (My workspace and home are completely separate; I run outside teams or systems).",
             "🏡 Path B: The Stay-at-Home Mom / Matriarch (My workspace is my home; my daily work and family life are fully connected).",
-            "💻 Path C: The Solo WFH Entrepreneur / Visionary (I am building a brand or business from home, facing collapsed boundaries and do it all myself)."
+            "💻 Path C: The Solo WFH Entrepreneur / Visionary (I am building a brand or business from home, facing collapsed boundaries and deep professional isolation)."
         ],
         index=0
     )
@@ -371,6 +371,7 @@ elif st.session_state.room_step == 6:
         ]
     )
     
+    body_prompt_text = ""
     if "attuned to my body" in body_choice:
         body_prompt_text = "Your body is operating in clear alignment. What specific practices or rest boundaries are successfully keeping your physical temple so radiant right now?"
     elif "like a machine" in body_choice:
@@ -420,6 +421,7 @@ elif st.session_state.room_step == 7:
         ]
     )
     
+    identity_prompt_text = ""
     if "anchored in my inherent worth" in identity_choice:
         identity_prompt_text = "You are resting in your inherent worth. What does it physically feel like to fully accept your own enoughness without needing to perform or produce for anyone?"
     elif "chained to my output" in identity_choice:
@@ -427,7 +429,7 @@ elif st.session_state.room_step == 7:
     elif "hyper-critical" in identity_choice:
         identity_prompt_text = "What words of radical compassion, validation, and ultimate safety is your inner child ready to receive from you right now? What is your true internal truth?"
     else:
-        identity_choice = "Who are you when you step into the room completely for yourself? What do your true, unmasked desires and creative longings look like when no one else is watching?"
+        identity_prompt_text = "Who are you when you step into the room completely for yourself? What do your true, unmasked desires and creative longings look like when no one else is watching?"
         
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
@@ -446,17 +448,17 @@ elif st.session_state.room_step == 7:
             st.rerun()
 
 # ==========================================
-# 🕊️ THE ALIGNMENT MIRROR: CANDY'S TRUE TAPESTRY OPENING
+# 🕊️ THE ALIGNMENT MIRROR: MASTER REPORT GATE
 # ==========================================
 elif st.session_state.room_step == 8:
     st.title("Your Alignment Mirror 🕊️")
-    st.write("Take a deep breath. Let it out. Your private somatic blueprint is completely ready.")
+    st.write("Take a deep breath. Let it out. Your personal somatic blueprint is completely ready.")
     st.audio("track5.mp3")
     
     st.markdown("---")
     st.header("✨ Your Private Reflection Report")
     
-    # --- CANDY'S FULLY HUMANIZED SOVEREIGN LIFESTYLE TRANSMISSION ---
+    # --- CANDY'S SOVEREIGN TRANSMISSION ---
     st.markdown("### 🎭 The Many Faces of Your Native Wiring")
     st.write(
         "Look closely at the text answers you mapped out across these rooms today. What you are looking at is "
@@ -558,20 +560,77 @@ elif st.session_state.room_step == 8:
 
     st.markdown("---")
     
-    # INTENT LOGIC FOR BACKGROUND METRICS (PROSE REMOVED TO PREVENT DRYNESS)
+    # AUDIT THE DASHBOARD FOR SYSTEM UPGRADE CALIBRATION
     fumes_areas = []
     if "clear boundaries" not in st.session_state.client_responses.get('room1_mirror', '') and "I honor my role at home" not in st.session_state.client_responses.get('room1_mirror', '') and "spaciousness and trust" not in st.session_state.client_responses.get('room1_mirror', ''):
-        fumes_areas.append("💼 Work Alignment")
+        fumes_areas.append("💼 **Your Daily Work:** Your current work landscape is demanding excessive focus, pulling energy away from your baseline stillness.")
     if "calm authority" not in st.session_state.client_responses.get('room2_parenting_mirror', '') and "functional unit" not in st.session_state.client_responses.get('room2_parenting_mirror', ''):
-        fumes_areas.append("🧒 Family Alignment")
+        fumes_areas.append("🧒 **Family Dynamics:** Your domestic routines are asking for a rebalance in load-sharing so your parenting style can flow with complete ease.")
     if "healthy part" not in st.session_state.client_responses.get('room2_intimacy_mirror', '') and "deep safety" not in st.session_state.client_responses.get('room2_intimacy_mirror', ''):
-        fumes_areas.append("🥀 Intimacy Alignment")
+        fumes_areas.append("🥀 **Intimate & Sensual Self:** Your relational energy is resting in a guarded posture, ready to expand back into warmth, luxury, and passion.")
     if "attuned to my body" not in st.session_state.client_responses.get('room3_mirror', ''):
-        fumes_areas.append("🩺 Somatic Attunement")
+        fumes_areas.append("🩺 **Somatic Body:** Your physical body is absorbing the daily pressure, holding stress in the tissue instead of allowing for clean recovery.")
     if "anchored in my inherent worth" not in st.session_state.client_responses.get('room4_mirror', ''):
-        fumes_areas.append("👑 Inner Dialogue Calibration")
+        fumes_areas.append("👑 **Internal Dialogue Software:** Your inner narrative is relying on performance to feel safe, ready for a deep self-compassion update.")
 
-    # THE SOUL-CENTERED ANCHORING MESSAGE (STANDALONE VALUE)
+    num_leaks = len(fumes_areas)
+    
+    st.subheader("📊 Your Dashboard Alignment Check")
+    
+    # TIER 1: TOTAL SYSTEMIC ALIGNMENT (0 leaks)
+    if num_leaks == 0:
+        st.markdown(
+            "### **Your System is Operating at Peak Capacity.**\n\n"
+            "Your internal dashboard looks beautiful. You're holding clear boundaries, protecting your space, and staying anchored "
+            "in your worth. Your engine is firing on clean, integrated power across the board.\n\n"
+            "This is exactly why we use **The Private Somatic Restoration Container** as an advanced masterclass architecture. We're not here to patch up problems—we're here to expand your capacity, evolve your vision, and allow your body to experience an even higher level of luxury, balance, and impact without sacrifice."
+        )
+        
+    # TIER 2: SURGICAL PINPOINT MAINTENANCE (1 to 2 leaks)
+    elif 1 <= num_leaks <= 2:
+        st.markdown(
+            "### **Targeted Optimization: Bringing Every Part of Your Life Up to Your Standard.**\n\n"
+            "Looking closely at your markers, your foundation is incredibly strong. You have done beautiful, intentional work to protect "
+            "your peace and run your life with mastery across almost every room. You deserve a life where **every single piece** matches "
+            "the elite standard of what is already working well. Right now, there is just an isolated area where your tank is running low:"
+        )
+        for area in fumes_areas:
+            st.markdown(area)
+            
+        st.markdown(
+            "### 🔧 Calibrating the Lag\n\n"
+            "Because the rest of your vehicle is running beautifully, we don't need a massive overhaul—we just need a refined software update. "
+            "When one isolated area is running dry, it forces the high-performing parts of your life to carry extra weight. "
+            "You aren't broken; your system is simply ready to bring this single area up into complete balance so your entire life runs seamlessly.\n\n"
+            "In your **1-to-1 Somatic Release Session**, we will pull straight up on the lift, skip what is already thriving, and focus entirely "
+            "on sealing this specific gap. We are here to run the exact system update needed so your body can rest in complete, uninterrupted wholeness. "
+            "This is exactly why we design this container."
+        )
+        
+    # TIER 3: SYSTEMIC OVERCOMPENSATION (3 or more leaks)
+    else:
+        st.markdown(
+            "### **Systemic Reset: Ready for a Complete System Calibration.**\n\n"
+            "Looking closely at your markers, your system is holding a massive amount of input. You've been relying on your raw strength, "
+            "intellect, and execution to carry multiple areas of your life at the same time. Your vehicle has been incredibly resilient, "
+            "but several core operational areas are running low and are ready for an upgrade:"
+        )
+        for area in fumes_areas:
+            st.markdown(area)
+            
+        st.markdown(
+            "### 🔧 Upgrading Your Entire System\n\n"
+            "When multiple warning lights illuminate on your dashboard at once, trying to resolve them with mental strategy or just 'pushing through' "
+            "is like using an old operating system to run highly advanced software. You have evolved past your old coping loops, and your body "
+            "is letting you know it is time for a complete upgrade to support the current season of your life.\n\n"
+            "Our work inside **The Private Somatic Restoration Container** is designed for this exact depth. We will open a premium, protected "
+            "architecture to fully recalibrate your nervous system, physically update the patterns held in your tissue, and systematically balance "
+            "every single dimension of your world so your energy runs completely clear and unforced."
+        )
+
+    st.markdown("---")
+    
+    # RECLAIMING THE VEHICLE
     st.subheader("🏎️ Reclaiming the Classic Vehicle")
     st.write(
         "Think of a priceless, vintage classic car. If a classic has been left out in the weather, used as a basic workhorse to "
@@ -590,25 +649,24 @@ elif st.session_state.room_step == 8:
 
     st.markdown("---")
     
-    # THE PARTNERSHIP INVITATION
+    # 5-PHASE CLASSIC ENGINE RESTORE COPY - METHODOLOGY ALIGNED
     st.subheader("🏛️ The 30-Day Somatic Release Container (An Autonomy Trial)")
     st.write(
-        "Most mainstream coaching programs operate on an artificial hierarchy that forces you to become completely dependent on the coach, "
-        "demanding heavy, long-term investments before you've even cleared your baseline stress. We reject that approach entirely.\n\n"
-        "I am not a savior, and I don't run a generic factory program. I am a master guide who has walked every inch of this pavement—navigating "
-        "my own complete career turnarounds, relationship restarts, and deep physical health crises. I know how much it hurts to do it alone, "
-        "and I know how much easier the road becomes when someone walks alongside you. This 30-day container is an intentional partnership trial "
-        "designed exclusively for **The Release Phase**, guaranteeing you **nearly 4 full hours of live, dedicated 1-to-1 real estate** split purposefully across your month:"
+        "Most mainstream coaching architectures create an immediate hierarchy, making you dependent on the coach "
+        "and locking you into heavy, long-term contracts before you've even settled your nervous system. We break that mold completely. "
+        "This initial 30-day container is dedicated entirely to **The Release Phase**. It is an intentional self-commitment trial designed "
+        "to clear baseline pressure and immediately return the healing power back to your own hands. Inside this month, you are receiving "
+        "**nearly 4 full hours of live, dedicated 1-to-1 real estate** split purposefully across your journey:"
     )
     
     st.markdown("#### 1. The Live Somatic Release Session (90 - 120 Minutes)")
-    st.write("We begin with a profound live 1-to-1 container. Think of this as an intentional internal massage for your nervous system. We clear the immediate processing pressure to completely quiet your internal noise, handing you raw, unforced clarity into exactly how your system is currently running.")
+    st.write("We begin with a raw, extended 1-to-1 live container. Think of this as a profound internal massage for your nervous system. We pop open the hood and clear the immediate processing pressure to quiet your internal noise, bringing absolute, unforced clarity into exactly how your system is currently wired before we ever get into any deep root work.")
     
-    st.markdown("#### 2. The 3-Week Independent Trial (Your True Power)")
-    st.write("Following your session, you take the wheel entirely yourself. Backed by your bespoke personal recording and daily somatic resources, you will spend just 15 to 30 minutes a day exclusively connecting with your own body and reflections. For three weeks, we deliberately do not speak. This protected space is where your system realizes that you already hold the master key inside you—proving you have the power to protect your own peace.")
+    st.markdown("#### 2. The 3-Week Independent Trial (Cultivating Internal Power)")
+    st.write("Following your release, you step into the driver's seat entirely on your own. Armed with your bespoke somatic recording and custom exercises, you will commit just 15 to 30 minutes a day exclusively to yourself (whether 15 minutes morning and night, or a solid block). For three weeks, we deliberately do not speak. This protected space is where your body learns that you already possess all the wisdom and strength you need within—proving you have the capacity to choose yourself daily over the grind.")
     
     st.markdown("#### 3. The Live Week 4 Alignment Check (90 Minutes)")
-    st.write("Once your nervous system has settled, we come back together for a second extensive 90-minute live deep-dive session. Armed with the perspective of your independent trial, we will see exactly what your lifestyle requires next. Because every woman is unique, this is where we custom-design your path forward, determining exactly how much support your classic system desires to step into the deeper blocks: **Restore, Rebuild, Ride, and Protect** your ultimate freedom.")
+    st.write("At the end of your 3-week trial, once your nervous system has settled, we reconnect live for a second extensive 90-minute live deep-dive session. Armed with the perspective of your independent trial, we will see exactly what your lifestyle requires next. Because every woman is unique, this is where we determine your exact, customized path forward, determining exactly how much support your classic system desires to step into the deeper blocks: **Restore, Rebuild, Ride, and Protect** your long-term peace.")
     
     st.markdown("---")
     st.markdown("### 🕊️ Container Logistics & Booking")
@@ -619,7 +677,7 @@ elif st.session_state.room_step == 8:
     st.markdown("---")
     st.subheader("Choose Your Next Step Below:")
     
-    # UPGRADED HIGH-INTEGRITY BUTTONS WITH CANDY'S EXACT TEXT
+    # UPGRADED CONVERSATIONAL BUTTONS WITH EXPLICIT RESOURCE OPT-IN
     if 'submitted' not in st.session_state:
         col1, col2 = st.columns(2)
         
