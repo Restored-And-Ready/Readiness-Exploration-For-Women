@@ -46,35 +46,35 @@ if st.session_state.room_step == 1:
     )
     
     st.write(
-        "Welcome. This is not a clinical interrogation or a rigid commercial test. This is a slow, sacred walk "
-        "through the rooms of your internal castle. Give yourself permission to be completely unmasked here. "
-        "We are exploring how you are natively wired versus how you were programmed to survive."
+        "Welcome. This isn't a stiff test or a clinical interview. Think of this as a quiet space to step back, "
+        "take off the armor, and look honestly at how you're running your life. Give yourself permission to be completely "
+        "unmasked here. We're looking at how you are natively wired versus how you learned to survive."
     )
     
     st.markdown("---")
-    st.subheader("Secure Your Private Container")
+    st.subheader("Let's Get Started")
     name = st.text_input("First & Last Name", value=st.session_state.client_responses.get('name', ''))
     email = st.text_input("Private Email Address", value=st.session_state.client_responses.get('email', ''))
     age = st.text_input("Age / Current Season of Life", value=st.session_state.client_responses.get('age', ''))
     
     st.markdown("---")
-    st.subheader("Select Your Environmental Reality")
-    st.write("To ensure the text mirrors your true daily experience, select the path that aligns with your current labor landscape:")
+    st.subheader("Where is your energy focused daily?")
+    st.write("To make sure the reflection questions match your actual daily life, choose the path below that best fits your current world:")
     
     path_selection = st.radio(
-        "Choose your current path:",
+        "Choose your path:",
         [
-            "💼 Path A: The Corporate Leader / HR Executive / Clinical Manager (My workspace and home are physically separate; I run external teams or systems).",
-            "🏡 Path B: The Stay-at-Home Mom / Matriarch (My workspace is my kitchen counter; my daily labor and home environment are fully connected).",
-            "💻 Path C: The Solo WFH Entrepreneur / Visionary (I am building a brand or business from within my home, facing collapsed boundaries and deep professional isolation)."
+            "💼 Path A: The Corporate Leader / Executive / Manager (My workspace and home are completely separate; I run outside teams or systems).",
+            "🏡 Path B: The Stay-at-Home Mom / Matriarch (My workspace is my home; my daily work and family life are fully connected).",
+            "💻 Path C: The Solo WFH Entrepreneur / Visionary (I am building a brand or business from home, facing collapsed boundaries and doing it all myself)."
         ],
         index=0
     )
     
     st.markdown("---")
-    commit = st.checkbox("I commit to giving my system 30 to 60 minutes of uninterrupted time to honor this space and explore my truth.")
+    commit = st.checkbox("I commit to giving myself 30 to 60 minutes of uninterrupted time to honor this space and find my truth.")
     
-    if st.button("Step Across The Threshold"):
+    if st.button("Step Inside"):
         if name and email:
             if commit:
                 st.session_state.client_responses['name'] = name
@@ -84,15 +84,15 @@ if st.session_state.room_step == 1:
                 st.session_state.room_step = 2
                 st.rerun()
             else:
-                st.warning("Please check the commitment box to claim this sacred time for yourself.")
+                st.warning("Please check the commitment box to claim this private time for yourself.")
         else:
-            st.warning("Please provide your name and email to securely build your alignment mirror profile.")
+            st.warning("Please provide your name and email so we can securely build your custom dashboard.")
 
 # ==========================================
 # 💼 ROOM ONE: THE REALM OF DAILY LABOR
 # ==========================================
 elif st.session_state.room_step == 2:
-    st.title("Room One: Your Primary Realm of Daily Labor 💼")
+    st.title("Room One: Your Daily Work 💼")
     st.audio("track1.mp3")
     
     chosen_path = st.session_state.client_responses.get('chosen_path', '')
@@ -101,16 +101,16 @@ elif st.session_state.room_step == 2:
     # --- PATH A: THE CORPORATE LEADER ---
     if "Path A" in chosen_path:
         st.write(
-            "As a corporate executive and leader, your capacity to organize, build precise operational systems, "
-            "and guide external teams is a profound expression of your capability. Let us explore how holding "
-            "the structural vision and navigating the human execution of an external workplace impacts your "
-            "internal operational ecosystem."
+            "Running a team and managing a workspace takes a massive amount of coordination. When our home life "
+            "or internal world feels up and down, we often dive into work to feel in control. We build tight structures "
+            "because it’s the one place we can guarantee results. Let's look under the hood and see how holding "
+            "that high-level responsibility affects how you feel when you finally turn off the lights at the end of the day."
         )
         st.markdown("---")
-        st.subheader("How do you currently navigate the human ecosystem of your workspace?")
+        st.subheader("How do you currently navigate your workspace?")
         
         labor_choice = st.radio(
-            "Select the reality that matches your day-to-day experience:",
+            "Select the description that matches your day-to-day reality:",
             [
                 "I operate with clear boundaries and delegate tasks with ease. I can step away from my desk at the end of the day without carrying the emotional weight or fixing the personal problems of my team.",
                 "I have built precise systems to ensure things are done right, but when people skip protocols, I feel deeply compromised. I find myself stepping in to fix their unfinished work while carrying a heavy layer of unspoken resentment.",
@@ -118,51 +118,51 @@ elif st.session_state.room_step == 2:
             ]
         )
         
-        if "I operate with clear boundaries" in labor_choice:
-            labor_prompt_text = "What does it feel like to lead and operate from this space of clean alignment? What specific professional boundaries are you currently using to successfully protect your peace?"
-        elif "I have built precise systems" in labor_choice:
-            labor_prompt_text = "Where do you feel the heavy friction of parenting your team? Why does your software whisper that you must step in and fix their unfinished mess to protect the client or patient?"
+        if "clear boundaries" in labor_choice:
+            labor_prompt_text = "What does it feel like to lead from this space of clean alignment? What specific boundaries are you currently using to successfully protect your peace?"
+        elif "precise systems" in labor_choice:
+            labor_prompt_text = "Where do you feel the heavy friction of parenting your team? What is the unspoken cost of stepping in and fixing everyone else's unfinished work?"
         else:
-            labor_prompt_text = "What specific vulnerability or chaos are you balancing by pulling all execution onto your solo island? What are you choosing to look at when you lower your guard?"
+            labor_prompt_text = "What are you protecting yourself from by pulling all execution onto your solo island? What are you afraid will happen if you lower your guard and trust people?"
 
     # --- PATH B: THE STAY-AT-HOME MOM ---
     elif "Path B" in chosen_path:
         st.write(
-            "Managing a home and leading a family structure means holding a multi-faceted domestic empire where "
-            "daily labor, organizational logistics, and personal rest occupy the exact same physical space. Let us "
-            "explore how balancing these beautifully integrated elements impacts your internal operational ecosystem."
+            "Running a household and keeping a family thriving means you're always on. Because your home is your workspace, "
+            "the lines between work, parenting, and rest disappear fast. You wear every single hat in the empire—logistics manager, "
+            "driver, scheduler, and chef. Let's see how managing it all impacts your daily peace."
         )
         st.markdown("---")
         st.subheader("How does your system currently hold the daily load of running the home?")
         
         labor_choice = st.radio(
-            "Select the reality that matches your day-to-day experience:",
+            "Select the description that matches your day-to-day reality:",
             [
-                "I honor my role at home as a sacred space. I can set clear domestic boundaries without guilt, disconnect my worth from an external paycheck, and confidently prioritize my own recovery, health, and rest alongside my family's needs.",
+                "I honor my role at home as a beautiful space. I can set clear domestic boundaries without guilt, disconnect my worth from an external paycheck, and confidently prioritize my own recovery, health, and rest alongside my family's needs.",
                 "I find myself running this household like a strict operational drill, managing every tiny detail. I stay on constant high alert because a voice inside tells me that if I drop a single logistical ball, the entire family structure will fall apart.",
                 "I frequently collapse my boundaries, saying yes when my body is screaming no, and swallow my true complaints to keep the peace. I turn to secret comforts—like endless scrolling, online shopping, or a quiet drink—just to survive the isolation."
             ]
         )
         
         if "I honor my role at home" in labor_choice:
-            labor_prompt_text = "How do you successfully separate your internal worth from a corporate paycheck? What does prioritizing your own intellectual expansion look like in your daily routine?"
+            labor_prompt_text = "How do you successfully separate your internal worth from a paycheck? What does prioritizing your own health and rest look like in your weekly routine?"
         elif "strict operational drill" in labor_choice:
-            labor_prompt_text = "What does your system prioritize when managing every moving piece around you? What becomes possible when these details run smoothly?"
+            labor_prompt_text = "What are you worried will happen if you drop a single domestic ball? Where did you first learn that you are only safe if you are perfectly managing everything around you?"
         else:
-            labor_prompt_text = "What specific adjustments or space are you longing for to ease the isolation? What would true, unmasked support feel like in your household right now?"
+            labor_prompt_text = "What specific unexpressed pain or grief are you swallowing to keep the peace? What empty space are the quiet drinks, scrolling, or Amazon packages trying to fill?"
 
     # --- PATH C: THE SOLO WFH ENTREPRENEUR ---
     else:
         st.write(
-            "You are birthing a vision and building a brand from your bedroom, home office, or kitchen table, pouring "
-            "your life-force and deep professional focus into your laptop or computer. Let us explore how navigating "
-            "this creative professional expanse impacts your system."
+            "Building a business from home means your laptop or computer is your constant companion. You're pouring your "
+            "life-force and passion into your vision, often completely alone. Let's deep dive into your current venture "
+            "and see how holding this massive dream entirely on your own affects your mind and body."
         )
         st.markdown("---")
-        st.subheader("How is your system currently holding the pressure of your business creation?")
+        st.subheader("How are you currently handling the pressure of building your business?")
         
         labor_choice = st.radio(
-            "Select the reality that matches your day-to-day experience:",
+            "Select the description that matches your day-to-day reality:",
             [
                 "I create and operate my business with a sense of spaciousness and trust. I can cleanly close my laptop when the day is done, completely separate my personal worth from my stats, and let my work be an unforced expression of my purpose.",
                 "I am pouring survival panic into my brand. I find myself grinding until 2 AM, over-engineer my strategy entirely in my head, and staying in frantic motion because I feel like an completely unsupported, isolated island.",
@@ -173,9 +173,9 @@ elif st.session_state.room_step == 2:
         if "spaciousness and trust" in labor_choice:
             labor_prompt_text = "How does operating from deep trust alter your creative clarity? How do you cleanly disconnect your personal value from your daily revenue or social stats?"
         elif "survival panic" in labor_choice:
-            labor_prompt_text = "What adjustments to your timeline or structure would allow your business expansion to feel more spacious and unforced?"
+            labor_prompt_text = "What adjustments to your timeline or structure would allow your business expansion to feel more spacious and unforced? What are you running from at 2 AM?"
         else:
-            labor_prompt_text = "Where exactly does your creative energy flow best when the pressure drops? What does your system need to feel completely supported as you take your next small step?"
+            labor_prompt_text = "Where exactly does your creative energy flow best when the pressure drops? What do you need right now to feel completely supported as you take your next small step?"
         
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
@@ -191,17 +191,17 @@ elif st.session_state.room_step == 2:
 # 🏡 ROOM TWO: THE STATUS GATE
 # ==========================================
 elif st.session_state.room_step == 3:
-    st.title("Room Two: Your Home, Relational Dynamics & Intimacy 🏡")
+    st.title("Room Two: Your Home & Relationships 🏡")
     st.write(
-        "Now, we turn our gaze behind closed doors—into your closest relationships, your family dynamics, and the "
-        "core of your intimacy and sexual vitality. Women deeply tangle their identity as a *mother* with their identity "
-        "as a *sensual, relational woman*, often burying their private desires under their children's schedules. "
-        "To untangle this matrix, let us look at your exact relational landscape:"
+        "Now, let's look behind closed doors—into your closest connections, your family life, and the "
+        "core of your intimacy and vitality. It's so easy for a woman to completely tangle her identity as a mother "
+        "with her identity as a romantic woman, often burying her private desires under the family schedule. "
+        "Let's untangle this. Select your current status below:"
     )
     
     st.markdown("---")
     relational_status = st.radio(
-        "Select your current relational status:",
+        "Select your current relationship landscape:",
         [
             "Path Single: I am single, divorced, or navigating life without a live-in partner.",
             "Path Partnered: I am married, cohabitating, or in a long-term committed relationship."
@@ -224,12 +224,12 @@ elif st.session_state.room_step == 4:
     
     if "Path Single" in status:
         st.write(
-            "As a solo anchor, every single ounce of emotional, physical, and financial weight rests squarely on "
-            "your shoulders. Let us explore the baseline reality of your household operations:"
+            "As a solo anchor, the daily emotional, physical, and financial details rest on your shoulders. "
+            "Let's look honestly at how your home currently feels:"
         )
         st.markdown("---")
         parenting_choice = st.radio(
-            "Which of these descriptions most accurately matches how your home currently functions?",
+            "Which of these descriptions most accurately matches how your home functions?",
             [
                 "I lead my household with a sense of calm authority and grace. I hold loving, clear boundaries with my children and trust that my presence and love are more than enough.",
                 "I run a highly regulated, tight ship because there is no safety net beneath me. I force myself to be everything at once, terrified that if I drop a single ball, our entire baseline structure will collapse.",
@@ -238,30 +238,30 @@ elif st.session_state.room_step == 4:
         )
         
         if "calm authority" in parenting_choice:
-            parenting_prompt_text = "Your solo parenting landscape is reflecting a beautiful state of clean alignment. What boundaries or mental shifts have allowed you to cultivate this internal peace?"
+            parenting_prompt_text = "Your parenting landscape is reflecting a beautiful state of clean alignment. What boundaries or shifts have allowed you to cultivate this peace?"
         elif "highly regulated" in parenting_choice:
-            parenting_prompt_text = "What structural adaptations would allow you to share the daily load more effectively? Where can you open up space to receive supportive alignment?"
+            parenting_prompt_text = "What does it physically cost your spirit to carry the full weight of provider and protector entirely alone? Where can you allow yourself to receive support?"
         else:
-            parenting_prompt_text = "What does a balanced, calm home environment look like to you? How can your current household framework adjust to support that vision?"
+            parenting_prompt_text = "What specific past failure or family change are you trying to overcompensate for by letting your boundaries collapse?"
             
     else:
         st.write(
-            "Sharing a roof does not automatically guarantee shared labor. Let us look at how the daily logistics, "
-            "emotional loads, and management of the children are actually balanced between you and your partner:"
+            "Sharing a roof doesn't always mean shared work. Let's look at how the daily routines, "
+            "emotional weight, and parenting duties are actually balanced between you and your partner:"
         )
         st.markdown("---")
         parenting_choice = st.radio(
             "Which of these descriptions captures your current co-parenting reality?",
             [
-                "We manage the logistics and daily routines well as a functional unit. We communicate with mutual respect, share the structural loads evenly, and keep the household organized and stable together.",
+                "We manage the logistics and daily routines well as a functional unit. We communicate with mutual respect, share the loads evenly, and keep the household organized and stable together.",
                 "I am essentially single-parenting with a spouse. My partner is completely checked out or acts like another child I have to manage. I carry the entire emotional and physical workload alone while shielding a deep layer of bitter resentment."
             ]
         )
         
         if "functional unit" in parenting_choice:
-            parenting_prompt_text = "Your household teamwork is operating in pure light. How do you and your partner actively maintain this mutual respect and shared operational flow without dropping into resentment?"
+            parenting_prompt_text = "Your household teamwork is operating in a beautiful space. How do you and your partner actively maintain this mutual respect and shared flow without dropping into resentment?"
         else:
-            parenting_prompt_text = "What specific operational changes would bridge the gap between you and your partner? How can your household software rebalance so you feel completely supported?"
+            parenting_prompt_text = "What is the true weight of single-parenting with a spouse? How deep does that silent, bitter resentment run toward your partner, and how is it draining your energy daily?"
 
     st.markdown("---")
     st.subheader("Your Parenting Reflection Journal")
@@ -289,8 +289,8 @@ elif st.session_state.room_step == 5:
     
     if "Path Single" in status:
         st.write(
-            "Strip away your responsibilities to your children. Let us look strictly at you—the woman, your sensuality, "
-            "and your private romantic desires. What is the raw reality inside your heart?"
+            "Let's strip away your responsibilities to your children. This is just about you—the woman, your sensuality, "
+            "and your romantic desires. What is the raw reality inside your heart?"
         )
         st.markdown("---")
         intimacy_choice = st.radio(
@@ -303,15 +303,15 @@ elif st.session_state.room_step == 5:
         )
         
         if "healthy part" in intimacy_choice:
-            intimacy_prompt_text = "Your private intimate heart is open and aligned. What does this deep emotional security allow you to confidently welcome or explore next in your life?"
+            intimacy_prompt_text = "Your intimate heart is open and aligned. What does this deep emotional security allow you to confidently welcome or explore next in your life?"
         elif "secretly mourning" in intimacy_choice:
-            intimacy_prompt_text = "What does an updated, emotionally clear relationship with your romantic past look like? What would your heart need to feel entirely safe to open up again?"
+            intimacy_prompt_text = "What is the name of the past heartbreak or divorce your heart is still actively processing? What terrifies you about lowering your guard and letting someone in again?"
         else:
-            intimacy_prompt_text = "What would it look like to softly invite the 'Lover' archetype back into your life? What spaces of your day are ready to expand into personal romance and companionship?"
+            intimacy_prompt_text = "You've hidden your sensual self behind the mask of a busy mother. What would happen if you allowed yourself to admit that you deeply crave romance and touch?"
 
     else:
         st.write(
-            "Strip away the kids, the schedules, and the household chores. When the bedroom door closes and it is "
+            "Let's look past the kids, the schedules, and the household chores. When the bedroom door closes and it is "
             "just you and your partner, what is the honest truth of your connection?"
         )
         st.markdown("---")
@@ -325,11 +325,11 @@ elif st.session_state.room_step == 5:
         )
         
         if "deep safety" in intimacy_choice:
-            intimacy_prompt_text = "Your intimate bedroom connection is functioning as a radiant sanctuary of alignment. What does this deep safety and pleasure unlock for your partnership and your independent vision?"
+            intimacy_prompt_text = "Your bedroom connection is a real sanctuary. What does this deep safety and pleasure unlock for your life and your personal vision?"
         elif "emotionally distant" in intimacy_choice:
-            intimacy_prompt_text = "What does a deeply fulfilling, vocal, and secure intimacy look like for you? What communication shifts would bring your partnership back into alignment?"
+            intimacy_prompt_text = "Where exactly are you compromising your own physical or emotional boundaries inside your intimacy just to avoid conflict, judgment, or tension?"
         else:
-            intimacy_prompt_text = "What does a vibrant, high-matching relational baseline feel like to your body? How can your connection update to mirror the passion that belongs in your marriage?"
+            intimacy_prompt_text = "You are platonic roommates coexisting in the dark. What outside comforts (online shopping, constant scrolling, quiet drinks) are you using to fill the void of real physical connection?"
 
     st.markdown("---")
     st.subheader("Your Intimacy Reflection Journal")
@@ -348,18 +348,18 @@ elif st.session_state.room_step == 5:
             st.rerun()
 
 # ==========================================
-# 🩺 ROOM THREE: PHYSICAL HEALTH & SOMATIC THRESHOLDS
+# 🩺 ROOM THREE: PHYSICAL HEALTH
 # ==========================================
 elif st.session_state.room_step == 6:
-    st.title("Room Three: Your Physical Health & Somatic Thresholds 🩺")
+    st.title("Room Three: Your Physical Body 🩺")
     st.write(
-        "Your physical body has been the faithful witness to every ounce of pressure, unexpressed grief, and emotional "
-        "residue you have carried. It keeps the score perfectly when the mind tries to override. Let us tune in and listen:"
+        "Your body is the faithful witness to every ounce of pressure, unexpressed grief, and stress you carry. "
+        "It keeps the score perfectly when our minds try to power through. Let's tune in and listen to what your body is saying:"
     )
     st.audio("track3.mp3")
     
     st.markdown("---")
-    st.subheader("How does your internal operating system currently handle your physical body?")
+    st.subheader("How do you currently treat your physical body?")
     
     body_choice = st.radio(
         "Select the statement that best describes your relation to your physical health:",
@@ -371,14 +371,14 @@ elif st.session_state.room_step == 6:
         ]
     )
     
-    if "I am deeply attuned to my body" in body_choice:
-        body_prompt_text = "Your system is operating in clear somatic alignment. What dedicated health boundaries or recovery practices are successfully keeping your physical temple so radiant right now?"
+    if "attuned to my body" in body_choice:
+        body_prompt_text = "Your body is operating in clear alignment. What specific practices or rest boundaries are successfully keeping your physical temple so radiant right now?"
     elif "like a machine" in body_choice:
-        body_prompt_text = "What standard of vibrant, effortless health and relaxation is your tissue ready to reclaim? What does true somatic recovery look like for your physical system?"
+        body_prompt_text = "Where exactly is your body screaming for you to stop? What are you actively trying to outrun by forcing your system to march through pain on pure cortisol and adrenaline?"
     elif "locks up" in body_choice:
-        body_prompt_text = "What does a completely open, fluid, and light physical body feel like to you? What does your tissue need to safely drop the protective armor and return to balance?"
+        body_prompt_text = "Where in your flesh do you physically feel this defensive armor (stubborn weight retention, shoulder tightness, chronic pain)? What deep emotional vulnerability is it trying to protect?"
     else:
-        body_prompt_text = "What physical baseline of raw feeling and vitality is your body ready to activate? How can your awareness shift from the neck down to fully inhabit your flesh?"
+        body_prompt_text = "What specific, heavy emotions are you deeply afraid to actually feel in your chest and gut by choosing to live entirely inside your analytical head?"
         
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
@@ -397,13 +397,13 @@ elif st.session_state.room_step == 6:
             st.rerun()
 
 # ==========================================
-# 👑 ROOM FOUR: IDENTITY, ESSENCE & WORTH
+# 👑 ROOM FOUR: IDENTITY & WORTH
 # ==========================================
 elif st.session_state.room_step == 7:
-    st.title("Room Four: Your Identity & Sovereign Essence 👑")
+    st.title("Room Four: Your Core Self 👑")
     st.write(
-        "We step now into the quietest room. Strip away the corporate titles, the business metrics, the maternal roles, "
-        "and the endless demands of everyone who relies daily on your strength. We are looking directly at you."
+        "We step now into the quietest room. Strip away the titles, the business metrics, the maternal roles, "
+        "and the endless demands of everyone who relies on your strength. We are looking directly at you."
     )
     st.audio("track4.mp3")
     
@@ -421,13 +421,13 @@ elif st.session_state.room_step == 7:
     )
     
     if "anchored in my inherent worth" in identity_choice:
-        identity_prompt_text = "You are standing firmly on your throne, resting in your inherent worth. What does it physically feel like to fully accept your own enoughness without needing to perform for anyone?"
+        identity_prompt_text = "You are resting in your inherent worth. What does it physically feel like to fully accept your own enoughness without needing to perform or produce for anyone?"
     elif "chained to my output" in identity_choice:
-        identity_prompt_text = "What does an unshakeable, internal sense of enoughness look like when you are in absolute stillness? Who is the sovereign woman that exists beneath the production?"
+        identity_prompt_text = "If you completely stopped fixing, helping, or working for one full week, who would you be? Why does absolute stillness feel like such a threat to your system?"
     elif "hyper-critical" in identity_choice:
-        identity_prompt_text = "What words of radical compassion, validation, and ultimate safety is your inner child ready to receive from you right now? What is your true internal truth?"
+        identity_prompt_text = "Whose critical voice is that inner judge actually using? What does the younger version of you inside desperately need to hear from you instead?"
     else:
-        identity_prompt_text = "Who are you when you step into the room completely for yourself? What do your true, unmasked desires, creative longings, and personal essence look like?"
+        identity_prompt_text = "Who are you when you step into the room completely for yourself? What do your true, unmasked desires and creative longings look like when no one else is watching?"
         
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
@@ -450,20 +450,20 @@ elif st.session_state.room_step == 7:
 # ==========================================
 elif st.session_state.room_step == 8:
     st.title("Your Alignment Mirror 🕊️")
-    st.write("Take a deep breath. Exhale the armor. Your multi-dimensional somatic blueprint has been compiled.")
+    st.write("Take a deep breath. Let it out. Your personal somatic blueprint is ready.")
     st.audio("track5.mp3")
     
     st.markdown("---")
-    st.header("✨ Your Unmasked Somatic Blueprint")
-    st.write("Below is the record of the exact data markers and reflection journal answers you mapped across your internal castle today:")
+    st.header("✨ Your Private Reflection Report")
+    st.write("Here is the full record of your data markers and private journal entries from your walk today:")
     
-    # Render Raw Answers for transparent validation
-    with st.expander("Review Your Captured Journal Inputs"):
-        st.markdown(f"**Primary Realm of Labor:**\n*{st.session_state.client_responses.get('room1_journal')}*")
+    # Render Raw Answers for transparent verification
+    with st.expander("Review Your Private Reflections"):
+        st.markdown(f"**Your Daily Work:**\n*{st.session_state.client_responses.get('room1_journal')}*")
         st.markdown(f"**Parenting Dynamic Load:**\n*{st.session_state.client_responses.get('room2_parenting_journal')}*")
         st.markdown(f"**Intimate & Sensual Self:**\n*{st.session_state.client_responses.get('room2_intimacy_journal')}*")
         st.markdown(f"**Physical Body & Tissues:**\n*{st.session_state.client_responses.get('room3_journal')}*")
-        st.markdown(f"**Core Self-Worth Dialogue:**\n*{st.session_state.client_responses.get('room4_journal')}*")
+        st.markdown(f"**Core Self Dialogue:**\n*{st.session_state.client_responses.get('room4_journal')}*")
 
     st.markdown("---")
     
@@ -471,50 +471,49 @@ elif st.session_state.room_step == 8:
     fumes_areas = []
     
     if "clear boundaries" not in st.session_state.client_responses.get('room1_mirror', '') and "I honor my role at home" not in st.session_state.client_responses.get('room1_mirror', '') and "spaciousness and trust" not in st.session_state.client_responses.get('room1_mirror', ''):
-        fumes_areas.append("💼 **Operational Optimization:** Your professional landscape is currently utilizing high processing power, drawing focus away from your baseline stillness.")
+        fumes_areas.append("💼 **Your Daily Work:** Your current work landscape is demanding excessive focus, pulling energy away from your baseline stillness.")
         
     if "calm authority" not in st.session_state.client_responses.get('room2_parenting_mirror', '') and "functional unit" not in st.session_state.client_responses.get('room2_parenting_mirror', ''):
-        fumes_areas.append("🧒 **Family Dynamics:** Your domestic routine is requesting a shift in structural load sharing to allow your parenting style to flow with complete ease.")
+        fumes_areas.append("🧒 **Family Dynamics:** Your domestic routines are asking for a rebalance in load-sharing so your parenting style can flow with complete ease.")
         
     if "healthy part" not in st.session_state.client_responses.get('room2_intimacy_mirror', '') and "deep safety" not in st.session_state.client_responses.get('room2_intimacy_mirror', ''):
-        fumes_areas.append("🥀 **Intimate & Sensual Self:** Your relational energy is resting in a protected posture, ready to expand back into its full warmth, luxury, and passion.")
+        fumes_areas.append("🥀 **Intimate & Sensual Self:** Your relational energy is resting in a guarded posture, ready to expand back into warmth, luxury, and passion.")
         
-    if "I am deeply attuned to my body" not in st.session_state.client_responses.get('room3_mirror', ''):
-        fumes_areas.append("🩺 **Somatic Landscape:** Your physical body is absorbing the daily momentum, holding tension in the tissue rather than allowing for clean, restorative rest.")
+    if "attuned to my body" not in st.session_state.client_responses.get('room3_mirror', ''):
+        fumes_areas.append("🩺 **Somatic Body:** Your physical body is absorbing the daily pressure, holding stress in the tissue instead of allowing for clean recovery.")
         
     if "anchored in my inherent worth" not in st.session_state.client_responses.get('room4_mirror', ''):
-        fumes_areas.append("👑 **Internal Dialogue Software:** Your inner narrative is relying on an output-driven performance script to validate your space, ready for a self-compassion update.")
+        fumes_areas.append("👑 **Internal Dialogue Software:** Your inner narrative is relying on performance to feel safe, ready for a deep self-compassion upgrade.")
 
     num_leaks = len(fumes_areas)
     
-    st.subheader("📊 Candy's Dashboard Analysis")
+    st.subheader("📊 Your Dashboard Alignment Check")
     
     # TIER 1: TOTAL SYSTEMIC ALIGNMENT (0 leaks)
     if num_leaks == 0:
         st.markdown(
             "### **Your System is Operating at Peak Capacity.**\n\n"
-            "Your internal dashboard is showing exceptional spaciousness, pristine boundaries, and a gorgeous, "
-            "grounded connection to your sovereign worth. Your engine is firing on clean, integrated power across the board.\n\n"
-            "This is precisely why we utilize **The Private Somatic Restoration Container** as an advanced masterclass architecture—to expand your capacity, evolve your vision, and allow your body to experience an even higher level of luxury, balance, and impact without compromise."
+            "Your internal dashboard looks beautiful. You're holding clear boundaries, protecting your space, and staying anchored "
+            "in your worth. Your engine is firing on clean, integrated power across the board.\n\n"
+            "This is exactly why we use **The Private Somatic Restoration Container** as an advanced masterclass architecture. We're not here to patch up problems—we're here to expand your capacity, evolve your vision, and allow your body to experience an even higher level of luxury, balance, and impact without sacrifice."
         )
         
-    # TIER 2: SURGICAL PINPOINT MAINTENANCE (1 to 2 leaks) - POSITIVE NLP UPGRADE
+    # TIER 2: SURGICAL PINPOINT MAINTENANCE (1 to 2 leaks)
     elif 1 <= num_leaks <= 2:
         st.markdown(
-            "### **Targeted Optimization: Elevating a Specific Area to Match Your Standard.**\n\n"
-            "Looking closely at your markers, your foundation is exceptionally brilliant. You have done beautiful, "
-            "intentional work to protect your peace and navigate your lifestyle with mastery across the vast majority of your rooms. "
-            "Your system is highly functional, which means you deserve a life where **every single piece** matches the high standard of what is already working well. "
-            "Right now, there is just an isolated lag where your energy is running low or emptying out:"
+            "### **Targeted Optimization: Bringing Every Part of Your Life Up to Your Standard.**\n\n"
+            "Looking closely at your markers, your foundation is incredibly strong. You have done beautiful, intentional work to protect "
+            "your peace and run your life with mastery across almost every room. You deserve a life where **every single piece** matches "
+            "the elite standard of what is already working well. Right now, there is just an isolated area where your tank is running low:"
         )
         for area in fumes_areas:
             st.markdown(area)
             
         st.markdown(
             "### 🔧 Calibrating the Lag\n\n"
-            "Because the rest of your vehicle is running beautifully, we do not need a chaotic overhaul—we just need a refined software update. "
-            "When one isolated area is running dry, it forces the high-performing parts of your life to carry extra momentum. "
-            "You aren't broken; your system is simply ready to bring this single area up into complete calibration so your entire life runs seamlessly.\n\n"
+            "Because the rest of your vehicle is running beautifully, we don't need a massive overhaul—we just need a refined software update. "
+            "When one isolated area is running dry, it forces the high-performing parts of your life to carry extra weight. "
+            "You aren't broken; your system is simply ready to bring this single area up into complete balance so your entire life runs seamlessly.\n\n"
             "In your **1-to-1 Somatic Release Session**, we will pull straight up on the lift, skip what is already thriving, and focus entirely "
             "on sealing this specific gap. We are here to run the exact system update needed so your body can rest in complete, uninterrupted wholeness. "
             "This is exactly why we design this container."
@@ -523,20 +522,20 @@ elif st.session_state.room_step == 8:
     # TIER 3: SYSTEMIC OVERCOMPENSATION (3 or more leaks)
     else:
         st.markdown(
-            "### **Systemic Reset: Ready for a Comprehensive Calibration.**\n\n"
-            "Looking closely at your markers, your internal system is holding an immense amount of input. "
-            "You have been relying on your raw strength, intellect, and execution to carry multiple areas of your life "
-            "simultaneously. Your vehicle has been incredibly resilient, but several core operational lines are currently ready for a full system update:"
+            "### **Systemic Reset: Ready for a Complete System Calibration.**\n\n"
+            "Looking closely at your markers, your system is holding a massive amount of input. You've been relying on your raw strength, "
+            "intellect, and execution to carry multiple areas of your life at the same time. Your vehicle has been incredibly resilient, "
+            "but several core operational areas are running low and are ready for an upgrade:"
         )
         for area in fumes_areas:
             st.markdown(area)
             
         st.markdown(
             "### 🔧 Upgrading Your Entire System\n\n"
-            "When multiple warning lights illuminate on your dashboard at once, trying to resolve them with mental willpower, strategy, or simply "
-            "'pushing through' is like using an outdated operating system to run highly advanced software. You have evolved past your old coping loops, "
-            "and your body is simply letting you know it is time for a complete upgrade to support the current season of your life.\n\n"
-            "Our work inside **The Private Somatic Restoration Container** is designed for this exact level of elevation. We will open a premium, protected "
+            "When multiple warning lights illuminate on your dashboard at once, trying to resolve them with mental strategy or just 'pushing through' "
+            "is like using an old operating system to run highly advanced software. You have evolved past your old coping loops, and your body "
+            "is letting you know it is time for a complete upgrade to support the current season of your life.\n\n"
+            "Our work inside **The Private Somatic Restoration Container** is designed for this exact depth. We will open a premium, protected "
             "architecture to fully recalibrate your nervous system, physically update the patterns held in your tissue, and systematically balance "
             "every single dimension of your world so your energy runs completely clear and unforced."
         )
