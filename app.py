@@ -193,7 +193,7 @@ elif st.session_state.room_step == 2:
 elif st.session_state.room_step == 3:
     st.title("Room Two: Your Home & Relationships 🏡")
     st.write(
-        "Now, let's look behind closed doors—into your closest relationships, your family dynamics, and the "
+        "Now, let's look behind closed doors—into your closest connections, your family dynamics, and the "
         "core of your intimacy and sexual vitality. It's so easy for a woman to completely tangle her identity as a mother "
         "with her identity as a romantic woman, often burying her private desires under the family schedule. "
         "Let's untangle this. Select your current status below:"
@@ -327,7 +327,7 @@ elif st.session_state.room_step == 5:
         if "deep safety" in intimacy_choice:
             intimacy_prompt_text = "Your bedroom connection is a real sanctuary. What does this deep safety and pleasure unlock for your life and your personal vision?"
         elif "emotionally distant" in intimacy_choice:
-            intimacy_prompt_text = "What does a deeply fulfilling, vocal, and secure intimacy look like for you? What communication shifts would bring your partnership back into alignment?"
+            intimacy_prompt_text = "Where exactly are you compromising your own physical or emotional boundaries inside your intimacy just to avoid conflict, judgment, or tension?"
         else:
             intimacy_prompt_text = "You are platonic roommates coexisting in the dark. What outside comforts (online shopping, constant scrolling, quiet drinks) are you using to fill the void of real physical connection?"
 
@@ -427,7 +427,7 @@ elif st.session_state.room_step == 7:
     elif "hyper-critical" in identity_choice:
         identity_prompt_text = "What words of radical compassion, validation, and ultimate safety is your inner child ready to receive from you right now? What is your true internal truth?"
     else:
-        identity_prompt_text = "Who are you when you step into the room completely for yourself? What do your true, unmasked desires and creative longings look like when no one else is watching?"
+        identity_choice = "Who are you when you step into the room completely for yourself? What do your true, unmasked desires and creative longings look like when no one else is watching?"
         
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
@@ -482,7 +482,7 @@ Journal Insight: {st.session_state.client_responses.get('room4_journal')}
 Compiled safely and anchored in inherent goodness.
 """
 
-    # Render Raw Answers for transparent verification
+    # Render Raw Answers for transparent validation
     with st.expander("Review Your Private Reflections"):
         st.markdown(f"**Your Daily Work:**\n*{st.session_state.client_responses.get('room1_journal')}*")
         st.markdown(f"**Parenting Dynamic Load:**\n*{st.session_state.client_responses.get('room2_parenting_journal')}*")
@@ -490,7 +490,7 @@ Compiled safely and anchored in inherent goodness.
         st.markdown(f"**Physical Body & Tissues:**\n*{st.session_state.client_responses.get('room3_journal')}*")
         st.markdown(f"**Core Self Dialogue:**\n*{st.session_state.client_responses.get('room4_journal')}*")
 
-    # THE BROKEN PROMISE SOLVED: DIRECT OPTION TO GET A COPY
+    # Direct option to download their copy
     st.download_button(
         label="📥 Save a Private Copy of My Blueprint",
         data=download_blueprint_text,
@@ -574,36 +574,40 @@ Compiled safely and anchored in inherent goodness.
         )
 
     st.markdown("---")
-    st.subheader("🏛️ Your Dedicated 30-Day Private Restoration Architecture")
+    
+    # RE-PENCILED HIGH-LEVERAGE SALES PITCH copy
+    st.subheader("🏛️ The 30-Day Private Restoration Architecture")
     st.write(
-        "To seamlessly align your internal software and ensure every single aspect of your lifestyle matches "
-        "the brilliant capacity of your true essence, we step into a dedicated, three-phase framework:"
+        "Most mainstream programs try to sign you up for heavy, long-term contracts before you've even had a chance to breathe. "
+        "We do things completely differently. This dedicated 30-day container is built as a high-integrity alignment trial—a single "
+        "month designed specifically for you to test-drive your own capacity, tune in, and determine if you are ready to make a "
+        "permanent, lifestyle change for yourself."
     )
     
-    st.markdown("#### Phase 1: The Private Somatic Release Session")
-    st.write("A live, dedicated 1-to-1 deep dive container where we pop open the hood, map your exact somatic calibration points, and guide your body to physically update and release any old processing pressure or lingering tissue residue.")
+    st.markdown("#### Phase 1: The Live Somatic Release Session")
+    st.write("We start with a deep-dive 1-to-1 session to pop open the hood, clear the baseline pressure, and bring absolute, immediate clarity into exactly what parts of your software require fine-tuning.")
     
-    st.markdown("#### Phase 2: The 21-Day Protected Integration")
-    st.write("Three weeks of protected integration loops equipped with daily somatic resource tracks and custom practices designed specifically to anchor your new, upgraded operational boundaries.")
+    st.markdown("#### Phase 2: The 21-Day Commitment Trial")
+    st.write("You spend the next three weeks practicing a new way of living. Supported by bespoke tracking and personal recordings, you will test your own ability to carved out time for daily journaling, somatic reflection, and structural boundaries.")
     
-    st.markdown("#### Phase 3: The Weeks 3 & 4 Alignment Check")
-    st.write("A dedicated review container to lock in your systemic calibration and ensure your lifestyle runs smoothly for the long haul.")
+    st.markdown("#### Phase 3: The Week 4 Alignment Check")
+    st.write("At the end of the month, we connect for a dedicated review. Armed with the raw perspective of your 3-week trial, you will know with absolute certainty whether you have the bandwidth and the internal desire to commit to this lifestyle upgrade long-term.")
     
     st.markdown("---")
     st.markdown("### 🕊️ Container Logistics & Booking")
     st.write(
-        "The foundational investment for this complete three-phase dynamic somatic architecture is **$750**."
+        "The complete investment for this foundational 30-day alignment trial and live release session is **$750**."
     )
     
     st.markdown("---")
     st.subheader("Choose Your Next Step Below:")
     
-    # THE TWO-BUTTON ECOSYSTEM SOLVED
+    # DYNAMIC BUTTON TEXT UPGRADE
     if 'submitted' not in st.session_state:
         col1, col2 = st.columns(2)
         
         with col1:
-            if st.button("🕊️ Submit & Book My Session"):
+            if st.button("🕊️ I am ready. Let's do this."):
                 try:
                     st.session_state.client_responses['user_intent'] = "READY_TO_BOOK"
                     webhook_url = st.secrets["WEBHOOK_URL"]
@@ -614,7 +618,7 @@ Compiled safely and anchored in inherent goodness.
                     st.error("Connection link timed out. Please try again.")
                     
         with col2:
-            if st.button("🌳 Send Me the Alignment Resources"):
+            if st.button("🌳 This was great, but I'm not ready to commit yet."):
                 try:
                     st.session_state.client_responses['user_intent'] = "WANTS_RESOURCES_ONLY"
                     webhook_url = st.secrets["WEBHOOK_URL"]
@@ -624,7 +628,6 @@ Compiled safely and anchored in inherent goodness.
                 except:
                     st.error("Connection link timed out. Please try again.")
     else:
-        # Dynamic response tracking based on which path she proudly selected
         if st.session_state.submitted == "BOOKING":
             st.success("✨ Your unmasked somatic profile has been securely transmitted straight to Candy's private desk! Check your email right now for your calendar invitation to select your session time.")
         else:
