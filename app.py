@@ -193,8 +193,8 @@ elif st.session_state.room_step == 2:
 elif st.session_state.room_step == 3:
     st.title("Room Two: Your Home & Relationships 🏡")
     st.write(
-        "Now, let's look behind closed doors—into your closest connections, your family life, and the "
-        "core of your intimacy and vitality. It's so easy for a woman to completely tangle her identity as a mother "
+        "Now, let's look behind closed doors—into your closest relationships, your family dynamics, and the "
+        "core of your intimacy and sexual vitality. It's so easy for a woman to completely tangle her identity as a mother "
         "with her identity as a romantic woman, often burying her private desires under the family schedule. "
         "Let's untangle this. Select your current status below:"
     )
@@ -229,7 +229,7 @@ elif st.session_state.room_step == 4:
         )
         st.markdown("---")
         parenting_choice = st.radio(
-            "Which of these descriptions most accurately matches how your home functions?",
+            "Which of these descriptions most accurately matches how your home currently functions?",
             [
                 "I lead my household with a sense of calm authority and grace. I hold loving, clear boundaries with my children and trust that my presence and love are more than enough.",
                 "I run a highly regulated, tight ship because there is no safety net beneath me. I force myself to be everything at once, terrified that if I drop a single ball, our entire baseline structure will collapse.",
@@ -327,7 +327,7 @@ elif st.session_state.room_step == 5:
         if "deep safety" in intimacy_choice:
             intimacy_prompt_text = "Your bedroom connection is a real sanctuary. What does this deep safety and pleasure unlock for your life and your personal vision?"
         elif "emotionally distant" in intimacy_choice:
-            intimacy_prompt_text = "Where exactly are you compromising your own physical or emotional boundaries inside your intimacy just to avoid conflict, judgment, or tension?"
+            intimacy_prompt_text = "What does a deeply fulfilling, vocal, and secure intimacy look like for you? What communication shifts would bring your partnership back into alignment?"
         else:
             intimacy_prompt_text = "You are platonic roommates coexisting in the dark. What outside comforts (online shopping, constant scrolling, quiet drinks) are you using to fill the void of real physical connection?"
 
@@ -374,11 +374,11 @@ elif st.session_state.room_step == 6:
     if "attuned to my body" in body_choice:
         body_prompt_text = "Your body is operating in clear alignment. What specific practices or rest boundaries are successfully keeping your physical temple so radiant right now?"
     elif "like a machine" in body_choice:
-        body_prompt_text = "Where exactly is your body screaming for you to stop? What are you actively trying to outrun by forcing your system to march through pain on pure cortisol and adrenaline?"
+        body_prompt_text = "What standard of vibrant, effortless health and relaxation is your tissue ready to reclaim? What does true somatic recovery look like for your physical system?"
     elif "locks up" in body_choice:
-        body_prompt_text = "Where in your flesh do you physically feel this defensive armor (stubborn weight retention, shoulder tightness, chronic pain)? What deep emotional vulnerability is it trying to protect?"
+        body_prompt_text = "What does a completely open, fluid, and light physical body feel like to you? What does your tissue need to safely drop the protective armor and return to balance?"
     else:
-        body_prompt_text = "What specific, heavy emotions are you deeply afraid to actually feel in your chest and gut by choosing to live entirely inside your analytical head?"
+        body_prompt_text = "What physical baseline of raw feeling and vitality is your body ready to activate? How can your awareness shift from the neck down to fully inhabit your flesh?"
         
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
@@ -423,9 +423,9 @@ elif st.session_state.room_step == 7:
     if "anchored in my inherent worth" in identity_choice:
         identity_prompt_text = "You are resting in your inherent worth. What does it physically feel like to fully accept your own enoughness without needing to perform or produce for anyone?"
     elif "chained to my output" in identity_choice:
-        identity_prompt_text = "If you completely stopped fixing, helping, or working for one full week, who would you be? Why does absolute stillness feel like such a threat to your system?"
+        identity_prompt_text = "What does an unshakeable, internal sense of enoughness look like when you are in absolute stillness? Who is the sovereign woman that exists beneath the production?"
     elif "hyper-critical" in identity_choice:
-        identity_prompt_text = "Whose critical voice is that inner judge actually using? What does the younger version of you inside desperately need to hear from you instead?"
+        identity_prompt_text = "What words of radical compassion, validation, and ultimate safety is your inner child ready to receive from you right now? What is your true internal truth?"
     else:
         identity_prompt_text = "Who are you when you step into the room completely for yourself? What do your true, unmasked desires and creative longings look like when no one else is watching?"
         
@@ -457,6 +457,31 @@ elif st.session_state.room_step == 8:
     st.header("✨ Your Private Reflection Report")
     st.write("Here is the full record of your data markers and private journal entries from your walk today:")
     
+    # Compile text for the downloadable file format
+    download_blueprint_text = f"""THE UNLABELED EXPLORATION - MY BLUEPRINT
+--------------------------------------------------
+Name: {st.session_state.client_responses.get('name')}
+Season of Life / Age: {st.session_state.client_responses.get('age')}
+Selected Pathway Landscape: {st.session_state.client_responses.get('chosen_path')}
+
+[ROOM ONE: MY DAILY WORK]
+Journal Insight: {st.session_state.client_responses.get('room1_journal')}
+
+[ROOM TWO: MY PARENTING DYNAMICS]
+Journal Insight: {st.session_state.client_responses.get('room2_parenting_journal')}
+
+[ROOM TWO: MY INTIMATE & SENSUAL SELF]
+Journal Insight: {st.session_state.client_responses.get('room2_intimacy_journal')}
+
+[ROOM THREE: MY PHYSICAL BODY]
+Journal Insight: {st.session_state.client_responses.get('room3_journal')}
+
+[ROOM FOUR: MY CORE INNER DIALOGUE]
+Journal Insight: {st.session_state.client_responses.get('room4_journal')}
+--------------------------------------------------
+Compiled safely and anchored in inherent goodness.
+"""
+
     # Render Raw Answers for transparent verification
     with st.expander("Review Your Private Reflections"):
         st.markdown(f"**Your Daily Work:**\n*{st.session_state.client_responses.get('room1_journal')}*")
@@ -464,6 +489,14 @@ elif st.session_state.room_step == 8:
         st.markdown(f"**Intimate & Sensual Self:**\n*{st.session_state.client_responses.get('room2_intimacy_journal')}*")
         st.markdown(f"**Physical Body & Tissues:**\n*{st.session_state.client_responses.get('room3_journal')}*")
         st.markdown(f"**Core Self Dialogue:**\n*{st.session_state.client_responses.get('room4_journal')}*")
+
+    # THE BROKEN PROMISE SOLVED: DIRECT OPTION TO GET A COPY
+    st.download_button(
+        label="📥 Save a Private Copy of My Blueprint",
+        data=download_blueprint_text,
+        file_name=f"{st.session_state.client_responses.get('name','My')}_Somatic_Blueprint.txt",
+        mime="text/plain"
+    )
 
     st.markdown("---")
     
@@ -559,26 +592,44 @@ elif st.session_state.room_step == 8:
     st.markdown("---")
     st.markdown("### 🕊️ Container Logistics & Booking")
     st.write(
-        "The foundational investment for this complete three-phase dynamic somatic architecture is **$750**.\n\n"
-        "To officially claim this system upgrade, lock your exploration profile onto Candy's private desk, and receive your "
-        "secure calendar invitation to select your live session time, click the submit button below."
+        "The foundational investment for this complete three-phase dynamic somatic architecture is **$750**."
     )
     
     st.markdown("---")
+    st.subheader("Choose Your Next Step Below:")
     
-    # INTERACTIVE SUBMIT BUTTON ARCHITECTURE
+    # THE TWO-BUTTON ECOSYSTEM SOLVED
     if 'submitted' not in st.session_state:
-        if st.button("Submit My Somatic Profile to Candy 🕊️"):
-            try:
-                webhook_url = st.secrets["WEBHOOK_URL"]
-                requests.post(webhook_url, json=st.session_state.client_responses)
-                st.session_state.submitted = True
-                st.rerun()
-            except:
-                st.error("Connection link timed out. Please check your dashboard settings and try submitting again.")
-    else:
-        st.success("✨ Your unmasked somatic profile has been securely transmitted straight to Candy's private desk! Check your email for your next steps and calendar invitation.")
+        col1, col2 = st.columns(2)
         
+        with col1:
+            if st.button("🕊️ Submit & Book My Session"):
+                try:
+                    st.session_state.client_responses['user_intent'] = "READY_TO_BOOK"
+                    webhook_url = st.secrets["WEBHOOK_URL"]
+                    requests.post(webhook_url, json=st.session_state.client_responses)
+                    st.session_state.submitted = "BOOKING"
+                    st.rerun()
+                except:
+                    st.error("Connection link timed out. Please try again.")
+                    
+        with col2:
+            if st.button("🌳 Send Me the Alignment Resources"):
+                try:
+                    st.session_state.client_responses['user_intent'] = "WANTS_RESOURCES_ONLY"
+                    webhook_url = st.secrets["WEBHOOK_URL"]
+                    requests.post(webhook_url, json=st.session_state.client_responses)
+                    st.session_state.submitted = "RESOURCES"
+                    st.rerun()
+                except:
+                    st.error("Connection link timed out. Please try again.")
+    else:
+        # Dynamic response tracking based on which path she proudly selected
+        if st.session_state.submitted == "BOOKING":
+            st.success("✨ Your unmasked somatic profile has been securely transmitted straight to Candy's private desk! Check your email right now for your calendar invitation to select your session time.")
+        else:
+            st.info("🌳 Your alignment request has been logged! Your custom resource packet is being compiled. Check your email shortly to download your somatic boundary exercises.")
+            
         if st.button("Restart Exploration Journey 🔄"):
             st.session_state.room_step = 1
             st.session_state.client_responses = {}
