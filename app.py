@@ -1,4 +1,4 @@
-import streamlit as st
+  import streamlit as st
 import requests
 import json
 
@@ -221,7 +221,7 @@ elif st.session_state.room_step == 3:
 # ==========================================
 elif st.session_state.room_step == 4:
     st.title("Room Two: Checkpoint A - The Parenting Dynamic 🧒")
-    st.audio("track2.mp3") # Grounding Relational Audio plays here
+    st.audio("track2.mp3")
     status = st.session_state.client_responses.get('relational_status', '')
     parenting_prompt_text = ""
     
@@ -283,11 +283,10 @@ elif st.session_state.room_step == 4:
             st.rerun()
 
 # ==========================================
-# 🏡 ROOM TWO: CHECKPOINT B (Intimacy Only - Audio Removed)
+# 🏡 ROOM TWO: CHECKPOINT B (Intimacy Only)
 # ==========================================
 elif st.session_state.room_step == 5:
     st.title("Room Two: Checkpoint B - Your Intimate & Sensual Self 🥀")
-    # Audio removed from here to allow a quiet, uninterrupted reflective flow
     status = st.session_state.client_responses.get('relational_status', '')
     intimacy_prompt_text = ""
     
@@ -371,7 +370,7 @@ elif st.session_state.room_step == 6:
         [
             "🌟 The Radiant Temple (Aligned Flow): I am deeply attuned to my body's language. I honor its physical boundaries, feed it with somatic presence and pleasure, and allow it to experience true, unconditional rest before a breakdown forces me to stop.",
             "⚔️ The Over-Taxed Machine (Control Addiction): I treat my body like a soldier or a tool. I am addicted to adrenaline and cortisol, forcing my system to override chronic fatigue, ignore warning signals, and keep marching forward because I put everyone else first.",
-            "🫥 The Somatic Shut Down (Freeze / Protection Armor): When emotional pressure gets too high, my physical system freezes. I suffer from chronic tightness, unexplained fatigue, or weight retention that acts like literal physical armor protecting my vulnerability from the world.",
+            "𫫥 The Somatic Shut Down (Freeze / Protection Armor): When emotional pressure gets too high, my physical system freezes. I suffer from chronic tightness, unexplained fatigue, or weight retention that acts like literal physical armor protecting my vulnerability from the world.",
             "🔮 The Disassociated Mind (Flight / Neck-Up Living): I live entirely from the neck up. I ignore my body's physical sensations completely, over-intellectualizing my health issues or treating my symptoms like an abstract science project instead of actually feeling my flesh."
         ]
     )
@@ -380,7 +379,7 @@ elif st.session_state.room_step == 6:
         body_prompt_text = "Your system is operating in clear somatic alignment. What dedicated health boundaries or recovery practices are successfully keeping your physical temple so radiant right now?"
     elif "⚔️" in body_choice:
         body_prompt_text = "Where exactly is your body screaming for you to stop? What are you actively trying to outrun by forcing your system to march through pain on pure cortisol and adrenaline?"
-    elif "🫥" in body_choice:
+    elif "𫫥" in body_choice:
         body_prompt_text = "Where in your flesh do you physically feel this defensive armor (stubborn weight retention, shoulder tightness, chronic pain)? What deep emotional vulnerability is it trying to protect?"
     else:
         body_prompt_text = "What specific, heavy emotions are you deeply afraid to actually feel in your chest and gut by choosing to live entirely inside your analytical head?"
@@ -463,8 +462,7 @@ elif st.session_state.room_step == 8:
         f"**Somatic Explorer Profile:** {st.session_state.client_responses.get('name')}\n\n"
         f"**Current Pathway Matrix:** {st.session_state.client_responses.get('chosen_path')}\n"
         f"**Relational Infrastructure:** {st.session_state.client_responses.get('relational_status')}\n\n"
-        f"Your choices across your Daily Labor, Home, Intimacy, Body, and Identity have been securely "
-        f"locked into our high-integrity, private database container."
+        f"Your choices across your Daily Labor, Home, Intimacy, Body, and Identity are staged and ready for transmission."
     )
     
     st.markdown(
@@ -495,22 +493,26 @@ elif st.session_state.room_step == 8:
     st.markdown("### 🕊️ Container Logistics & Booking")
     st.write(
         "The foundational investment for this complete three-phase somatic architecture is **$750**.\n\n"
-        "By initiating this private container, you will be given a secure, private calendar invitation to select "
-        "your session time and complete your investment. To honor the deep, intentional preparation required to hold this space "
-        "exclusively for you, your session and 30-day container are officially secured and confirmed once the investment is complete."
+        "To officially claim this container and send your unmasked reflection profile directly onto Candy's desk, click the submit button below."
     )
     
-    # Secure background automated push to webhook.site
-    if 'fired' not in st.session_state:
-        try:
-            webhook_url = st.secrets["WEBHOOK_URL"]
-            requests.post(webhook_url, json=st.session_state.client_responses)
-            st.session_state.fired = True
-        except:
-            pass
-            
-    if st.button("Restart Exploration Journey 🔄"):
-        st.session_state.room_step = 1
-        st.session_state.client_responses = {}
-        if 'fired' in st.session_state: del st.session_state.fired
-        st.rerun()
+    st.markdown("---")
+    
+    # NEW INTERACTIVE SUBMIT BUTTON ARCHITECTURE
+    if 'submitted' not in st.session_state:
+        if st.button("Submit My Somatic Profile to Candy 🕊️"):
+            try:
+                webhook_url = st.secrets["WEBHOOK_URL"]
+                requests.post(webhook_url, json=st.session_state.client_responses)
+                st.session_state.submitted = True
+                st.rerun()
+            except:
+                st.error("Connection link timed out. Please check your dashboard settings and try submitting again.")
+    else:
+        st.success("✨ Your unmasked somatic profile has been securely transmitted straight to Candy's private desk! Check your email for your next steps and calendar invitation.")
+        
+        if st.button("Restart Exploration Journey 🔄"):
+            st.session_state.room_step = 1
+            st.session_state.client_responses = {}
+            if 'submitted' in st.session_state: del st.session_state.submitted
+            st.rerun()
