@@ -118,12 +118,12 @@ elif st.session_state.room_step == 2:
             ]
         )
         
-        if "clear boundaries" in labor_choice:
+        if "I operate with clear boundaries" in labor_choice:
             labor_prompt_text = "What does it feel like to lead and operate from this space of clean alignment? What specific professional boundaries are you currently using to successfully protect your peace?"
-        elif "precise systems" in labor_choice:
-            labor_prompt_text = "Where do you feel the heavy friction of parenting your team? Why does your survival software whisper that you must step in and fix their unfinished mess to protect the client or patient?"
+        elif "I have built precise systems" in labor_choice:
+            labor_prompt_text = "Where do you feel the heavy friction of parenting your team? Why does your software whisper that you must step in and fix their unfinished mess to protect the client or patient?"
         else:
-            labor_prompt_text = "What specific vulnerability or chaos are you protecting yourself from by pulling all execution onto your solo island? What are you afraid will happen if you lower your guard?"
+            labor_prompt_text = "What specific vulnerability or chaos are you balancing by pulling all execution onto your solo island? What are you choosing to look at when you lower your guard?"
 
     # --- PATH B: THE STAY-AT-HOME MOM ---
     elif "Path B" in chosen_path:
@@ -145,12 +145,12 @@ elif st.session_state.room_step == 2:
             ]
         )
         
-        if "sacred space" in labor_choice:
+        if "I honor my role at home" in labor_choice:
             labor_prompt_text = "How do you successfully separate your internal worth from a corporate paycheck? What does prioritizing your own intellectual expansion look like in your daily routine?"
         elif "strict operational drill" in labor_choice:
-            labor_prompt_text = "What terrifies your system about dropping a single domestic ball? Where did you first learn the rule that you are only safe if you are perfectly managing every moving piece around you?"
+            labor_prompt_text = "What does your system prioritize when managing every moving piece around you? What becomes possible when these details run smoothly?"
         else:
-            labor_prompt_text = "What specific unexpressed pain or grief are you swallowing to keep the peace? What empty space inside are the daytime drinks, scrolling, or Amazon packages trying to fill?"
+            labor_prompt_text = "What specific adjustments or space are you longing for to ease the isolation? What would true, unmasked support feel like in your household right now?"
 
     # --- PATH C: THE SOLO WFH ENTREPRENEUR ---
     else:
@@ -174,9 +174,9 @@ elif st.session_state.room_step == 2:
         if "spaciousness and trust" in labor_choice:
             labor_prompt_text = "How does operating from deep trust alter your creative clarity? How do you cleanly disconnect your personal value from your daily revenue or social stats?"
         elif "survival panic" in labor_choice:
-            labor_prompt_text = "What are you running from by grinding until 2 AM? What does your system believe will happen if you slow down and allow your business to rest for a weekend?"
+            labor_prompt_text = "What adjustments to your timeline or structure would allow your business expansion to feel more spacious and unforced?"
         else:
-            labor_prompt_text = "Where exactly does the pressure of building this alone freeze your creative energy? What does your system need to feel safe enough to thaw out and take one small step?"
+            labor_prompt_text = "Where exactly does your creative energy flow best when the pressure drops? What does your system need to feel completely supported as you take your next small step?"
         
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
@@ -241,9 +241,9 @@ elif st.session_state.room_step == 4:
         if "calm authority" in parenting_choice:
             parenting_prompt_text = "Your solo parenting landscape is reflecting a beautiful state of clean alignment. What boundaries or mental shifts have allowed you to cultivate this internal peace?"
         elif "highly regulated" in parenting_choice:
-            parenting_prompt_text = "What does it physically cost your spirit to carry the full weight of provider and protector entirely alone? Where can you allow your system to receive support?"
+            parenting_prompt_text = "What structural adaptations would allow you to share the daily load more effectively? Where can you open up space to receive supportive alignment?"
         else:
-            parenting_prompt_text = "What specific past failure or family rupture are you trying to overcompensate for by letting your children walk over your structural boundaries?"
+            parenting_prompt_text = "What does a balanced, calm home environment look like to you? How can your current household framework adjust to support that vision?"
             
     else:
         st.write(
@@ -262,7 +262,7 @@ elif st.session_state.room_step == 4:
         if "functional unit" in parenting_choice:
             parenting_prompt_text = "Your household teamwork is operating in pure light. How do you and your partner actively maintain this mutual respect and shared operational flow without dropping into resentment?"
         else:
-            parenting_prompt_text = "What is the true somatic weight of single-parenting with a spouse? How deep does the silent, bitter resentment run toward your partner, and how is it draining your energy?"
+            parenting_prompt_text = "What specific operational changes would bridge the gap between you and your partner? How can your household software rebalance so you feel completely supported?"
 
     st.markdown("---")
     st.subheader("Your Parenting Reflection Journal")
@@ -306,9 +306,9 @@ elif st.session_state.room_step == 5:
         if "healthy part" in intimacy_choice:
             intimacy_prompt_text = "Your private intimate heart is open and aligned. What does this deep emotional security allow you to confidently welcome or explore next in your life?"
         elif "secretly mourning" in intimacy_choice:
-            intimacy_prompt_text = "What is the name of the relational ghost or past divorce your heart is still actively mourning? What terrifies your system about lowering your guard and risking exposure again?"
+            intimacy_prompt_text = "What does an updated, emotionally clear relationship with your romantic past look like? What would your heart need to feel entirely safe to open up again?"
         else:
-            intimacy_prompt_text = "You've hidden your sensual life-force behind the mask of a busy mother. What would happen if you allowed yourself to admit that you deeply crave romantic and physical companionship?"
+            intimacy_prompt_text = "What would it look like to softly invite the 'Lover' archetype back into your life? What spaces of your day are ready to expand into personal romance and companionship?"
 
     else:
         st.write(
@@ -328,9 +328,9 @@ elif st.session_state.room_step == 5:
         if "deep safety" in intimacy_choice:
             intimacy_prompt_text = "Your intimate bedroom connection is functioning as a radiant sanctuary of alignment. What does this deep safety and pleasure unlock for your partnership and your independent vision?"
         elif "emotionally distant" in intimacy_choice:
-            intimacy_prompt_text = "Where exactly are you compromising your own physical or emotional boundaries inside your sexual intimacy just to avoid his judgment, anger, or relational friction?"
+            intimacy_prompt_text = "What does a deeply fulfilling, vocal, and secure intimacy look like for you? What communication shifts would bring your partnership back into alignment?"
         else:
-            intimacy_prompt_text = "You are platonic roommates coexisting in the dark. What outside comforts (online shopping, scrolling, daytime drinking) are you using to fill the void of real physical connection?"
+            intimacy_prompt_text = "What does a vibrant, high-matching relational baseline feel like to your body? How can your connection update to mirror the passion that belongs in your marriage?"
 
     st.markdown("---")
     st.subheader("Your Intimacy Reflection Journal")
@@ -368,18 +368,18 @@ elif st.session_state.room_step == 6:
             "I am deeply attuned to my body's language. I honor its physical boundaries, protect its need for true rest, and respond to its whispers before a physical breakdown forces me to stop.",
             "I treat my body like a machine or a soldier. I run on adrenaline and cortisol, cancel my own appointments to prioritize everyone else, and force my system to march through pain and exhaustion.",
             "When the emotional or mental pressure gets too heavy, my physical system locks up. I struggle with chronic tightness, unexplainable fatigue, or stubborn weight retention that feels like a layer of protective armor.",
-            "I live almost entirely inside my analytical head. I disconnect from physical sensations completely, over-intellectualizing my symptoms or treating my health like an abstract science project instead of actually feeling my flesh."
+            "I live almost entirely inside my analytical head. I disconnect from physical sensations completely, over-intellectualizing my health issues or treating my symptoms like an abstract science project instead of actually feeling my flesh."
         ]
     )
     
-    if "attuned to my body" in body_choice:
+    if "I am deeply attuned to my body" in body_choice:
         body_prompt_text = "Your system is operating in clear somatic alignment. What dedicated health boundaries or recovery practices are successfully keeping your physical temple so radiant right now?"
     elif "like a machine" in body_choice:
-        body_prompt_text = "Where exactly is your body screaming for you to stop? What are you actively trying to outrun by forcing your system to march through pain on pure cortisol and adrenaline?"
+        body_prompt_text = "What standard of vibrant, effortless health and relaxation is your tissue ready to reclaim? What does true somatic recovery look like for your physical system?"
     elif "locks up" in body_choice:
-        body_prompt_text = "Where in your flesh do you physically feel this defensive armor (stubborn weight retention, shoulder tightness, chronic pain)? What deep emotional vulnerability is it trying to protect?"
+        body_prompt_text = "What does a completely open, fluid, and light physical body feel like to you? What does your tissue need to safely drop the protective armor and return to balance?"
     else:
-        body_prompt_text = "What specific, heavy emotions are you deeply afraid to actually feel in your chest and gut by choosing to live entirely inside your analytical head?"
+        body_prompt_text = "What physical baseline of raw feeling and vitality is your body ready to activate? How can your awareness shift from the neck down to fully inhabit your flesh?"
         
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
@@ -424,11 +424,11 @@ elif st.session_state.room_step == 7:
     if "anchored in my inherent worth" in identity_choice:
         identity_prompt_text = "You are standing firmly on your throne, resting in your inherent worth. What does it physically feel like to fully accept your own enoughness without needing to perform for anyone?"
     elif "chained to my output" in identity_choice:
-        identity_prompt_text = "If you completely stopped producing, fixing, or working for one full week, who would you be? Why does absolute stillness feel like such an existential threat to your system?"
+        identity_prompt_text = "What does an unshakeable, internal sense of enoughness look like when you are in absolute stillness? Who is the sovereign woman that exists beneath the production?"
     elif "hyper-critical" in identity_choice:
-        identity_prompt_text = "Whose hyper-severe voice is that inner critic actually using when it judges you? What does the little girl inside you desperately need to hear from you instead?"
+        identity_prompt_text = "What words of radical compassion, validation, and ultimate safety is your inner child ready to receive from you right now? What is your true internal truth?"
     else:
-        identity_prompt_text = "Who are you when you strip away your identity as a mother, worker, or partner? What does your true, unmasked identity look like when no one else is in the room?"
+        identity_prompt_text = "Who are you when you step into the room completely for yourself? What do your true, unmasked desires, creative longings, and personal essence look like?"
         
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
@@ -447,7 +447,7 @@ elif st.session_state.room_step == 7:
             st.rerun()
 
 # ==========================================
-# 🕊️ THE ALIGNMENT MIRROR: DYNAMIC CAR DIAGNOSTIC CLOSER
+# 🕊️ THE ALIGNMENT MIRROR: ENHANCED NLP UPGRADE BLUEPRINT
 # ==========================================
 elif st.session_state.room_step == 8:
     st.title("Your Alignment Mirror 🕊️")
@@ -458,7 +458,7 @@ elif st.session_state.room_step == 8:
     st.header("✨ Your Unmasked Somatic Blueprint")
     st.write("Below is the record of the exact data markers and reflection journal answers you mapped across your internal castle today:")
     
-    # Render Raw Answers for transparent verification
+    # Render Raw Answers for transparent validation
     with st.expander("Review Your Captured Journal Inputs"):
         st.markdown(f"**Primary Realm of Labor:**\n*{st.session_state.client_responses.get('room1_journal')}*")
         st.markdown(f"**Parenting Dynamic Load:**\n*{st.session_state.client_responses.get('room2_parenting_journal')}*")
@@ -468,81 +468,109 @@ elif st.session_state.room_step == 8:
 
     st.markdown("---")
     
-    # CANDY'S DYNAMIC CAR ANALOGY ALIGNMENT PLUMBING
+    # AUDIT THE DASHBOARD FOR SYSTEM UPGRADE CALIBRATION
     fumes_areas = []
     
-    if "clear boundaries" not in st.session_state.client_responses.get('room1_mirror', '') and "sacred space" not in st.session_state.client_responses.get('room1_mirror', '') and "spaciousness and trust" not in st.session_state.client_responses.get('room1_mirror', ''):
-        fumes_areas.append("💼 **Your Realm of Daily Labor:** You are over-engineering, hyper-executing, or utilizing survival panic to drive your work, turning your career landscape into an absolute gladiator match.")
+    if "clear boundaries" not in st.session_state.client_responses.get('room1_mirror', '') and "I honor my role at home" not in st.session_state.client_responses.get('room1_mirror', '') and "spaciousness and trust" not in st.session_state.client_responses.get('room1_mirror', ''):
+        fumes_areas.append("💼 **Operational Optimization:** Your professional landscape is currently utilizing high processing power, drawing focus away from your baseline stillness.")
         
     if "calm authority" not in st.session_state.client_responses.get('room2_parenting_mirror', '') and "functional unit" not in st.session_state.client_responses.get('room2_parenting_mirror', ''):
-        fumes_areas.append("🧒 **Your Parenting Dynamics:** Your family engine is running on cortisol. You are single-parenting with a spouse, playing a rigid high-alert captain, or letting guilt collapse your structural boundaries.")
+        fumes_areas.append("🧒 **Family Dynamics:** Your domestic routine is requesting a shift in structural load sharing to allow your parenting style to flow with complete ease.")
         
     if "healthy part" not in st.session_state.client_responses.get('room2_intimacy_mirror', '') and "deep safety" not in st.session_state.client_responses.get('room2_intimacy_mirror', ''):
-        fumes_areas.append("🥀 **Your Intimate & Sensual Heart:** Your sexual and relational passion tank has gone completely cold. You have slipped into platonic roommates, or you have hidden your lover archetype behind a brick wall to keep from being exposed to further hurt.")
+        fumes_areas.append("🥀 **Intimate & Sensual Self:** Your relational energy is resting in a protected posture, ready to expand back into its full warmth, luxury, and passion.")
         
-    if "attuned to my body" not in st.session_state.client_responses.get('room3_mirror', ''):
-        fumes_areas.append("🩺 **Your Physical Body:** You are treating your flesh like an disposable tool, forcing it to red-line on adrenaline, or your nervous system has entered an outright somatic freeze state to guard your vulnerability.")
+    if "I am deeply attuned to my body" not in st.session_state.client_responses.get('room3_mirror', ''):
+        fumes_areas.append("🩺 **Somatic Landscape:** Your physical body is absorbing the daily momentum, holding tension in the tissue rather than allowing for clean, restorative rest.")
         
     if "anchored in my inherent worth" not in st.session_state.client_responses.get('room4_mirror', ''):
-        fumes_areas.append("👑 **Your Identity & Essence:** Your internal critic or performance software is running on overdrive, leaving you feeling completely empty and unvalidated the second your external output stops.")
+        fumes_areas.append("👑 **Internal Dialogue Software:** Your inner narrative is relying on an output-driven performance script to validate your space, ready for a self-compassion update.")
 
-    # THE CLOSING MIRROR: TIE IT DIRECTLY TO THE ONE-ON-ONE VALUE PROPOSITION
+    num_leaks = len(fumes_areas)
+    
     st.subheader("📊 Candy's Dashboard Analysis")
     
-    if fumes_areas:
+    # TIER 1: TOTAL SYSTEMIC ALIGNMENT (0 leaks)
+    if num_leaks == 0:
         st.markdown(
-            "### **Your System is Running on Fumes.**\n\n"
-            "Looking closely at your markers, your internal vehicle is not broken—but it is **dangerously out of alignment**. "
-            "You have spent so many years overcompensating, driving on adrenaline, and taking care of everyone else that "
-            "your primary fuel tanks have been completely emptied. Your system is actively leaking energy right here:"
+            "### **Your System is Operating at Peak Capacity.**\n\n"
+            "Your internal dashboard is showing exceptional spaciousness, pristine boundaries, and a gorgeous, "
+            "grounded connection to your sovereign worth. Your engine is firing on clean, integrated power across the board.\n\n"
+            "This is precisely why we utilize **The Private Somatic Restoration Container** as an advanced masterclass architecture—to expand your capacity, evolve your vision, and allow your body to experience an even higher level of luxury, balance, and impact without compromise."
+        )
+        
+    # TIER 2: SURGICAL PINPOINT MAINTENANCE (1 to 2 leaks) - POSITIVE NLP UPGRADE
+    elif 1 <= num_leaks <= 2:
+        st.markdown(
+            "### **Targeted Optimization: Elevating a Specific Area to Match Your Standard.**\n\n"
+            "Looking closely at your markers, your foundation is exceptionally brilliant. You have done beautiful, "
+            "intentional work to protect your peace and navigate your lifestyle with mastery across the vast majority of your rooms. "
+            "Your system is highly functional, which means you deserve a life where **every single piece** matches the high standard of what is already working well. "
+            "Right now, there is just an isolated lag where your energy is running low or emptying out:"
         )
         for area in fumes_areas:
             st.markdown(area)
             
         st.markdown(
-            "### 🔧 Pulling Your System Back into Alignment\n\n"
-            "This diagnostic snapshot proves exactly why trying to out-think, change schedules, or talk your way out of "
-            "exhaustion isn't working. You cannot intellectualize an empty gas tank. Your system is physically red-lining because "
-            "your nervous system has been forced to hold these protective control loops open for too long.\n\n"
-            "This is precisely why we design **The Private Somatic Restoration Container**."
+            "### 🔧 Calibrating the Lag\n\n"
+            "Because the rest of your vehicle is running beautifully, we do not need a chaotic overhaul—we just need a refined software update. "
+            "When one isolated area is running dry, it forces the high-performing parts of your life to carry extra momentum. "
+            "You aren't broken; your system is simply ready to bring this single area up into complete calibration so your entire life runs seamlessly.\n\n"
+            "In your **1-to-1 Somatic Release Session**, we will pull straight up on the lift, skip what is already thriving, and focus entirely "
+            "on sealing this specific gap. We are here to run the exact system update needed so your body can rest in complete, uninterrupted wholeness. "
+            "This is exactly why we design this container."
         )
+        
+    # TIER 3: SYSTEMIC OVERCOMPENSATION (3 or more leaks)
     else:
         st.markdown(
-            "### **Your Vehicle is Beautifully Balanced.**\n\n"
-            "Your internal operational dashboard is showing exceptional spaciousness, pristine boundaries, and a deep, "
-            "grounded connection to your sovereign worth. Your engine is firing on clean, integrated power across the board.\n\n"
-            "This is precisely why we utilize **The Private Somatic Restoration Container** as an advanced architecture."
+            "### **Systemic Reset: Ready for a Comprehensive Calibration.**\n\n"
+            "Looking closely at your markers, your internal system is holding an immense amount of input. "
+            "You have been relying on your raw strength, intellect, and execution to carry multiple areas of your life "
+            "simultaneously. Your vehicle has been incredibly resilient, but several core operational lines are currently ready for a full system update:"
+        )
+        for area in fumes_areas:
+            st.markdown(area)
+            
+        st.markdown(
+            "### 🔧 Upgrading Your Entire System\n\n"
+            "When multiple warning lights illuminate on your dashboard at once, trying to resolve them with mental willpower, strategy, or simply "
+            "'pushing through' is like using an outdated operating system to run highly advanced software. You have evolved past your old coping loops, "
+            "and your body is simply letting you know it is time for a complete upgrade to support the current season of your life.\n\n"
+            "Our work inside **The Private Somatic Restoration Container** is designed for this exact level of elevation. We will open a premium, protected "
+            "architecture to fully recalibrate your nervous system, physically update the patterns held in your tissue, and systematically balance "
+            "every single dimension of your world so your energy runs completely clear and unforced."
         )
 
     st.markdown("---")
-    st.subheader("🏛️ Your Custom 30-Day Private Restoration Architecture")
+    st.subheader("🏛 ... Dedicated 30-Day Private Restoration Architecture")
     st.write(
-        "To transition your body out of survival mode and rewrite these exhausted nervous system blueprints "
-        "into an unshakeable, physical reality of enoughness, we step into a dedicated, three-phase framework:"
+        "To seamlessly align your internal software and ensure every single aspect of your lifestyle matches "
+        "the brilliant capacity of your true essence, we step into a dedicated, three-phase framework:"
     )
     
     st.markdown("#### Phase 1: The Private Somatic Release Session")
-    st.write("A live, dedicated 1-to-1 deep dive container where we pop open the hood, map your specific somatic friction points, and guide your body to physically release the trapped cortisol, concrete tightness, and emotional residue.")
+    st.write("A live, dedicated 1-to-1 deep dive container where we pop open the hood, map your exact somatic calibration points, and guide your body to physically update and release any old processing pressure or lingering tissue residue.")
     
     st.markdown("#### Phase 2: The 21-Day Protected Integration")
-    st.write("Three weeks of protected integration loops equipped with bespoke daily somatic resource tracks and custom boundary practices designed specifically to stop your primary energy leaks.")
+    st.write("Three weeks of protected integration loops equipped with daily somatic resource tracks and custom practices designed specifically to anchor your new, upgraded operational boundaries.")
     
     st.markdown("#### Phase 3: The Weeks 3 & 4 Alignment Check")
-    st.write("A dedicated review container to lock in your somatic recalibration and ensure your structural clarity sticks for the long haul.")
+    st.write("A dedicated review container to lock in your systemic calibration and ensure your lifestyle runs smoothly for the long haul.")
     
     st.markdown("---")
-    st.markdown("### 🕊️ Container Logistics & Booking")
+    st.markdown("### 🕊 Container Logistics & Booking")
     st.write(
         "The foundational investment for this complete three-phase dynamic somatic architecture is **$750**.\n\n"
-        "To claim this dedicated container, lock your exploration profile onto Candy's private desk, and receive your "
-        "secure calendar invitation to select your live session time, click the action button below."
+        "To officially claim this system upgrade, lock your exploration profile onto Candy's private desk, and receive your "
+        "secure calendar invitation to select your live session time, click the submit button below."
     )
     
     st.markdown("---")
     
     # INTERACTIVE SUBMIT BUTTON ARCHITECTURE
     if 'submitted' not in st.session_state:
-        if st.button("Submit My Somatic Profile to Candy 🕊️"):
+        if st.button("Submit My Somatic Profile to Candy 🕊"):
             try:
                 webhook_url = st.secrets["WEBHOOK_URL"]
                 requests.post(webhook_url, json=st.session_state.client_responses)
