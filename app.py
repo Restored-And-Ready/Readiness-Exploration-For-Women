@@ -296,7 +296,7 @@ elif st.session_state.room_step == 5:
         intimacy_choice = st.radio(
             "Which of these statements best mirrors your personal intimate heart right now?",
             [
-                "I honor my sexual and romantic desires as a healthy part of my wholeness. I feel open to love, vulnerability, and deep physical connection without shame, guilt, or compromising my independent worth.",
+                "I honor my sexual and romantic desires as a healthy part of my wholleness. I feel open to love, vulnerability, and deep physical connection without shame, guilt, or compromising my independent worth.",
                 "I desire companionship and touch, but I am secretly mourning a past relational rupture, divorce, or betrayal. My system feels frozen in fear, and I use my kids' schedules as a protective shield to keep from risking further pain.",
                 "I have completely locked my sexual life-force, desires, and sensuality behind a brick wall. I don't explore connection, and I use my busy identity as a mother to numb out and ignore the massive void of a companion."
             ]
@@ -448,7 +448,7 @@ elif st.session_state.room_step == 7:
             st.rerun()
 
 # ==========================================
-# 🕊️ THE ALIGNMENT MIRROR: MASTER REPORT GATE
+# 🕊️ THE ALIGNMENT MIRROR: HIGH-TOUCH GATEKEEPER RELEASE
 # ==========================================
 elif st.session_state.room_step == 8:
     st.title("Your Alignment Mirror 🕊️")
@@ -489,7 +489,7 @@ elif st.session_state.room_step == 8:
     st.markdown("---")
     st.write("Below is your complete, raw, unmasked data profile from your walk today:")
     
-    # Render Raw Answers for transparent verification
+    # Render Raw Answers for transparent validation
     with st.expander("Review Your Private Reflections"):
         st.markdown(f"**Your Daily Work:**\n*{st.session_state.client_responses.get('room1_journal')}*")
         st.markdown(f"**Parenting Dynamic Load:**\n*{st.session_state.client_responses.get('room2_parenting_journal')}*")
@@ -571,7 +571,7 @@ elif st.session_state.room_step == 8:
     if "attuned to my body" not in st.session_state.client_responses.get('room3_mirror', ''):
         fumes_areas.append("🩺 **Somatic Body:** Your physical body is absorbing the daily pressure, holding stress in the tissue instead of allowing for clean recovery.")
     if "anchored in my inherent worth" not in st.session_state.client_responses.get('room4_mirror', ''):
-        fumes_areas.append("👑 **Internal Dialogue Software:** Your inner narrative is relying on performance to feel safe, ready for a deep self-compassion update.")
+        fumes_areas.append("👑 **Internal Dialogue Software:** Your inner narrative is relying on performance to feel safe, ready for a deep self-compassion upgrade.")
 
     num_leaks = len(fumes_areas)
     
@@ -649,7 +649,7 @@ elif st.session_state.room_step == 8:
 
     st.markdown("---")
     
-    # 5-PHASE CLASSIC ENGINE RESTORE COPY - METHODOLOGY ALIGNED
+    # 5-PHASE CLASSIC ENGINE RESTORE COPY - PRESERVED GATEKEEPER TIERS
     st.subheader("🏛️ The 30-Day Somatic Release Container (An Autonomy Trial)")
     st.write(
         "Most mainstream coaching architectures create an immediate hierarchy, making you dependent on the coach "
@@ -666,23 +666,26 @@ elif st.session_state.room_step == 8:
     st.write("Following your release, you step into the driver's seat entirely on your own. Armed with your bespoke somatic recording and custom exercises, you will commit just 15 to 30 minutes a day exclusively to yourself (whether 15 minutes morning and night, or a solid block). For three weeks, we deliberately do not speak. This protected space is where your body learns that you already possess all the wisdom and strength you need within—proving you have the capacity to choose yourself daily over the grind.")
     
     st.markdown("#### 3. The Live Week 4 Alignment Check (90 Minutes)")
-    st.write("At the end of your 3-week trial, once your nervous system has settled, we reconnect live for a second extensive 90-minute live deep-dive session. Armed with the perspective of your independent trial, we will see exactly what your lifestyle requires next. Because every woman is unique, this is where we determine your exact, customized path forward, determining exactly how much support your classic system desires to step into the deeper blocks: **Restore, Rebuild, Ride, and Protect** your long-term peace.")
+    st.write("At the end of your 3-week trial, once your nervous system is genuinely settled, we reconnect live for a second extensive 90-minute live deep-dive session. Armed with the perspective of your independent trial, we will see exactly what your lifestyle requires next. Because every woman is unique, this is where we determine your exact, customized path forward, determining exactly how much support your classic system desires to step into the deeper blocks: **Restore, Rebuild, Ride, and Protect** your long-term peace.")
     
     st.markdown("---")
-    st.markdown("### 🕊️ Container Logistics & Booking")
+    st.markdown("### 🕊️ Container Logistics & Booking Profile")
     st.write(
-        "The complete investment for this foundational 30-day autonomy trial, encompassing both extended live sessions and your bespoke integration assets, is **$750**."
+        "The total financial framework for this custom 30-day autonomy trial—encompassing both extended live 1-to-1 sessions "
+        "and your tailored integration software tracks—is locked at **$750**.\n\n"
+        "Because this container requires immense energetic alignment, bookings are curated strictly by invite-only. Hitting submit below "
+        "transmits your unmasked profile straight to Candy's private desk for personal evaluation."
     )
     
     st.markdown("---")
     st.subheader("Choose Your Next Step Below:")
     
-    # UPGRADED CONVERSATIONAL BUTTONS WITH EXPLICIT RESOURCE OPT-IN
+    # CONVERSATIONAL GATEKEEPER BUTTONS - AUTOMATED BOOKING LINKS REMOVED
     if 'submitted' not in st.session_state:
         col1, col2 = st.columns(2)
         
         with col1:
-            if st.button("🕊️ I am ready. Let's do this."):
+            if st.button("🕊️ I am ready. Let's look for alignment."):
                 try:
                     st.session_state.client_responses['user_intent'] = "READY_TO_BOOK"
                     webhook_url = st.secrets["WEBHOOK_URL"]
@@ -704,7 +707,7 @@ elif st.session_state.room_step == 8:
                     st.error("Connection link timed out. Please try again.")
     else:
         if st.session_state.submitted == "BOOKING":
-            st.success("✨ Your unmasked somatic profile has been securely transmitted straight to Candy's private desk! Check your email right now for your calendar invitation to select your session time.")
+            st.success("✨ Your unmasked somatic profile has been securely transmitted straight to Candy's private desk. She will personally review your reflections to evaluate alignment. Keep an eye on your inbox for her private, direct email outreach.")
         else:
             st.success("✨ Your request has been securely logged! Candy's private desk has been notified. Check your email shortly to download your custom somatic resource packet.")
             
