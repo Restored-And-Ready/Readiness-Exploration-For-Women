@@ -193,7 +193,7 @@ elif st.session_state.room_step == 2:
 elif st.session_state.room_step == 3:
     st.title("Room Two: Your Home & Relationships 🏡")
     st.write(
-        "Now, let's look behind closed doors—into your closest relationships, your family dynamics, and the "
+        "Now, let's look behind closed doors—into your closest connections, your family dynamics, and the "
         "core of your intimacy and sexual vitality. It's so easy for a woman to completely tangle her identity as a mother "
         "with her identity as a romantic woman, often burying her private desires under the family schedule. "
         "Let's untangle this. Select your current status below:"
@@ -229,7 +229,7 @@ elif st.session_state.room_step == 4:
         )
         st.markdown("---")
         parenting_choice = st.radio(
-            "Which of these descriptions most accurately matches how your home functions?",
+            "Which of these descriptions most accurately matches how your home currently functions?",
             [
                 "I lead my household with a sense of calm authority and grace. I hold loving, clear boundaries with my children and trust that my presence and love are more than enough.",
                 "I run a highly regulated, tight ship because there is no safety net beneath me. I force myself to be everything at once, terrified that if I drop a single ball, our entire baseline structure will collapse.",
@@ -320,7 +320,7 @@ elif st.session_state.room_step == 5:
             [
                 "Our intimacy is a space of deep safety, pleasure, and emotional surrender. I express my true desires and boundaries without fear, and our relationship is where I drop my armor and experience true rest.",
                 "Our relationship feels emotionally distant or heavy. I find myself constantly people-pleasing—suppressing my real voice, ignoring my own boundaries, and doing whatever it takes just to keep the peace and avoid conflict.",
-                "The passion and physical vitality have gone completely cold. We are platonic roommates coexisting in the dark. I spend my evenings escaping into my head, using scrolling, shopping, or quiet distractions to numb the void between us."
+                "The passion and physical vitality have gone completely cold. We are platonic roommates coexisting in the dark. I spend my evenings escaping into my head, using shopping, scrolling, or quiet distractions to numb the void between us."
             ]
         )
         
@@ -376,7 +376,7 @@ elif st.session_state.room_step == 6:
     elif "like a machine" in body_choice:
         body_prompt_text = "What standard of vibrant, effortless health and relaxation is your tissue ready to reclaim? What does true somatic recovery look like for your physical system?"
     elif "locks up" in body_choice:
-        body_prompt_text = "What does a completely open, fluid, and light physical body feel like to you? What does your tissue need to safely drop the protective armor and return to balance?"
+        body_prompt_text = "Where in your flesh do you physically feel this defensive armor (stubborn weight retention, shoulder tightness, chronic pain)? What deep emotional vulnerability is it trying to protect?"
     else:
         body_prompt_text = "What physical baseline of raw feeling and vitality is your body ready to activate? How can your awareness shift from the neck down to fully inhabit your flesh?"
         
@@ -446,7 +446,7 @@ elif st.session_state.room_step == 7:
             st.rerun()
 
 # ==========================================
-# 🕊️ THE ALIGNMENT MIRROR: ENHANCED NLP UPGRADE BLUEPRINT
+# 🕊️ THE ALIGNMENT MIRROR: ENHANCED DOWNLOAD & ANCHORING
 # ==========================================
 elif st.session_state.room_step == 8:
     st.title("Your Alignment Mirror 🕊️")
@@ -457,32 +457,7 @@ elif st.session_state.room_step == 8:
     st.header("✨ Your Private Reflection Report")
     st.write("Here is the full record of your data markers and private journal entries from your walk today:")
     
-    # Compile text for the downloadable file format
-    download_blueprint_text = f"""THE UNLABELED EXPLORATION - MY BLUEPRINT
---------------------------------------------------
-Name: {st.session_state.client_responses.get('name')}
-Season of Life / Age: {st.session_state.client_responses.get('age')}
-Selected Pathway Landscape: {st.session_state.client_responses.get('chosen_path')}
-
-[ROOM ONE: MY DAILY WORK]
-Journal Insight: {st.session_state.client_responses.get('room1_journal')}
-
-[ROOM TWO: MY PARENTING DYNAMICS]
-Journal Insight: {st.session_state.client_responses.get('room2_parenting_journal')}
-
-[ROOM TWO: MY INTIMATE & SENSUAL SELF]
-Journal Insight: {st.session_state.client_responses.get('room2_intimacy_journal')}
-
-[ROOM THREE: MY PHYSICAL BODY]
-Journal Insight: {st.session_state.client_responses.get('room3_journal')}
-
-[ROOM FOUR: MY CORE INNER DIALOGUE]
-Journal Insight: {st.session_state.client_responses.get('room4_journal')}
---------------------------------------------------
-Compiled safely and anchored in inherent goodness.
-"""
-
-    # Render Raw Answers for transparent validation
+    # Render Raw Answers for transparent verification
     with st.expander("Review Your Private Reflections"):
         st.markdown(f"**Your Daily Work:**\n*{st.session_state.client_responses.get('room1_journal')}*")
         st.markdown(f"**Parenting Dynamic Load:**\n*{st.session_state.client_responses.get('room2_parenting_journal')}*")
@@ -490,12 +465,59 @@ Compiled safely and anchored in inherent goodness.
         st.markdown(f"**Physical Body & Tissues:**\n*{st.session_state.client_responses.get('room3_journal')}*")
         st.markdown(f"**Core Self Dialogue:**\n*{st.session_state.client_responses.get('room4_journal')}*")
 
-    # Direct option to download their copy
+    # HIGH-END INTERACTIVE HTML BLUEPRINT DOWNLOAD WRAPPER
+    html_blueprint_data = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>The Unlabeled Somatic Blueprint</title>
+        <style>
+            body {{ background-color: #FDFBF7; color: #2C2523; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 50px; max-width: 750px; margin: 0 auto; line-height: 1.6; }}
+            h1 {{ color: #5C1D24; font-family: 'Georgia', serif; font-size: 2.4rem; font-weight: normal; border-bottom: 1px solid #E2DDD5; padding-bottom: 15px; margin-bottom: 30px; }}
+            h2 {{ color: #5C1D24; font-family: 'Georgia', serif; font-size: 1.5rem; font-weight: normal; margin-top: 35px; }}
+            p {{ font-size: 1.1rem; color: #4A3E3B; }}
+            .metadata {{ font-style: italic; color: #7A6B66; background: #F7F4EF; padding: 15px 25px; border-radius: 4px; margin-bottom: 40px; border: 1px solid #E2DDD5; }}
+            .journal-block {{ background-color: #F7F4EF; border-left: 4px solid #5C1D24; padding: 20px 30px; margin-bottom: 25px; font-style: italic; color: #2C2523; font-size: 1.1rem; border-radius: 0 4px 4px 0; }}
+            footer {{ text-align: center; margin-top: 60px; font-family: 'Georgia', serif; color: #7A6B66; font-style: italic; border-top: 1px solid #E2DDD5; padding-top: 20px; }}
+        </style>
+    </head>
+    <body>
+        <h1>My Unmasked Somatic Blueprint 🕊️</h1>
+        <div class="metadata">
+            <p><strong>Somatic Explorer:</strong> {st.session_state.client_responses.get('name', 'Anonymous')}</p>
+            <p><strong>Current Season / Age:</strong> {st.session_state.client_responses.get('age', 'Unspecified')}</p>
+            <p><strong>Primary Daily Landscape:</strong> {st.session_state.client_responses.get('chosen_path', 'Unspecified')}</p>
+        </div>
+        
+        <h2>💼 Room One: Daily Work Reflection</h2>
+        <div class="journal-block">"{st.session_state.client_responses.get('room1_journal', 'No entry captured.')}"</div>
+        
+        <h2>🧒 Room Two (A): Household & Parenting Dynamics</h2>
+        <div class="journal-block">"{st.session_state.client_responses.get('room2_parenting_journal', 'No entry captured.')}"</div>
+        
+        <h2>🥀 Room Two (B): Intimacy & Sensual Vitality</h2>
+        <div class="journal-block">"{st.session_state.client_responses.get('room2_intimacy_journal', 'No entry captured.')}"</div>
+        
+        <h2>🩺 Room Three: The Physical Body & Tissue Tension</h2>
+        <div class="journal-block">"{st.session_state.client_responses.get('room3_journal', 'No entry captured.')}"</div>
+        
+        <h2>👑 Room Four: Identity & Core Internal Dialogue</h2>
+        <div class="journal-block">"{st.session_state.client_responses.get('room4_journal', 'No entry captured.')}"</div>
+        
+        <footer>
+            Compiled safely within The Unlabeled Exploration Container. Anchored in inherent goodness.
+        </footer>
+    </body>
+    </html>
+    """
+
+    # Direct premium download button
     st.download_button(
-        label="📥 Save a Private Copy of My Blueprint",
-        data=download_blueprint_text,
-        file_name=f"{st.session_state.client_responses.get('name','My')}_Somatic_Blueprint.txt",
-        mime="text/plain"
+        label="📥 Save a Premium Copy of My Blueprint",
+        data=html_blueprint_data,
+        file_name=f"{st.session_state.client_responses.get('name','My')}_Somatic_Blueprint.html",
+        mime="text/html"
     )
 
     st.markdown("---")
@@ -575,28 +597,29 @@ Compiled safely and anchored in inherent goodness.
 
     st.markdown("---")
     
-    # 5-PHASE CLASSIC ENGINE RESTORE COPY - METHODOLOGY ALIGNED
+    # 5-PHASE CLASSIC ENGINE RESTORE COPY - VALUE ANCHORED WITH THE 2 EXTENDED SESSIONS
     st.subheader("🏛️ The 30-Day Somatic Release Container (An Autonomy Trial)")
     st.write(
         "Most mainstream coaching architectures create an immediate hierarchy, making you dependent on the coach "
         "and locking you into heavy, long-term contracts before you've even settled your nervous system. We break that mold completely. "
-        "This initial 30-day container is dedicated entirely to **The Release Phase**. It is a pure self-commitment trial designed "
-        "to clear baseline pressure and immediately return the healing power back to your own hands."
+        "This initial 30-day container is dedicated entirely to **The Release Phase**. It is an intentional self-commitment trial designed "
+        "to clear baseline pressure and immediately return the healing power back to your own hands. Inside this month, you are receiving "
+        "**nearly 4 full hours of live, dedicated 1-to-1 real estate** split purposefully across your journey:"
     )
     
     st.markdown("#### 1. The Live Somatic Release Session (90 - 120 Minutes)")
-    st.write("We begin with a raw, extended 1-to-1 live container. Think of this as a profound internal massage for your nervous system. We pop open the hood and clear the immediate processing pressure to quiet your internal noise, bringing absolute, unforced clarity into exactly how your system is wired.")
+    st.write("We begin with a raw, extended 1-to-1 live container. Think of this as a profound internal massage for your nervous system. We pop open the hood and clear the immediate processing pressure to quiet your internal noise, bringing absolute, unforced clarity into exactly how your system is currently wired before we ever get into any deep root work.")
     
     st.markdown("#### 2. The 3-Week Independent Trial (Cultivating Internal Power)")
-    st.write("Following your session, you step into the driver's seat entirely on your own. Armed with your bespoke somatic recording and custom exercises, you will commit just 15 to 30 minutes a day exclusively to yourself (whether 15 minutes morning and night, or a solid block). For three weeks, we do not speak. This deliberate space is where your body learns that you already possess all the wisdom and strength you need within—you just need the intentional space to tune in and listen.")
+    st.write("Following your release, you step into the driver's seat entirely on your own. Armed with your bespoke somatic recording and custom exercises, you will commit just 15 to 30 minutes a day exclusively to yourself (whether 15 minutes morning and night, or a solid block). For three weeks, we deliberately do not speak. This protected space is where your body learns that you already possess all the wisdom and strength you need within—proving you have the capacity to choose yourself daily over the grind.")
     
-    st.markdown("#### 3. The Week 4 Alignment Check (Designing Your Custom Path)")
-    st.write("At the end of your 3-week trial, once your nervous system is genuinely settled, we reconnect live for a dedicated alignment check. Because no two women are the same, this is where we discuss what your system requires next. Having proven your commitment to yourself, we will evaluate exactly how much support your vehicle needs to move forward into the deeper, fully customized blocks: **Restore, Rebuild, Ride, and Protect** your ultimate peace.")
+    st.markdown("#### 3. The Live Week 4 Alignment Check (90 Minutes)")
+    st.write("At the end of your 3-week trial, once your nervous system is genuinely settled, we reconnect live for a second extensive 90-minute container. Armed with the raw perspective of your independent trial, we will evaluate your results together. Because no two women are the same, this is where we determine your exact, customized path forward and determine if your classic vehicle is ready to advance into the deep-root customized blocks: **Restore, Rebuild, Ride, and Protect** your long-term peace.")
     
     st.markdown("---")
     st.markdown("### 🕊️ Container Logistics & Booking")
     st.write(
-        "The complete investment for this foundational 30-day alignment trial and live release session is **$750**."
+        "The complete investment for this foundational 30-day autonomy trial, encompassing both extended live sessions and your bespoke integration assets, is **$750**."
     )
     
     st.markdown("---")
