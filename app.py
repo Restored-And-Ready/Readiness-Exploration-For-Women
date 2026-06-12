@@ -66,7 +66,7 @@ if st.session_state.room_step == 1:
         [
             "💼 Path A: The Corporate Leader / Executive / Manager (My workspace and home are completely separate; I run outside teams or systems).",
             "🏡 Path B: The Stay-at-Home Mom / Matriarch (My workspace is my home; my daily work and family life are fully connected).",
-            "💻 Path C: The Solo WFH Entrepreneur / Visionary (I am building a brand or business from home, facing collapsed boundaries and doing it all myself)."
+            "💻 Path C: The Solo WFH Entrepreneur / Visionary (I am building a brand or business from home, facing collapsed boundaries and deep professional isolation)."
         ],
         index=0
     )
@@ -193,7 +193,7 @@ elif st.session_state.room_step == 2:
 elif st.session_state.room_step == 3:
     st.title("Room Two: Your Home & Relationships 🏡")
     st.write(
-        "Now, let's look behind closed doors—into your closest connections, your family dynamics, and the "
+        "Now, let's look behind closed doors—into your closest relationships, your family dynamics, and the "
         "core of your intimacy and sexual vitality. It's so easy for a woman to completely tangle her identity as a mother "
         "with her identity as a romantic woman, often burying her private desires under the family schedule. "
         "Let's untangle this. Select your current status below:"
@@ -296,7 +296,7 @@ elif st.session_state.room_step == 5:
         intimacy_choice = st.radio(
             "Which of these statements best mirrors your personal intimate heart right now?",
             [
-                "I honor my sexual and romantic desires as a healthy part of my wholeness. I feel open to love, vulnerability, and deep physical connection without shame, guilt, or compromising my independent worth.",
+                "I honor my sexual and romantic desires as a healthy part of my wholleness. I feel open to love, vulnerability, and deep physical connection without shame, guilt, or compromising my independent worth.",
                 "I desire companionship and touch, but I am secretly mourning a past relational rupture, divorce, or betrayal. My system feels frozen in fear, and I use my kids' schedules as a protective shield to keep from risking further pain.",
                 "I have completely locked my sexual life-force, desires, and sensuality behind a brick wall. I don't explore connection, and I use my busy identity as a mother to numb out and ignore the massive void of a companion."
             ]
@@ -376,7 +376,7 @@ elif st.session_state.room_step == 6:
     elif "like a machine" in body_choice:
         body_prompt_text = "What standard of vibrant, effortless health and relaxation is your tissue ready to reclaim? What does true somatic recovery look like for your physical system?"
     elif "locks up" in body_choice:
-        body_prompt_text = "Where in your flesh do you physically feel this defensive armor (stubborn weight retention, shoulder tightness, chronic pain)? What deep emotional vulnerability is it trying to protect?"
+        body_prompt_text = "What does a completely open, fluid, and light physical body feel like to you? What does your tissue need to safely drop the protective armor and return to balance?"
     else:
         body_prompt_text = "What physical baseline of raw feeling and vitality is your body ready to activate? How can your awareness shift from the neck down to fully inhabit your flesh?"
         
@@ -446,7 +446,7 @@ elif st.session_state.room_step == 7:
             st.rerun()
 
 # ==========================================
-# 🕊️ THE ALIGNMENT MIRROR: ENHANCED DOWNLOAD & ANCHORING
+# 🕊️ THE ALIGNMENT MIRROR: ARCHETYPE & FIVE-PHASE CONTAINER
 # ==========================================
 elif st.session_state.room_step == 8:
     st.title("Your Alignment Mirror 🕊️")
@@ -455,9 +455,30 @@ elif st.session_state.room_step == 8:
     
     st.markdown("---")
     st.header("✨ Your Private Reflection Report")
-    st.write("Here is the full record of your data markers and private journal entries from your walk today:")
     
-    # Render Raw Answers for transparent verification
+    # --- CANDY'S "BOWL OF SPAGHETTI" & "MANY FACES" PARADIGM DEEP DIVE ---
+    st.markdown("### 🎭 The Architecture of Your Many Faces")
+    st.write(
+        "It is completely normal, healthy, and a natural part of our wiring as high-performing women to wear entirely different faces "
+        "depending on the room we are standing in. In your daily life, you might naturally activate the **Warrior** or "
+        "the **Sovereign Executive** to run your workspace, pivot into the protective **Matriarch** or **Captain** to hold your "
+        "household together, and secretly long to drop into the soft, completely surrendered vulnerability of the **Lover** behind closed bedroom doors."
+    )
+    st.write(
+        "The exhaustion happens when these distinct spaces begin to leak, blur, and intertwine—tangling your energy into a "
+        "**complex bowl of spaghetti**. When you carry the hyper-vigilant Warrior from your desk straight into your parenting or your "
+        "marriage, your system gets locked into a single, high-cortisol gear. You stop wearing these faces as temporary tools and "
+        "begin to mistake them for your *actual identity*. When you get locked into the roles, you lose connection with the woman inside."
+    )
+    st.write(
+        "The reason we walked through these rooms today was not to assign you a clinical label or place you into a commercial box. "
+        "It was to map out where your system is beautifully in its native power, and where it has accidentally gotten locked into a survival gear."
+    )
+    
+    st.markdown("---")
+    st.write("Below is the record of the data markers and private journal reflections you laid bare across your castle today:")
+    
+    # Render Raw Answers for transparent validation
     with st.expander("Review Your Private Reflections"):
         st.markdown(f"**Your Daily Work:**\n*{st.session_state.client_responses.get('room1_journal')}*")
         st.markdown(f"**Parenting Dynamic Load:**\n*{st.session_state.client_responses.get('room2_parenting_journal')}*")
@@ -465,7 +486,7 @@ elif st.session_state.room_step == 8:
         st.markdown(f"**Physical Body & Tissues:**\n*{st.session_state.client_responses.get('room3_journal')}*")
         st.markdown(f"**Core Self Dialogue:**\n*{st.session_state.client_responses.get('room4_journal')}*")
 
-    # HIGH-END INTERACTIVE HTML BLUEPRINT DOWNLOAD WRAPPER
+    # HIGH-END INTERACTIVE HTML BLUEPRINT DOWNLOAD WRAPPER (WITH INTEGRATED SPAGHETTI TEXT)
     html_blueprint_data = f"""
     <!DOCTYPE html>
     <html>
@@ -478,6 +499,7 @@ elif st.session_state.room_step == 8:
             h2 {{ color: #5C1D24; font-family: 'Georgia', serif; font-size: 1.5rem; font-weight: normal; margin-top: 35px; }}
             p {{ font-size: 1.1rem; color: #4A3E3B; }}
             .metadata {{ font-style: italic; color: #7A6B66; background: #F7F4EF; padding: 15px 25px; border-radius: 4px; margin-bottom: 40px; border: 1px solid #E2DDD5; }}
+            .educational-block {{ border: 1px dashed #5C1D24; background-color: #FFFDF9; padding: 25px; border-radius: 6px; margin-bottom: 35px; }}
             .journal-block {{ background-color: #F7F4EF; border-left: 4px solid #5C1D24; padding: 20px 30px; margin-bottom: 25px; font-style: italic; color: #2C2523; font-size: 1.1rem; border-radius: 0 4px 4px 0; }}
             footer {{ text-align: center; margin-top: 60px; font-family: 'Georgia', serif; color: #7A6B66; font-style: italic; border-top: 1px solid #E2DDD5; padding-top: 20px; }}
         </style>
@@ -488,6 +510,11 @@ elif st.session_state.room_step == 8:
             <p><strong>Somatic Explorer:</strong> {st.session_state.client_responses.get('name', 'Anonymous')}</p>
             <p><strong>Current Season / Age:</strong> {st.session_state.client_responses.get('age', 'Unspecified')}</p>
             <p><strong>Primary Daily Landscape:</strong> {st.session_state.client_responses.get('chosen_path', 'Unspecified')}</p>
+        </div>
+        
+        <div class="educational-block">
+            <h2>🎭 The Architecture of Your Many Faces</h2>
+            <p>It is completely normal to wear different faces (the Warrior, the Matriarch, the Lover) depending on the room you stand in. The exhaustion happens when these roles collapse into a complex bowl of spaghetti. When you carry the hyper-vigilant Warrior from your desk straight into your parenting or your marriage, your system gets locked in gear. You aren't broken—you've simply been mistaking the roles you play for your actual identity.</p>
         </div>
         
         <h2>💼 Room One: Daily Work Reflection</h2>
@@ -597,7 +624,7 @@ elif st.session_state.room_step == 8:
 
     st.markdown("---")
     
-    # 5-PHASE CLASSIC ENGINE RESTORE COPY - VALUE ANCHORED WITH THE 2 EXTENDED SESSIONS
+    # 5-PHASE CLASSIC ENGINE RESTORE COPY - VALUE ANCHORED WITH BOTH EXTENDED SESSIONS
     st.subheader("🏛️ The 30-Day Somatic Release Container (An Autonomy Trial)")
     st.write(
         "Most mainstream coaching architectures create an immediate hierarchy, making you dependent on the coach "
