@@ -448,23 +448,43 @@ elif st.session_state.room_step == 7:
             st.rerun()
 
 # ==========================================
-# 🕊️ THE ALIGNMENT MIRROR: SAFE LANDING & LEAP
+# 🕊️ THE ALIGNMENT MIRROR: TRUE REPORT OUTPUT
 # ==========================================
 elif st.session_state.room_step == 8:
     st.title("Your Alignment Mirror 🕊️")
-    st.write("Take a deep breath. Exhale the armor. Your complete multi-dimensional exploration profile has been compiled.")
+    st.write("Take a deep breath. Exhale the armor. Your complete multi-dimensional somatic blueprint has been compiled.")
     st.audio("track5.mp3")
     
     st.markdown("---")
-    st.subheader("Your Hidden Operating System Dashboard")
+    st.header("✨ Your Unmasked Somatic Blueprint")
+    st.write("Below is the full, high-integrity reflection of your internal castle. This layout belongs exclusively to you.")
     
-    st.info(
-        f"**Somatic Explorer Profile:** {st.session_state.client_responses.get('name')}\n\n"
-        f"**Current Pathway Matrix:** {st.session_state.client_responses.get('chosen_path')}\n"
-        f"**Relational Infrastructure:** {st.session_state.client_responses.get('relational_status')}\n\n"
-        f"Your choices across your Daily Labor, Home, Intimacy, Body, and Identity are staged and ready for transmission."
-    )
+    # DYNAMIC FULL-LENGTH TAKEAWAY REPORT CODE INTERACTION
+    st.markdown("### 💼 Room 1: Your Realm of Daily Labor")
+    st.markdown(f"**Your Operating Mirror:**\n> {st.session_state.client_responses.get('room1_mirror', 'No Selection')}")
+    st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room1_journal', 'No written entry saved.')}*")
     
+    st.markdown("---")
+    st.markdown("### 🧒 Room 2: Checkpoint A - The Parenting Dynamic")
+    st.markdown(f"**Your Operating Mirror:**\n> {st.session_state.client_responses.get('room2_parenting_mirror', 'No Selection')}")
+    st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room2_parenting_journal', 'No written entry saved.')}*")
+    
+    st.markdown("---")
+    st.markdown("### 🥀 Room 2: Checkpoint B - Your Intimate & Sensual Self")
+    st.markdown(f"**Your Operating Mirror:**\n> {st.session_state.client_responses.get('room2_intimacy_mirror', 'No Selection')}")
+    st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room2_intimacy_journal', 'No written entry saved.')}*")
+    
+    st.markdown("---")
+    st.markdown("### 🩺 Room 3: Your Physical Body & Somatic Thresholds")
+    st.markdown(f"**Your Operating Mirror:**\n> {st.session_state.client_responses.get('room3_mirror', 'No Selection')}")
+    st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room3_journal', 'No written entry saved.')}*")
+    
+    st.markdown("---")
+    st.markdown("### 👑 Room 4: Your Core Identity & Sovereign Essence")
+    st.markdown(f"**Your Operating Mirror:**\n> {st.session_state.client_responses.get('room4_mirror', 'No Selection')}")
+    st.markdown(f"**Your Private Journal Insight:**\n*{st.session_state.client_responses.get('room4_journal', 'No written entry saved.')}*")
+    
+    st.markdown("---")
     st.markdown(
         "> 🛡️ **The Unlabeled Remonition:** *This profile is an intuitive, highly responsive mirror based entirely on the "
         "authentic narrative choices and somatic markers you chose to lay bare today. Your body carries immense wisdom. "
