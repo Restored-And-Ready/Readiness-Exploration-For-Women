@@ -101,10 +101,10 @@ elif st.session_state.room_step == 2:
     # --- PATH A: THE CORPORATE LEADER ---
     if "Path A" in chosen_path:
         st.write(
-            "When our home life or internal world enters a season of heavy instability, we often flee into our "
-            "professional execution. We build meticulous organizational structures and systems at work because it "
-            "is the one place we feel we can manufacture safety and control. But when your team fails to follow "
-            "protocols, it triggers a deep, exhausting cycle of resentment."
+            "As a corporate executive and leader, your capacity to organize, build precise operational systems, "
+            "and guide external teams is a profound expression of your capability. Let us explore how holding "
+            "the structural vision and navigating the human execution of an external workplace impacts your "
+            "internal operational ecosystem."
         )
         st.markdown("---")
         st.subheader("How do you currently navigate the human ecosystem of your workspace?")
@@ -128,10 +128,9 @@ elif st.session_state.room_step == 2:
     # --- PATH B: THE STAY-AT-HOME MOM ---
     elif "Path B" in chosen_path:
         st.write(
-            "Because your workspace is your home space, the lines between daily labor and private rest don't just "
-            "blur—they completely vanish. You wear every single hat in the empire: doctor, driver, housekeeper, and "
-            "logistics manager. Yet, because you aren't bringing in an outside paycheck, a quiet, destructive story "
-            "whispers that your labor isn't 'providing' real value."
+            "Managing a home and leading a family structure means holding a multi-faceted domestic empire where "
+            "daily labor, organizational logistics, and personal rest occupy the exact same physical space. Let us "
+            "explore how balancing these beautifully integrated elements impacts your internal operational ecosystem."
         )
         st.markdown("---")
         st.subheader("How does your system currently hold the daily load of running the home?")
@@ -155,9 +154,9 @@ elif st.session_state.room_step == 2:
     # --- PATH C: THE SOLO WFH ENTREPRENEUR ---
     else:
         st.write(
-            "You are birthing a kingdom from your bedroom or kitchen table, pouring your life-force into a laptop out of "
-            "absolute survival necessity. But because your labor is invisible to your household, they treat your vision "
-            "like a hobby, leaving you feeling profoundly lonely and unvalidated."
+            "You are birthing a vision and building a brand from your bedroom, home office, or kitchen table, pouring "
+            "your life-force and deep professional focus into your laptop or computer. Let us explore how navigating "
+            "this creative professional expanse impacts your system."
         )
         st.markdown("---")
         st.subheader("How is your system currently holding the pressure of your business creation?")
@@ -543,7 +542,7 @@ elif st.session_state.room_step == 8:
         )
 
     st.markdown("---")
-    st.subheader("🏛 ... Dedicated 30-Day Private Restoration Architecture")
+    st.subheader("🏛️ Your Dedicated 30-Day Private Restoration Architecture")
     st.write(
         "To seamlessly align your internal software and ensure every single aspect of your lifestyle matches "
         "the brilliant capacity of your true essence, we step into a dedicated, three-phase framework:"
@@ -559,7 +558,7 @@ elif st.session_state.room_step == 8:
     st.write("A dedicated review container to lock in your systemic calibration and ensure your lifestyle runs smoothly for the long haul.")
     
     st.markdown("---")
-    st.markdown("### 🕊 Container Logistics & Booking")
+    st.markdown("### 🕊️ Container Logistics & Booking")
     st.write(
         "The foundational investment for this complete three-phase dynamic somatic architecture is **$750**.\n\n"
         "To officially claim this system upgrade, lock your exploration profile onto Candy's private desk, and receive your "
@@ -570,7 +569,7 @@ elif st.session_state.room_step == 8:
     
     # INTERACTIVE SUBMIT BUTTON ARCHITECTURE
     if 'submitted' not in st.session_state:
-        if st.button("Submit My Somatic Profile to Candy 🕊"):
+        if st.button("Submit My Somatic Profile to Candy 🕊️"):
             try:
                 webhook_url = st.secrets["WEBHOOK_URL"]
                 requests.post(webhook_url, json=st.session_state.client_responses)
