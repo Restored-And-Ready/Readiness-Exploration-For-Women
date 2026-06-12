@@ -182,8 +182,6 @@ elif st.session_state.room_step == 2:
         
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
-    
-    # Unique key forced to break Streamlit text_area caching issue
     labor_text = st.text_area(labor_prompt_text, height=150, key=f"labor_journal_{hash(labor_choice)}")
     
     if st.button("Walk Into the Next Space →"):
@@ -193,7 +191,7 @@ elif st.session_state.room_step == 2:
         st.rerun()
 
 # ==========================================
-# 🏡 ROOM TWO: THE STATUS GATE (Untangling Kids from Partner)
+# 🏡 ROOM TWO: THE STATUS GATE
 # ==========================================
 elif st.session_state.room_step == 3:
     st.title("Room Two: Your Home, Relational Dynamics & Intimacy 🏡")
@@ -219,115 +217,142 @@ elif st.session_state.room_step == 3:
         st.rerun()
 
 # ==========================================
-# 🏡 ROOM TWO (ACTUAL): TAILORED RELATIONAL EXPLORATION
+# 🏡 ROOM TWO: CHECKPOINT A (Parenting Only)
 # ==========================================
 elif st.session_state.room_step == 4:
-    st.title("Room Two: The Deep Relational & Intimate Mirrors 🏡")
-    st.audio("track2.mp3")
-    
+    st.title("Room Two: Checkpoint A - The Parenting Dynamic 🧒")
     status = st.session_state.client_responses.get('relational_status', '')
-    relational_prompt_text = ""
+    parenting_prompt_text = ""
     
-    # --- PATH SINGLE NARRATIVE ---
     if "Path Single" in status:
         st.write(
             "As a solo anchor, every single ounce of emotional, physical, and financial weight rests squarely on "
-            "your shoulders. It is easy to completely exile your sensuality, burying the 'Lover' archetype out of "
-            "parental guilt, a fear of being hurt again, or the unexpressed grief of a past relational death..."
+            "your shoulders. Let us look strictly at the survival software currently running your parenting household:"
         )
         st.markdown("---")
-        st.subheader("🧒 Checkpoint A: The Solo Parenting Dynamic")
-        r2_q1 = st.radio(
-            "What is the survival software currently running your parenting household?",
+        parenting_choice = st.radio(
+            "Select your parenting mirror:",
             [
                 "🌟 The Anchored Matriarch (Light): I lead my home with calm authority, hold loving boundaries with my children, and trust that my presence alone is more than enough.",
                 "⚔️ The Hyper-Vigilant Captain (Control): I run a tight, hyper-regulated ship because there is no safety net. I force myself to be both mother and father, terrified that if I drop one ball, everything collapses.",
                 "🎭 The Guilt-Driven Pleaser (Fawn): I carry immense unspoken shame over the fact that their family structure split. I overcompensate out of fear by collapsing my boundaries and letting my kids run the emotional atmosphere of the house."
             ]
         )
+        
+        if "🌟" in parenting_choice:
+            parenting_prompt_text = "Your solo parenting landscape is reflecting a beautiful state of clean alignment. What boundaries or mental shifts have allowed you to cultivate this internal peace?"
+        elif "⚔️" in parenting_choice:
+            parenting_prompt_text = "What does it physically cost your spirit to carry the full weight of provider and protector entirely alone? Where can you allow your system to receive support?"
+        else:
+            parenting_prompt_text = "What specific past failure or family rupture are you trying to overcompensate for by letting your children walk over your structural boundaries?"
+            
+    else:
+        st.write(
+            "Sharing a roof does not automatically guarantee shared labor. So many partnered women find "
+            "themselves 'single parenting with a spouse'—carrying the entire operational and emotional load entirely alone..."
+        )
         st.markdown("---")
-        st.subheader("🥀 Checkpoint B: The Untouched Intimate Self")
-        r2_q2 = st.radio(
-            "Look strictly at you—the woman, your sensuality, and your romantic desires. What is the true state of your heart?",
+        parenting_choice = st.radio(
+            "Select your parenting mirror:",
+            [
+                "🌟 The Unified Operational Team (Light): We manage the logistics and parenting well as a functional unit. We check boxes, run schedules, and keep the household organized and stable together through mutual respect.",
+                "⚔️ The Married Single Mom (Control / Resentful Warrior): My spouse is completely checked out or operates like another child I have to manage. I am single-parenting with a spouse, doing all the emotional lifting, which leaves me carrying a heavy armor of bitter resentment."
+            ]
+        )
+        
+        if "🌟" in parenting_choice:
+            parenting_prompt_text = "Your household teamwork is operating in pure light. How do you and your partner actively maintain this mutual respect and shared operational flow without dropping into resentment?"
+        else:
+            parenting_prompt_text = "What is the true somatic weight of single-parenting with a spouse? How deep does the silent, bitter resentment run toward your partner, and how is it draining your energy?"
+
+    st.markdown("---")
+    st.subheader("Your Parenting Reflection Journal")
+    parenting_text = st.text_area(parenting_prompt_text, height=150, key=f"parenting_journal_{hash(parenting_choice)}")
+    
+    col1, col2 = st.columns([1, 1])
+    with col1:
+        if st.button("← Go Back"):
+            st.session_state.room_step = 3
+            st.rerun()
+    with col2:
+        if st.button("Continue to Intimacy Mirror →"):
+            st.session_state.client_responses['room2_parenting_mirror'] = parenting_choice
+            st.session_state.client_responses['room2_parenting_journal'] = parenting_text
+            st.session_state.room_step = 5
+            st.rerun()
+
+# ==========================================
+# 🏡 ROOM TWO: CHECKPOINT B (Intimacy Only)
+# ==========================================
+elif st.session_state.room_step == 5:
+    st.title("Room Two: Checkpoint B - Your Intimate & Sensual Self 🥀")
+    status = st.session_state.client_responses.get('relational_status', '')
+    intimacy_prompt_text = ""
+    
+    if "Path Single" in status:
+        st.write(
+            "Strip away your responsibilities to your children. Let us look strictly at you—the woman, your sensuality, "
+            "and your private romantic desires. What is happening inside your closed heart?"
+        )
+        st.markdown("---")
+        intimacy_choice = st.radio(
+            "Select your intimacy mirror:",
             [
                 "🌟 The Open Sovereign (Light): I honor my sexual and romantic desires as a sacred part of my wholeness. I am open to love and deep physical connection without shame, guilt, or the need to compromise my independent worth.",
                 "⚔️ The Grieving / Fearful Exile (Living Loss): I deeply desire connection, but I am secretly mourning a past relational death, divorce, or betrayal. My system is frozen in fear, telling myself the story that I can't risk dating because of my kids.",
                 "🫥 The Frozen Mother Mask (Numbing Addiction): I have completely locked my sexual life-force and the 'Lover' archetype behind a brick wall. I don't date or explore my body, using my busy identity as a mother to numb the massive void of a companion."
             ]
         )
-
-        # Surgical Hyper-Specific Prompt Mapping for Single Path
-        if "🌟" in r2_q1 and "🌟" in r2_q2:
-            relational_prompt_text = "Both your solo parenting and your private intimate heart are in alignment. What does this deep emotional security allow you to open up to next?"
-        elif "⚔️" in r2_q1:
-            relational_prompt_text = "What does it physically cost your spirit to carry the full weight of provider and protector entirely alone? Where can you allow your system to receive support?"
-        elif "🎭" in r2_q1:
-            relational_prompt_text = "What specific past failure or family rupture are you trying to overcompensate for by letting your children walk over your structural boundaries?"
-        elif "⚔️" in r2_q2:
-            relational_prompt_text = "What is the name of the relational ghost or divorce your heart is still actively mourning? What terrifies your system about risking exposure again?"
+        
+        if "🌟" in intimacy_choice:
+            intimacy_prompt_text = "Your private intimate heart is open and aligned. What does this deep emotional security allow you to confidently welcome or explore next in your life?"
+        elif "⚔️" in intimacy_choice:
+            intimacy_prompt_text = "What is the name of the relational ghost or past divorce your heart is still actively mourning? What terrifies your system about lowering your guard and risking exposure again?"
         else:
-            relational_prompt_text = "You've hidden your sensual life-force behind the mask of a busy mother. What would happen if you admitted that you deeply desire romantic companionship?"
+            intimacy_prompt_text = "You've hidden your sensual life-force behind the mask of a busy mother. What would happen if you allowed yourself to admit that you deeply crave romantic and physical companionship?"
 
-    # --- PATH PARTNERED NARRATIVE ---
     else:
         st.write(
-            "Sharing a roof or a bed does not automatically guarantee connection. So many high-performing women find "
-            "themselves 'single parenting with a spouse'—carrying the entire domestic load alone while managing a heavy "
-            "shield of bitter resentment, leaving the actual sexual and intimate marriage to go completely cold..."
+            "Strip away the kids, the schedules, and the household chores. When the bedroom door closes and it is "
+            "just you and your partner, what is the raw, unmasked truth of your intimacy?"
         )
         st.markdown("---")
-        st.subheader("🧒 Checkpoint A: The Shared Parenting Dynamic")
-        r2_q1 = st.radio(
-            "When it comes to the daily operations and management of the children, how do you and your spouse interact?",
-            [
-                "🌟 The Unified Operational Team (Light): We manage the logistics and parenting well as a functional unit. We check boxes, run schedules, and keep the household organized and stable together through mutual respect.",
-                "⚔️ The Married Single Mom (Control / Resentful Warrior): My spouse is completely checked out or operates like another child I have to manage. I am single-parenting with a spouse, doing all the emotional lifting, which leaves me carrying a heavy armor of bitter resentment."
-            ]
-        )
-        st.markdown("---")
-        st.subheader("🫥 Checkpoint B: The Intimate / Sexual Marriage Mirror")
-        r2_q2 = st.radio(
-            "Strip away the kids and the chores. When the bedroom door closes and it is just you two, what is the raw truth?",
+        intimacy_choice = st.radio(
+            "Select your intimacy mirror:",
             [
                 "🌟 The Radiant Sanctuary (Light): Our intimacy is a place of absolute safety, surrender, and deep pleasure. I express my sexual desires and boundaries without fear, and our relationship is where I fully drop my armor and rest.",
                 "🎭 The Toxic Walk-On-Eggshells Prison (Fawn Addiction): Our connection feels unsafe, heavy, and emotionally distant. I am constantly people-pleasing—suppressing my true voice, ignoring my resentment, and even compromising my own physical boundaries just to keep the peace and avoid conflict.",
                 "🫥 The Sexually Starving Roommates (Numbing Addiction): The passion, desire, and sexual vitality have gone completely cold. We are platonic roommates coexisting in the dark. I live in my head, using shopping, scrolling, or daytime/nighttime comforts to numb the lack of real physical connection."
             ]
         )
-
-        # Surgical Hyper-Specific Prompt Mapping for Partnered Path
-        if "🌟" in r2_q1 and "🌟" in r2_q2:
-            relational_prompt_text = "Your household teamwork and your intimate bedroom connection are operating in pure light. What does this deep relational sanctuary unlock for your independent vision?"
-        elif "⚔️" in r2_q1:
-            relational_prompt_text = "What is the true somatic weight of single-parenting with a spouse? How deep does the silent, bitter resentment run toward your checked-out partner?"
-        elif "🎭" in r2_q2:
-            relational_prompt_text = "Where exactly are you compromising your own physical or emotional boundaries inside your sexual intimacy just to avoid his judgment, anger, or friction?"
+        
+        if "🌟" in intimacy_choice:
+            intimacy_prompt_text = "Your intimate bedroom connection is functioning as a radiant sanctuary of alignment. What does this deep safety and pleasure unlock for your partnership and your independent vision?"
+        elif "🎭" in intimacy_choice:
+            intimacy_prompt_text = "Where exactly are you compromising your own physical or emotional boundaries inside your sexual intimacy just to avoid his judgment, anger, or relational friction?"
         else:
-            relational_prompt_text = "You are platonic roommates coexisting in the dark. What outside comforts (online shopping, scrolling, daytime drinking) are you using to fill the void of real connection?"
+            intimacy_prompt_text = "You are platonic roommates coexisting in the dark. What outside comforts (online shopping, scrolling, daytime drinking) are you using to fill the void of real physical connection?"
 
     st.markdown("---")
-    st.subheader("Your Written Reflection Journal")
-    
-    # Combined dynamic keys to fully break cache state on change
-    relational_text = st.text_area(relational_prompt_text, height=150, key=f"relational_journal_{hash(r2_q1 + r2_q2)}")
+    st.subheader("Your Intimacy Reflection Journal")
+    intimacy_text = st.text_area(intimacy_prompt_text, height=150, key=f"intimacy_journal_{hash(intimacy_choice)}")
     
     col1, col2 = st.columns([1, 1])
     with col1:
         if st.button("← Go Back"):
-            st.session_state.room_step = 2
+            st.session_state.room_step = 4
             st.rerun()
     with col2:
         if st.button("Walk into the Body →"):
-            st.session_state.client_responses['room2_parenting_mirror'] = r2_q1
-            st.session_state.client_responses['room2_intimacy_mirror'] = r2_q2
-            st.session_state.client_responses['room2_journal'] = relational_text
-            st.session_state.room_step = 5
+            st.session_state.client_responses['room2_intimacy_mirror'] = intimacy_choice
+            st.session_state.client_responses['room2_intimacy_journal'] = intimacy_text
+            st.session_state.room_step = 6
             st.rerun()
 
 # ==========================================
 # 🩺 ROOM THREE: PHYSICAL HEALTH & SOMATIC THRESHOLDS
 # ==========================================
-elif st.session_state.room_step == 5:
+elif st.session_state.room_step == 6:
     st.title("Room Three: Your Physical Health & Somatic Thresholds 🩺")
     st.write(
         "Your physical body has been the faithful witness to every ounce of pressure, unexpressed grief, and emotional "
@@ -349,7 +374,6 @@ elif st.session_state.room_step == 5:
         ]
     )
     
-    # Surgical Hyper-Specific Prompt Mapping for Room Three
     if "🌟" in body_choice:
         body_prompt_text = "Your system is operating in clear somatic alignment. What dedicated health boundaries or recovery practices are successfully keeping your physical temple so radiant right now?"
     elif "⚔️" in body_choice:
@@ -366,19 +390,19 @@ elif st.session_state.room_step == 5:
     col1, col2 = st.columns([1, 1])
     with col1:
         if st.button("← Go Back"):
-            st.session_state.room_step = 3
+            st.session_state.room_step = 5
             st.rerun()
     with col2:
         if st.button("Explore Your Identity →"):
             st.session_state.client_responses['room3_mirror'] = body_choice
             st.session_state.client_responses['room3_journal'] = body_text
-            st.session_state.room_step = 6
+            st.session_state.room_step = 7
             st.rerun()
 
 # ==========================================
 # 👑 ROOM FOUR: IDENTITY, ESSENCE & WORTH
 # ==========================================
-elif st.session_state.room_step == 6:
+elif st.session_state.room_step == 7:
     st.title("Room Four: Your Identity & Sovereign Essence 👑")
     st.write(
         "We step now into the quietest room. Strip away the corporate titles, the business metrics, the maternal roles, "
@@ -400,7 +424,6 @@ elif st.session_state.room_step == 6:
         ]
     )
     
-    # Surgical Hyper-Specific Prompt Mapping for Room Four
     if "🌟" in identity_choice:
         identity_prompt_text = "You are standing firmly on your throne, resting in your inherent worth. What does it physically feel like to fully accept your own enoughness without needing to perform for anyone?"
     elif "⚔️" in identity_choice:
@@ -417,19 +440,19 @@ elif st.session_state.room_step == 6:
     col1, col2 = st.columns([1, 1])
     with col1:
         if st.button("← Go Back"):
-            st.session_state.room_step = 5
+            st.session_state.room_step = 6
             st.rerun()
     with col2:
         if st.button("Compile Your Alignment Mirror ✨"):
             st.session_state.client_responses['room4_mirror'] = identity_choice
             st.session_state.client_responses['room4_journal'] = identity_text
-            st.session_state.room_step = 7
+            st.session_state.room_step = 8
             st.rerun()
 
 # ==========================================
 # 🕊️ THE ALIGNMENT MIRROR: SAFE LANDING & LEAP
 # ==========================================
-elif st.session_state.room_step == 7:
+elif st.session_state.room_step == 8:
     st.title("Your Alignment Mirror 🕊️")
     st.write("Take a deep breath. Exhale the armor. Your complete multi-dimensional exploration profile has been compiled.")
     st.audio("track5.mp3")
@@ -441,7 +464,7 @@ elif st.session_state.room_step == 7:
         f"**Somatic Explorer Profile:** {st.session_state.client_responses.get('name')}\n\n"
         f"**Current Pathway Matrix:** {st.session_state.client_responses.get('chosen_path')}\n"
         f"**Relational Infrastructure:** {st.session_state.client_responses.get('relational_status')}\n\n"
-        f"Your choices across your Daily Labor, Home & Intimacy, Physical Body, and Core Identity have been securely "
+        f"Your choices across your Daily Labor, Home, Intimacy, Body, and Identity have been securely "
         f"locked into our high-integrity, private database container."
     )
     
