@@ -163,10 +163,14 @@ elif st.session_state.room_step == 2:
         
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
-    labor_text = st.text_area(
-        "Within your primary realm of daily labor, where are you explicitly feeling the friction of 'not feeling enough'? What is the secret addiction—whether to perfectionism, people-pleasing, or silent numbing—that your system uses to cope here?",
-        height=150
-    )
+    
+    # Dynamic Journal Prompt Fix for Room One
+    if "🌟" in labor_choice:
+        labor_prompt_text = "What does it feel like to create, lead, and operate from this beautiful space of clean alignment? What specific practices or boundaries are you currently using to successfully protect this spaciousness?"
+    else:
+        labor_prompt_text = "Within your primary realm of daily labor, where are you explicitly feeling the friction of 'not feeling enough'? What is the secret addiction—whether to perfectionism, control, or silent numbing—that your system uses to cope here?"
+        
+    labor_text = st.text_area(labor_prompt_text, height=150)
     
     if st.button("Walk Into the Next Space →"):
         st.session_state.client_responses['room1_mirror'] = labor_choice
@@ -237,6 +241,12 @@ elif st.session_state.room_step == 4:
             ]
         )
 
+        # Dynamic Journal Prompt Fix for Room Two (Single)
+        if "🌟" in r2_q1 and "🌟" in r2_q2:
+            relational_prompt_text = "Your solo anchor landscape and your private intimate heart are both reflecting a beautiful state of clean, loving alignment. What does this deep emotional security allow you to confidently open up to next in your life?"
+        else:
+            relational_prompt_text = "Look honestly at the parent-child friction points, living losses, or frozen intimate spaces you highlighted. What is the core story your system is telling itself here, and what does it need to safely drop the armor?"
+
     # --- PATH PARTNERED NARRATIVE ---
     else:
         st.write(
@@ -264,12 +274,15 @@ elif st.session_state.room_step == 4:
             ]
         )
 
+        # Dynamic Journal Prompt Fix for Room Two (Partnered)
+        if "🌟" in r2_q1 and "🌟" in r2_q2:
+            relational_prompt_text = "Your shared parenting structure and your intimate marriage are both functioning as a radiant sanctuary of alignment. What does this deep trust and mutual safety unlock for your partnership and your independent vision?"
+        else:
+            relational_prompt_text = "Look honestly at your marital friction, living losses, or intimate isolation. Where is your sexual and emotional life-force currently suffering, and what is the story you have been telling yourself to stay stuck?"
+
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
-    relational_text = st.text_area(
-        "Look honestly at your living losses, your marriage, or your intimate isolation. Where is your sexual and emotional life-force currently suffering, and what is the story you have been telling yourself to stay stuck?",
-        height=150
-    )
+    relational_text = st.text_area(relational_prompt_text, height=150)
     
     col1, col2 = st.columns([1, 1])
     with col1:
@@ -312,10 +325,14 @@ elif st.session_state.room_step == 5:
     
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
-    body_text = st.text_area(
-        "Close your eyes and notice where your breath catches right now. When your body experiences chronic pain, fatigue, or weight stagnation, do you shut down, numb out, or force it to push through? What does your tissue need to release?",
-        height=150
-    )
+    
+    # DYNAMIC JOURNAL PROMPT FIX FOR ROOM THREE (THE BODY)
+    if "🌟" in body_choice:
+        body_prompt_text = "Your system is operating in a beautiful state of clean somatic alignment. What dedicated health boundaries or recovery practices are keeping your temple so radiant right now? How can you allow your system to anchor even deeper into this physical peace?"
+    else:
+        body_prompt_text = "Close your eyes and notice where your breath catches right now. When your body experiences chronic pain, fatigue, or weight stagnation, do you shut down, numb out, or force it to push through? What does your tissue need to release?"
+        
+    body_text = st.text_area(body_prompt_text, height=150)
     
     col1, col2 = st.columns([1, 1])
     with col1:
@@ -357,10 +374,14 @@ elif st.session_state.room_step == 6:
     
     st.markdown("---")
     st.subheader("Your Written Reflection Journal")
-    identity_text = st.text_area(
-        "Look directly into the mirror of your soul. Where have you been abandoning your own identity to buy safety or validation? What is the core lie about your 'enoughness' that your inner child is still carrying?",
-        height=150
-    )
+    
+    # Dynamic Journal Prompt Fix for Room Four
+    if "🌟" in identity_choice:
+        identity_prompt_text = "You are standing firmly on your throne, resting in your inherent worth. What does it physically feel like to fully accept your own enoughness without needing to perform? How does this deep self-compassion alter how you speak to yourself?"
+    else:
+        identity_prompt_text = "Look directly into the mirror of your soul. Where have you been abandoning your own identity to buy safety or validation from others? What is the core lie about your 'enoughness' that your inner child is still carrying?"
+        
+    identity_text = st.text_area(identity_prompt_text, height=150)
     
     col1, col2 = st.columns([1, 1])
     with col1:
