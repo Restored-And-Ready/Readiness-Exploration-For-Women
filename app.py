@@ -229,7 +229,7 @@ elif st.session_state.room_step == 4:
         )
         st.markdown("---")
         parenting_choice = st.radio(
-            "Which of these descriptions most accurately matches how your home currently functions?",
+            "Which of these descriptions most accurately matches how your home functions?",
             [
                 "I lead my household with a sense of calm authority and grace. I hold loving, clear boundaries with my children and trust that my presence and love are more than enough.",
                 "I run a highly regulated, tight ship because there is no safety net beneath me. I force myself to be everything at once, terrified that if I drop a single ball, our entire baseline structure will collapse.",
@@ -376,7 +376,7 @@ elif st.session_state.room_step == 6:
     elif "like a machine" in body_choice:
         body_prompt_text = "What standard of vibrant, effortless health and relaxation is your tissue ready to reclaim? What does true somatic recovery look like for your physical system?"
     elif "locks up" in body_choice:
-        body_prompt_text = "What does a completely open, fluid, and light physical body feel like to you? What does your tissue need to safely drop the protective armor and return to balance?"
+        body_prompt_text = "Where in your flesh do you physically feel this defensive armor (stubborn weight retention, shoulder tightness, chronic pain)? What deep emotional vulnerability is it trying to protect?"
     else:
         body_prompt_text = "What physical baseline of raw feeling and vitality is your body ready to activate? How can your awareness shift from the neck down to fully inhabit your flesh?"
         
@@ -575,23 +575,22 @@ Compiled safely and anchored in inherent goodness.
 
     st.markdown("---")
     
-    # RE-PENCILED HIGH-LEVERAGE SALES PITCH copy
+    # BRAND NEW 5-PHASE CLASSIC ENGINE RESTORE COPY
     st.subheader("🏛️ The 30-Day Private Restoration Architecture")
     st.write(
-        "Most mainstream programs try to sign you up for heavy, long-term contracts before you've even had a chance to breathe. "
-        "We do things completely differently. This dedicated 30-day container is built as a high-integrity alignment trial—a single "
-        "month designed specifically for you to test-drive your own capacity, tune in, and determine if you are ready to make a "
-        "permanent, lifestyle change for yourself."
+        "Most mainstream programs try to lock you into heavy, long-term contracts before you've even had a chance to look under the hood. "
+        "We do things completely differently. This dedicated 30-day container is built as an intuitive alignment trial—a single "
+        "month designed for you to test-drive your capacity, get perspective, and see what it takes to upgrade your entire system."
     )
     
-    st.markdown("#### Phase 1: The Live Somatic Release Session")
-    st.write("We start with a deep-dive 1-to-1 session to pop open the hood, clear the baseline pressure, and bring absolute, immediate clarity into exactly what parts of your software require fine-tuning.")
+    st.markdown("#### Phase 1: The Live Somatic Release (The Internal Massage)")
+    st.write("We start with a live 1-to-1 deep dive. Think of this as an intentional internal massage for your nervous system. We pop open the hood and clear the immediate processing pressure so your body can step out of the grind and find absolute clarity before we do any type of deep root work.")
     
-    st.markdown("#### Phase 2: The 21-Day Commitment Trial")
-    st.write("You spend the next three weeks practicing a new way of living. Supported by bespoke tracking and personal recordings, you will test your own ability to carved out time for daily journaling, somatic reflection, and structural boundaries.")
+    st.markdown("#### Phases 2 & 3: The 3-Week Trial (Restore & Rebuild)")
+    st.write("Over the next three weeks, you test your own ability to dedicate time to yourself. Supported by bespoke recordings and journaling, we begin taking old coping software apart to see what no longer benefits you, and custom-rebuild a luxury lifestyle blueprint tailored exactly to how you want to live.")
     
-    st.markdown("#### Phase 3: The Week 4 Alignment Check")
-    st.write("At the end of the month, we connect for a dedicated review. Armed with the raw perspective of your 3-week trial, you will know with absolute certainty whether you have the bandwidth and the internal desire to commit to this lifestyle upgrade long-term.")
+    st.markdown("#### Phases 4 & 5: The Week 4 Alignment Check (Ready to Ride & Protect)")
+    st.write("By week four, we connect live to review your test drive. Because no two women are the same, this is where we determine your exact, customized path forward. We map out how much support your classic system needs to stay fully restored, ready to ride at peak capacity, and beautifully protected with pristine peace and boundaries.")
     
     st.markdown("---")
     st.markdown("### 🕊️ Container Logistics & Booking")
@@ -602,7 +601,7 @@ Compiled safely and anchored in inherent goodness.
     st.markdown("---")
     st.subheader("Choose Your Next Step Below:")
     
-    # DYNAMIC BUTTON TEXT UPGRADE
+    # UPGRADED HIGH-INTEGRITY CONVERSATIONAL BUTTONS
     if 'submitted' not in st.session_state:
         col1, col2 = st.columns(2)
         
@@ -618,7 +617,7 @@ Compiled safely and anchored in inherent goodness.
                     st.error("Connection link timed out. Please try again.")
                     
         with col2:
-            if st.button("🌳 This was great, but I'm not ready to commit yet."):
+            if st.button("🌳 This was great, but I'm not ready to commit yet. Send me some resources."):
                 try:
                     st.session_state.client_responses['user_intent'] = "WANTS_RESOURCES_ONLY"
                     webhook_url = st.secrets["WEBHOOK_URL"]
